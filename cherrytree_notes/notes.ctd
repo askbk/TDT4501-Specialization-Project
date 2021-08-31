@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630390911">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630401209">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
 
@@ -16,7 +16,20 @@
 - How to measure the change to the system when a new change is deployed? (HTDMLS)
 - How to predict whether improvement to a model will degrade another model in the system? (HTDMLS)
 - How to find the transitive closure of all data dependencies? (HTDMLS)
-   → </rich_text>
+- How to architect for monitorability?
+   → see how it is done in devops
+- 
+- How to use monitorability to increase trust
+- How to use devops/mlops tools/principles to increase customer trust in AI decisions
+- DevSecOps - how to ensure security and privacy in MLops?
+- how to handle adversarial perturbations?
+   → how to detect? what to do about it?
+- Model drift: when should we retrain?
+   → 
+
+- research questions
+   → stakeholders
+   → impact</rich_text>
     <node name="Hidden technical debt in ML systems" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630388396" ts_lastsave="1630388402">
       <rich_text underline="single" link="webs https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf" foreground="#1155cc">Hidden Technical Debt in Machine Learning Systems</rich_text>
       <rich_text>
@@ -103,7 +116,7 @@ Discusses various types of technical debt specific to (or especially prominent i
 
 </rich_text>
     </node>
-    <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1630389870">
+    <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1630398881">
       <rich_text>- Using AntiPatterns to avoid MLOps Mistakes: </rich_text>
       <rich_text link="webs https://arxiv.org/pdf/2107.00079.pdf">https://arxiv.org/pdf/2107.00079.pdf</rich_text>
       <rich_text>
@@ -122,7 +135,11 @@ Discusses various types of technical debt specific to (or especially prominent i
 - Software Engineering for Machine Learning: A Case Study: </rich_text>
       <rich_text link="webs https://www.microsoft.com/en-us/research/publication/software-engineering-for-machine-learning-a-case-study/">https://www.microsoft.com/en-us/research/publication/software-engineering-for-machine-learning-a-case-study/</rich_text>
       <rich_text>
-
+- Challenges </rich_text>
+      <rich_text link="webs https://arxiv.org/pdf/2011.09926">https://arxiv.org/pdf/2011.09926</rich_text>
+      <rich_text>
+- accelerate: the science of lean software
+- the phoenix framework
 
 A lot of papers: </rich_text>
       <rich_text link="webs https://github.com/SE-ML/awesome-seml">https://github.com/SE-ML/awesome-seml</rich_text>
