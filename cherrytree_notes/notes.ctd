@@ -1,9 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630387954">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630388396">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
+
+Notes from SEMLA webinars:
+
+• Versioning
+   ◇ What model version did i run? Which data was it trained on?
+   ◇ Track metadata across systems
+
+◇ Monitoring model drift
+
+◇ Alerting
+
+◇ Logging
+
+◇ Auditing
+
+◇ Model versioning
+
+◇ Heterogeneous systems
+
+◇ Repeatability, reproducibility
+
+◇ Abstract infrastructure away
+
+◇ Continuous integration, deployment
+
+◇ Composability
+
+◇ “Hidden technical debt in machine learning systems” - google
+
+◇ Algorithmia white papers
+
+◇ “Foundations for ML at Scale” - Peter Skomoroch
+
+◇ Performance SLAs
+
+◇ Accounting
+
+◇ Daily retraining and redeployment with new data
+
+◇ Infrastructure tasks during training and inference
+
+◇ Toughtworks “Get MLops right”
+
+◇ Data changes over time:
+
+▪ Schema
+
+▪ Sampling over time
+
+▪ Volume
+
+
+◇ Model changes over time:
+
+▪ Algorithms
+
+▪ More training
+
+▪ Experiments
+
+
+◇ Code changes over time:
+
+▪ Business need
+
+▪ Bug fixes
+
+▪ Configuration
+
+
+◇ Multiple repos for data, schema, model, container
+
+▪ Meta-repo for tracking dependencies between repos?
+
+
+◇ Model drift: data drift vs problem drift
+
+◇ </rich_text>
+    <rich_text underline="single" link="webs https://martinfowler.com/articles/cd4ml.html" foreground="#1155cc">https://martinfowler.com/articles/cd4ml.html</rich_text>
+    <rich_text>
+
+◇ Challenges and opportunities for architecting ML systems
+
+▪ Architecture patterns and tactics for ML-important quality attributes
+
+▪ Monitorability as a driving quality attribute
+
+▪ Co-architecting and co-versioning
+
+◇ Quality attribute metrics for fairness/ethics</rich_text>
+    <node name="Hidden technical debt in ML systems" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630388396" ts_lastsave="1630388402">
+      <rich_text underline="single" link="webs https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf" foreground="#1155cc">Hidden Technical Debt in Machine Learning Systems</rich_text>
+      <rich_text>
+Discusses various types of technical debt specific to (or especially prominent in) ML systems:
+• Complex models erode boundaries
+
+◇ Entanglement
+
+▪ Changing anything changes everything
+
+
+◇ Correction cascades
+
+▪ Model interdependency
+
+
+◇ Undeclared consumers (visibility debt)
+
+▪ Don’t know about consumers of data
+
+
+
+• Data dependencies cost more than code dependencies
+
+◇ Unstable data dependencies
+
+◇ Underutilized data dependencies
+
+
+• Feedback loops
+
+◇ Direct feedback loops
+
+◇ Hidden feedback loops
+
+
+• ML-system antipatterns
+
+◇ Glue code
+
+◇ Pipeline jungles
+
+◇ Dead experimental code paths
+
+◇ Abstraction debt
+
+◇ Common smells:
+
+▪ Plain-Old-Data type smell
+
+▪ Multiple-language smell
+
+▪ Prototype smell
+
+
+
+• Configuration debt
+
+• Dealing with changes in the external world
+
+◇ Fixed thresholds in dynamic systems
+
+◇ Monitoring and testing
+
+▪ Prediction bias
+
+▪ Action limits
+
+▪ Up-stream producers
+
+
+
+• Other areas of ml-related debt:
+
+◇ Data testing debt
+
+◇ Reproducibility debt
+
+◇ Process management debt
+
+◇ Cultural debt
+
+
+
 </rich_text>
+    </node>
   </node>
 </cherrytree>
