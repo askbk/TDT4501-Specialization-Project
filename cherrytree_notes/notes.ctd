@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630500421">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1630936432">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
 
@@ -12,13 +12,20 @@
    → What is the solution for other types of machine learning systems?
 - How to version projects? (data + model + code)
    → Git + DVC seems most reasonable
-   → 
+   → Pachyderm
 - How to measure the change to the system when a new change is deployed? (HTDMLS)
 - How to predict whether improvement to a model will degrade another model in the system? (HTDMLS)
 - How to find the transitive closure of all data dependencies? (HTDMLS)
 - How to architect for monitorability?
    → see how it is done in devops
-- 
+- How to handle complex data ownership?
+- How to enable language-agnostic MLOps?
+- Model abstraction to decouple training and operating environments
+- Broad topic: MLOps for online learning systems
+   → Governance
+   → Model-free reinforcement learning
+   → Model versioning
+   → 
 - How to use monitorability to increase trust
 - How to use devops/mlops tools/principles to increase customer trust in AI decisions
 - DevSecOps - how to ensure security and privacy in MLops?
@@ -44,7 +51,11 @@
 - research questions
    → stakeholders
    → impact
-</rich_text>
+
+- tools for full lifecycle:
+   → polyaxon
+   → valohai
+   → </rich_text>
     <node name="SEMLA webinar notes" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630390311" ts_lastsave="1630390326">
       <rich_text>• Versioning
    ◇ What model version did i run? Which data was it trained on?
@@ -135,16 +146,23 @@
 ◇ Quality attribute metrics for fairness/ethics</rich_text>
     </node>
     <node name="Papers" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630485213" ts_lastsave="1630500642">
-      <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1630501981">
-        <rich_text>Overview:
-- WHy do 80% blabal: </rich_text>
-        <rich_text link="webs https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/">https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/</rich_text>
+      <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1630937244">
+        <rich_text>AI Engineering - Software Engineering for AI (WAIN):
+- </rich_text>
+        <rich_text link="webs https://ieeexplore.ieee.org/xpl/conhome/9473903/proceeding">https://ieeexplore.ieee.org/xpl/conhome/9473903/proceeding</rich_text>
+        <rich_text>
+
+Overview:
+</rich_text>
+        <rich_text strikethrough="true">- WHy do 80% blabal: </rich_text>
+        <rich_text strikethrough="true" link="webs https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/">https://venturebeat.com/2019/07/19/why-do-87-of-data-science-projects-never-make-it-into-production/</rich_text>
         <rich_text>
 - Using AntiPatterns to avoid MLOps Mistakes: </rich_text>
         <rich_text link="webs https://arxiv.org/pdf/2107.00079.pdf">https://arxiv.org/pdf/2107.00079.pdf</rich_text>
         <rich_text>
-- Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?: </rich_text>
-        <rich_text link="webs https://arxiv.org/pdf/2103.08942.pdf">https://arxiv.org/pdf/2103.08942.pdf</rich_text>
+</rich_text>
+        <rich_text strikethrough="true">- Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?: </rich_text>
+        <rich_text strikethrough="true" link="webs https://arxiv.org/pdf/2103.08942.pdf">https://arxiv.org/pdf/2103.08942.pdf</rich_text>
         <rich_text>
 - MLOps Challenges in Multi-Organization Setup: Experiences from Two Real-World Cases: </rich_text>
         <rich_text link="webs https://arxiv.org/pdf/2103.08937.pdf">https://arxiv.org/pdf/2103.08937.pdf</rich_text>
@@ -190,6 +208,14 @@ Monitoring:
 A lot of papers: </rich_text>
         <rich_text link="webs https://github.com/SE-ML/awesome-seml">https://github.com/SE-ML/awesome-seml</rich_text>
         <rich_text>
+
+</rich_text>
+      </node>
+      <node name="Mäkinen et al., 2021. Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630925902" ts_lastsave="1630926073">
+        <rich_text link="webs https://arxiv.org/abs/2103.08942">https://arxiv.org/abs/2103.08942</rich_text>
+        <rich_text>
+
+Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?
 
 </rich_text>
       </node>
@@ -304,7 +330,9 @@ there is an overlap between choice of metrics for monitoring and validation
         <rich_text link="webs https://arxiv.org/pdf/1903.05202">Continual Learning in Practice</rich_text>
         <rich_text>
 - Architecture for self-maintaining ML system
-- 
+- </rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 - Joiner-pattern for online learning
 - based on:
    → streams
