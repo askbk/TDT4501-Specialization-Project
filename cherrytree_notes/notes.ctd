@@ -1,57 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1631106282">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1631197091">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
 
+</rich_text>
+    <rich_text scale="h2">Research question drafts by category:</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="h3">Architecture</rich_text>
+    <rich_text>
+- message-based training architecture
+</rich_text>
+    <rich_text scale="h3">Versioning</rich_text>
+    <rich_text>
 - How to version online models?
    → Typical architecture for contextual bandit: </rich_text>
     <rich_text link="webs https://youtu.be/um6Sq5EhW6A?t=3117">https://youtu.be/um6Sq5EhW6A?t=3117</rich_text>
     <rich_text>
    → What is the solution for other types of machine learning systems?
 - How to version projects? (data + model + code)
-   → Git + DVC seems most reasonable
+   → Git + DVC
    → Pachyderm
+- have we deployed the correct model?
+
+</rich_text>
+    <rich_text scale="h3">Dependencies</rich_text>
+    <rich_text>
+- How to find the transitive closure of all data dependencies? (HTDMLS)
+- How to deploy model with breaking changes?
+   → E.g.: Schema for input is changed
+- How to detect changes in data dependencies?
+   → Detect changes in data value/schema that production model relies on from external systems
+   → Detect changes in system that depend on model
 - How to measure the change to the system when a new change is deployed? (HTDMLS)
 - How to predict whether improvement to a model will degrade another model in the system? (HTDMLS)
-- How to find the transitive closure of all data dependencies? (HTDMLS)
+
+</rich_text>
+    <rich_text scale="h3">Monitorability</rich_text>
+    <rich_text>
 - How to architect for monitorability?
    → see how it is done in devops
+
+</rich_text>
+    <rich_text scale="h3">Training, updating and retraining</rich_text>
+    <rich_text>
+- Model abstraction to decouple training and operating environments
+- Model drift: when should we retrain?
+- hyperparameter tuning
+
+</rich_text>
+    <rich_text scale="h3">Misc</rich_text>
+    <rich_text>
 - How to handle complex data ownership?
 - How to enable language-agnostic MLOps?
-- Model abstraction to decouple training and operating environments
 - Broad topic: MLOps for online learning systems
    → Governance
    → Model-free reinforcement learning
    → Model versioning
-   → 
-- How to use monitorability to increase trust
-- How to use devops/mlops tools/principles to increase customer trust in AI decisions
 - DevSecOps - how to ensure security and privacy in MLops?
 - how to handle adversarial perturbations?
    → how to detect? what to do about it?
-- Model drift: when should we retrain?
-   → 
-
-- How to deploy model with breaking changes?
-   → E.g.: Schema for input is changed
-
-- Monitoring system that looks at input production data and alerts when:
-   → input data distribution drifts significantly from training data distribution
-   → features are unavailable or 
-   → pluggable statistical tests for input/output?
-- have we deployed the correct model?
 - Managing competitive training of model variants against each other in dev environments
    → for online learning models
-- How to detect changes in data dependencies?
-   → Detect changes in data value/schema that production model relies on from external systems
-   → Detect changes in system that depend on model
-   → 
 - Emergency cut out
-- hyperparameter tuning
 - how to solve grade-your-own-exam anti-pattern in MLOps context?
 - how to communicate model uncertainty?
+
 - how to do deployments in a federated learning context?
 - how to build CI/CD pipelines for federated learning?
 - monitorability, auditability, etc in federated learning?
@@ -61,96 +77,52 @@
 
 - tools for full lifecycle:
    → polyaxon
-   → valohai
-   → </rich_text>
-    <node name="SEMLA webinar notes" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630390311" ts_lastsave="1630390326">
-      <rich_text>• Versioning
-   ◇ What model version did i run? Which data was it trained on?
-   ◇ Track metadata across systems
-
-◇ Monitoring model drift
-
-◇ Alerting
-
-◇ Logging
-
-◇ Auditing
-
-◇ Model versioning
-
-◇ Heterogeneous systems
-
-◇ Repeatability, reproducibility
-
-◇ Abstract infrastructure away
-
-◇ Continuous integration, deployment
-
-◇ Composability
-
-◇ “Hidden technical debt in machine learning systems” - google
-
-◇ Algorithmia white papers
-
-◇ “Foundations for ML at Scale” - Peter Skomoroch
-
-◇ Performance SLAs
-
-◇ Accounting
-
-◇ Daily retraining and redeployment with new data
-
-◇ Infrastructure tasks during training and inference
-
-◇ Toughtworks “Get MLops right”
-
-◇ Data changes over time:
-
-▪ Schema
-
-▪ Sampling over time
-
-▪ Volume
-
-
-◇ Model changes over time:
-
-▪ Algorithms
-
-▪ More training
-
-▪ Experiments
-
-
-◇ Code changes over time:
-
-▪ Business need
-
-▪ Bug fixes
-
-▪ Configuration
-
-
-◇ Multiple repos for data, schema, model, container
-
-▪ Meta-repo for tracking dependencies between repos?
-
-
-◇ Model drift: data drift vs problem drift
-
-◇ </rich_text>
+   → valohai</rich_text>
+    <node name="SEMLA webinar notes" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630390311" ts_lastsave="1631185334">
+      <rich_text>- Versioning
+   → What model version did i run? Which data was it trained on?
+   → Track metadata across systems
+- Monitoring model drift
+- Alerting
+- Logging
+- Auditing
+- Model versioning
+- Heterogeneous systems
+- Repeatability, reproducibility
+- Abstract infrastructure away
+- Continuous integration, deployment
+- Composability
+- “Hidden technical debt in machine learning systems” - google
+- Algorithmia white papers
+- “Foundations for ML at Scale” - Peter Skomoroch
+- Performance SLAs
+- Accounting
+- Daily retraining and redeployment with new data
+- Infrastructure tasks during training and inference
+- Toughtworks “Get MLops right”
+- Data changes over time:
+   → Schema
+   → Sampling over time
+   → Volume
+- Model changes over time:
+   → Algorithms
+   → More training
+   → Experiments
+- Code changes over time:
+   → Business need
+   → Bug fixes
+   → Configuration
+- Multiple repos for data, schema, model, container
+   → Meta-repo for tracking dependencies between repos?
+- Model drift: data drift vs concept drift
+- </rich_text>
       <rich_text underline="single" link="webs https://martinfowler.com/articles/cd4ml.html" foreground="#1155cc">https://martinfowler.com/articles/cd4ml.html</rich_text>
       <rich_text>
-
-◇ Challenges and opportunities for architecting ML systems
-
-▪ Architecture patterns and tactics for ML-important quality attributes
-
-▪ Monitorability as a driving quality attribute
-
-▪ Co-architecting and co-versioning
-
-◇ Quality attribute metrics for fairness/ethics</rich_text>
+- Challenges and opportunities for architecting ML systems
+   → Architecture patterns and tactics for ML-important quality attributes
+   → Monitorability as a driving quality attribute
+   → Co-architecting and co-versioning
+- Quality attribute metrics for fairness/ethics</rich_text>
     </node>
     <node name="Papers" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630485213" ts_lastsave="1631090487">
       <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1631098777">
@@ -220,10 +192,10 @@ A lot of papers: </rich_text>
 
 </rich_text>
       </node>
-      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1631098788">
+      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1631184685">
         <rich_text link="webs https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2">https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2</rich_text>
         <rich_text>
-</rich_text>
+Good to read for a summary of state of the art of MLOps</rich_text>
       </node>
       <node name="Mäkinen et al., 2021. Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630925902" ts_lastsave="1630926073">
         <rich_text link="webs https://arxiv.org/abs/2103.08942">https://arxiv.org/abs/2103.08942</rich_text>
@@ -233,87 +205,44 @@ Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?
 
 </rich_text>
       </node>
-      <node name="Sculley et al., 2015. Hidden technical debt in ML systems" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630388396" ts_lastsave="1630501858">
+      <node name="Sculley et al., 2015. Hidden technical debt in ML systems" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630388396" ts_lastsave="1631185579">
         <rich_text underline="single" link="webs https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf" foreground="#1155cc">Hidden Technical Debt in Machine Learning Systems</rich_text>
         <rich_text>
 Discusses various types of technical debt specific to (or especially prominent in) ML systems:
-• Complex models erode boundaries
-
-◇ Entanglement
-
-▪ Changing anything changes everything
-
-
-◇ Correction cascades
-
-▪ Model interdependency
-
-
-◇ Undeclared consumers (visibility debt)
-
-▪ Don’t know about consumers of data
-
-
-
-• Data dependencies cost more than code dependencies
-
-◇ Unstable data dependencies
-
-◇ Underutilized data dependencies
-
-
-• Feedback loops
-
-◇ Direct feedback loops
-
-◇ Hidden feedback loops
-
-
-• ML-system antipatterns
-
-◇ Glue code
-
-◇ Pipeline jungles
-
-◇ Dead experimental code paths
-
-◇ Abstraction debt
-
-◇ Common smells:
-
-▪ Plain-Old-Data type smell
-
-▪ Multiple-language smell
-
-▪ Prototype smell
-
-
-
-• Configuration debt
-
-• Dealing with changes in the external world
-
-◇ Fixed thresholds in dynamic systems
-
-◇ Monitoring and testing
-
-▪ Prediction bias
-
-▪ Action limits
-
-▪ Up-stream producers
-
-
-
-• Other areas of ml-related debt:
-
-◇ Data testing debt
-
-◇ Reproducibility debt
-
-◇ Process management debt
-
-◇ Cultural debt
+- Complex models erode boundaries
+   →  Entanglement
+      ⇒ Changing anything changes everything
+   → Correction cascades
+      ⇒ Model interdependency
+- Undeclared consumers (visibility debt)
+   → Don’t know about consumers of data
+- Data dependencies cost more than code dependencies
+   → Unstable data dependencies
+   → Underutilized data dependencies
+- Feedback loops
+   → Direct feedback loops
+   → Hidden feedback loops
+- ML-system antipatterns
+   → Glue code
+   → Pipeline jungles
+   → Dead experimental code paths
+   → Abstraction debt
+- Common smells:
+   → Plain-Old-Data type smell
+   → Multiple-language smell
+   → Prototype smell
+- Configuration debt
+- Dealing with changes in the external world
+   → Fixed thresholds in dynamic systems
+   → Monitoring and testing
+      ⇒ Prediction bias
+      ⇒ Action limits
+      ⇒ Up-stream producers
+- Other areas of ml-related debt:
+   → Data testing debt
+   → Reproducibility debt
+   → Process management debt
+   → Cultural debt
 
 
 
@@ -410,6 +339,43 @@ Antipatterns by MLOps stage:
          • often gives surprising impact on model because steps were not identical
       ⇒ </rich_text>
       </node>
+    </node>
+    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1631193042">
+      <rich_text>Federated Learning: Privacy and incentive. (2020). </rich_text>
+      <rich_text link="webs https://link.springer.com/book/10.1007%2F978-3-030-63076-8">https://link.springer.com/book/10.1007%2F978-3-030-63076-8</rich_text>
+      <rich_text>
+</rich_text>
+      <rich_text link="webs https://federated.fastforwardlabs.com/">https://federated.fastforwardlabs.com/</rich_text>
+      <rich_text>
+Elixir for programming distributed systems</rich_text>
+    </node>
+    <node name="Supervision meetings" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197091" ts_lastsave="1631197335">
+      <node name="26.08.2021" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197176" ts_lastsave="1631197290">
+        <rich_text>Who will i help? Find out stakeholders
+- Data scientist? Software developers? managers?
+
+
+Find pain point
+- Who cares about e.g. deployment time
+- Who will care? Why? Propose reasons
+- Do literature review. Does anyone know why the problem exists? Find out why.
+- Is the reason for the problem known? If not, find out reason first. If known, address the problem directly.
+- Is it big problem or trivial?
+
+</rich_text>
+        <rich_text weight="heavy">For next meeting:</rich_text>
+        <rich_text>
+- 4 Research questions
+- Detailed analysis
+   → Stakeholders
+   → Problem
+   → Impact
+
+
+
+</rich_text>
+      </node>
+      <node name="10.09.2021 - Discussing research questions" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197290" ts_lastsave="1631197403"/>
     </node>
   </node>
 </cherrytree>
