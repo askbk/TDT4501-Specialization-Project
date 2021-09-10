@@ -125,7 +125,7 @@
 - Quality attribute metrics for fairness/ethics</rich_text>
     </node>
     <node name="Papers" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630485213" ts_lastsave="1631090487">
-      <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1631098777">
+      <node name="Papers to read" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630389156" ts_lastsave="1631280378">
         <rich_text>AI Engineering - Software Engineering for AI (WAIN):
 - </rich_text>
         <rich_text link="webs https://ieeexplore.ieee.org/xpl/conhome/9473903/proceeding">https://ieeexplore.ieee.org/xpl/conhome/9473903/proceeding</rich_text>
@@ -164,7 +164,6 @@ Overview:
         <rich_text strikethrough="true">- Challenges in Deploying Machine Learning: a Survey of Case Studies: </rich_text>
         <rich_text strikethrough="true" link="webs https://arxiv.org/pdf/2011.09926">https://arxiv.org/pdf/2011.09926</rich_text>
         <rich_text>
-
 Monitoring:
 - Monitoring machine learning models in production: </rich_text>
         <rich_text link="webs https://christophergs.com/machine%20learning/2020/03/14/how-to-monitor-machine-learning-models/">https://christophergs.com/machine%20learning/2020/03/14/how-to-monitor-machine-learning-models/</rich_text>
@@ -185,12 +184,16 @@ Monitoring:
 - books:
    → accelerate: the science of lean software
    → the phoenix framework
+   → deploying AI in the enterprise: </rich_text>
+        <rich_text link="webs https://link.springer.com/book/10.1007%2F978-1-4842-6206-1">https://link.springer.com/book/10.1007%2F978-1-4842-6206-1</rich_text>
+        <rich_text>
 
 A lot of papers: </rich_text>
         <rich_text link="webs https://github.com/SE-ML/awesome-seml">https://github.com/SE-ML/awesome-seml</rich_text>
         <rich_text>
 
-</rich_text>
+On conducting MLRs (28 pages): </rich_text>
+        <rich_text link="webs https://arxiv.org/ftp/arxiv/papers/1707/1707.02553.pdf">Guidelines for conducting MLRs-Sept 15-2.docx (arxiv.org)</rich_text>
       </node>
       <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1631184685">
         <rich_text link="webs https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2">https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2</rich_text>
@@ -375,7 +378,20 @@ Find pain point
 
 </rich_text>
       </node>
-      <node name="10.09.2021 - Discussing research questions" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197290" ts_lastsave="1631197403"/>
+      <node name="10.09.2021 - Discussing research questions" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197290" ts_lastsave="1631280229">
+        <rich_text>- Project: Systematic literature review of e.g. CI/CD in MLOps.
+   → Look at what systematic literature reviews on CI/CD in MLOps already exist
+   → Find out how to stand out so you make a contribution
+      ⇒ Include different sets of papers, e.g. industrial if that hasn't been done before
+
+Next time, create plan for systematic literature review.
+
+Read guidelines for conducting multivocal literature reviews: </rich_text>
+        <rich_text link="webs https://arxiv.org/ftp/arxiv/papers/1707/1707.02553.pdf">Microsoft Word - Guidelines for conducting MLRs-Sept 15-2.docx (arxiv.org)</rich_text>
+        <rich_text>
+(Read book in TDT39?)
+</rich_text>
+      </node>
     </node>
   </node>
 </cherrytree>
