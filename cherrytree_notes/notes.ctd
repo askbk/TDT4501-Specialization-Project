@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1631197091">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1631537678">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
+
+
 
 </rich_text>
     <rich_text scale="h2">Research question drafts by category:</rich_text>
@@ -343,7 +345,7 @@ Antipatterns by MLOps stage:
       ⇒ </rich_text>
       </node>
     </node>
-    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1631193042">
+    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1631529882">
       <rich_text>Federated Learning: Privacy and incentive. (2020). </rich_text>
       <rich_text link="webs https://link.springer.com/book/10.1007%2F978-3-030-63076-8">https://link.springer.com/book/10.1007%2F978-3-030-63076-8</rich_text>
       <rich_text>
@@ -351,6 +353,14 @@ Antipatterns by MLOps stage:
       <rich_text link="webs https://federated.fastforwardlabs.com/">https://federated.fastforwardlabs.com/</rich_text>
       <rich_text>
 Elixir for programming distributed systems</rich_text>
+    </node>
+    <node name="Research plan" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631529882" ts_lastsave="1631529945">
+      <rich_text>Purpose
+Contributions
+Research method
+Participants
+Research paradigm
+Final deliverables and dissemination</rich_text>
     </node>
     <node name="Supervision meetings" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197091" ts_lastsave="1631197335">
       <node name="26.08.2021" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197176" ts_lastsave="1631197290">
@@ -392,6 +402,67 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 (Read book in TDT39?)
 </rich_text>
       </node>
+    </node>
+    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1631543458">
+      <rich_text scale="h2">Searching</rich_text>
+      <rich_text>
+- scan through journals, articles, conferences
+- make note of often cited works, authors
+- start refining search queries
+   → make note of queries used so you don't repeat
+   → use common variations of same words
+- may also want to search other topics for contrast
+
+</rich_text>
+      <rich_text scale="h2">Assessing</rich_text>
+      <rich_text>
+</rich_text>
+      <rich_text weight="heavy">Journals:</rich_text>
+      <rich_text>
+- IEEE
+- ACM computing surveys
+- Communications of the ACM 
+- INSPEC
+- AAAI
+
+- Focus on journals aimed at academics
+- Vet the editorial and advisory board of journals
+- Prefer journals that peer review all articles
+
+</rich_text>
+      <rich_text weight="heavy">Conferences and workshops</rich_text>
+      <rich_text>
+- should be academic
+- it it well-established?
+- are the program committe of high scholarly standing?
+- review policy?
+
+</rich_text>
+      <rich_text weight="heavy">Books</rich_text>
+      <rich_text>
+- author
+- publisher
+- does the book have multiple editions? (sign that it is popular)
+
+</rich_text>
+      <rich_text scale="h2">Reading</rich_text>
+      <rich_text>
+don't read whole text immediately:
+- read abstract, introduction and conclusion.
+- read section headers and first and last sentences of paragraphs to get overview
+- decide if worth reading 
+
+</rich_text>
+      <rich_text scale="h2">Critically evaluating</rich_text>
+      <rich_text>
+- is it relevant and useful?
+- are there flaws or omissions?
+- do you disagree?
+- is the conclusion justified? are there unwarranted assumptions? false logic? etc
+- has relevant work been cited?
+- is research process  fully explained?
+- Look at evaluation checklists in Oates
+</rich_text>
     </node>
   </node>
 </cherrytree>
