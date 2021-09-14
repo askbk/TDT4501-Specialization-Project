@@ -354,8 +354,22 @@ Antipatterns by MLOps stage:
       <rich_text>
 Elixir for programming distributed systems</rich_text>
     </node>
-    <node name="Research plan" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631529882" ts_lastsave="1631529945">
+    <node name="Research plan" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631529882" ts_lastsave="1631628930">
       <rich_text>Purpose
+- deployment of machine learning models is challenging from a technical perspective
+- the field of MLops is very young (&lt;5 years) and is developing rapidly, with many new tools being launched every year
+- this is a problem for all organizations that deploy or wish to deploy machine learning models into production
+- literature reviews in the field of MLOps is scarce
+   → Only one systematic literature review of the entire MLops cycle (John et al)
+   → a couple of reviews of case studies
+- problems with earlier research:
+   → limited grey literature coverage
+   → out of date
+- I will conduct a systematic multivocal literature review to solve the above two problems
+- main research question: what is the state of the art in deploying machine learning models?
+   → subquestion 1: what are the main challenges and pain points in deploying machine learning models?
+   → subquestion 2: ??
+   → 
 Contributions
 Research method
 Participants
