@@ -418,7 +418,17 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 </rich_text>
       </node>
     </node>
-    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1631543458">
+    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632132321">
+      <rich_text scale="h2">Planning</rich_text>
+      <rich_text>
+- Identify existing reviews
+- plan the MLR to explicitly provide usefulness for its intended audience
+- argue the need to include GL
+   → MLOps is a very young field
+   → academic papers often don't cover the deployment aspect of machine learning
+- try adopting various RQ types
+
+</rich_text>
       <rich_text scale="h2">Searching</rich_text>
       <rich_text>
 - scan through journals, articles, conferences
@@ -427,6 +437,8 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → make note of queries used so you don't repeat
    → use common variations of same words
 - may also want to search other topics for contrast
+- 
+
 
 </rich_text>
       <rich_text scale="h2">Assessing</rich_text>
