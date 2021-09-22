@@ -197,10 +197,19 @@ A lot of papers: </rich_text>
 On conducting MLRs (28 pages): </rich_text>
         <rich_text link="webs https://arxiv.org/ftp/arxiv/papers/1707/1707.02553.pdf">Guidelines for conducting MLRs-Sept 15-2.docx (arxiv.org)</rich_text>
       </node>
-      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1631184685">
+      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1632308159">
         <rich_text link="webs https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2">https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2</rich_text>
         <rich_text>
-Good to read for a summary of state of the art of MLOps</rich_text>
+- apparent objective of the paper:
+   → conduct MLR in order to:
+      ⇒ create a framework with steps for deploying models in the SOTA
+      ⇒ map out current challenges
+- does not review or mention earlier literature reviews in the field
+- draws upon both white and grey literature
+   → thirteen examples of white literature included
+   → only six examples of grey literature included
+      ⇒ somewhat arbitrary filtering, ("selected 6 of 16 that benefited our research")
+- </rich_text>
       </node>
       <node name="Mäkinen et al., 2021. Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630925902" ts_lastsave="1630926073">
         <rich_text link="webs https://arxiv.org/abs/2103.08942">https://arxiv.org/abs/2103.08942</rich_text>
@@ -253,16 +262,13 @@ Discusses various types of technical debt specific to (or especially prominent i
 
 </rich_text>
       </node>
-      <node name="Paleyes and Urma, 2020. Challenges in Deploying Machine Learning: a Survey of Case Studies" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630485305" ts_lastsave="1630502037">
+      <node name="Paleyes and Urma, 2020. Challenges in Deploying Machine Learning: a Survey of Case Studies" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630485305" ts_lastsave="1632310083">
         <rich_text link="webs https://arxiv.org/pdf/2011.09926">https://arxiv.org/pdf/2011.09926</rich_text>
         <rich_text>
 
-baier et al: literature review and interviews with IT industry partners.
-bernardi et al: 150 successful machine learning models: 6 lessons learned at Booking.com
-breck et al?
-dang et al: AIOps: real-world challenges and research innovations
-klaise et al: Monitoring and explainability of models in production. “outlier detection as a key instrument to flag model predictions that cannot be used in a production setting”
-wider and deger (illustrate benefits of CD4ML): Getting smart: Applying continuous delivery to data science to drive car sales.
+- objective: map out challenges in ML deployment among practitioners
+- only includes case studies
+   → good for getting in-depth practitioner perspective, but not comprehensive enough for an MLR
 
 include data validation in ml pipeline
 
@@ -418,7 +424,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 </rich_text>
       </node>
     </node>
-    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632132321">
+    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632316555">
       <rich_text scale="h2">Planning</rich_text>
       <rich_text>
 - Identify existing reviews
@@ -450,7 +456,6 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 - ACM computing surveys
 - Communications of the ACM 
 - INSPEC
-- AAAI
 
 - Focus on journals aimed at academics
 - Vet the editorial and advisory board of journals
