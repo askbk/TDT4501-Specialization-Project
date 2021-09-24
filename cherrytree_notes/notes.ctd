@@ -383,7 +383,7 @@ Participants
 Research paradigm
 Final deliverables and dissemination</rich_text>
     </node>
-    <node name="Supervision meetings" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197091" ts_lastsave="1631197335">
+    <node name="Supervision meetings" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197091" ts_lastsave="1632479208">
       <node name="26.08.2021" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631197176" ts_lastsave="1631197290">
         <rich_text>Who will i help? Find out stakeholders
 - Data scientist? Software developers? managers?
@@ -423,8 +423,19 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 (Read book in TDT39?)
 </rich_text>
       </node>
+      <node name="24.10.2021 - Input on research plan" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632479208" ts_lastsave="1632484446">
+        <rich_text>- make table comparing expected output with output of existing MLR
+- semantic analysis step in data synthesis
+- oria for querying
+   → searches IEEE, ACM, etc
+   → filters duplicates
+- for next time:
+   → do some pilot queries
+   → construct selection criteria
+   → discuss with bill next time</rich_text>
+      </node>
     </node>
-    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632316555">
+    <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632472685">
       <rich_text scale="h2">Planning</rich_text>
       <rich_text>
 - Identify existing reviews
@@ -443,8 +454,16 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → make note of queries used so you don't repeat
    → use common variations of same words
 - may also want to search other topics for contrast
-- 
-
+- search engines:
+   → ieeexplore
+   → acm digital library
+   → google scholar
+   → citeseer
+   → inspec
+   → science direct
+   → el compendex
+   → springerlink
+   → scopus
 
 </rich_text>
       <rich_text scale="h2">Assessing</rich_text>
