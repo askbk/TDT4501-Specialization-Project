@@ -197,7 +197,7 @@ A lot of papers: </rich_text>
 On conducting MLRs (28 pages): </rich_text>
         <rich_text link="webs https://arxiv.org/ftp/arxiv/papers/1707/1707.02553.pdf">Guidelines for conducting MLRs-Sept 15-2.docx (arxiv.org)</rich_text>
       </node>
-      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1632308159">
+      <node name="John et al., 2021. Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631098777" ts_lastsave="1632568520">
         <rich_text link="webs https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2">https://link.springer.com/chapter/10.1007%2F978-3-030-67292-8_2</rich_text>
         <rich_text>
 - apparent objective of the paper:
@@ -209,6 +209,12 @@ On conducting MLRs (28 pages): </rich_text>
    → thirteen examples of white literature included
    → only six examples of grey literature included
       ⇒ somewhat arbitrary filtering, ("selected 6 of 16 that benefited our research")
+
+
+Differences from my paper:
+- Less GL coverage
+- Some arbitrary/undocumented filtering decisions
+- Focuses on creating a high level framework for all steps the MLOps pipeline
 - </rich_text>
       </node>
       <node name="Mäkinen et al., 2021. Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help?" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1630925902" ts_lastsave="1630926073">
@@ -423,7 +429,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 (Read book in TDT39?)
 </rich_text>
       </node>
-      <node name="24.10.2021 - Input on research plan" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632479208" ts_lastsave="1632484446">
+      <node name="24.09.2021 - Input on research plan" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632479208" ts_lastsave="1632566673">
         <rich_text>- make table comparing expected output with output of existing MLR
 - semantic analysis step in data synthesis
 - oria for querying
