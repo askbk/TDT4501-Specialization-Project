@@ -357,7 +357,7 @@ Antipatterns by MLOps stage:
       ⇒ </rich_text>
       </node>
     </node>
-    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1632842231">
+    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1632916359">
       <rich_text>Federated Learning: Privacy and incentive. (2020). </rich_text>
       <rich_text link="webs https://link.springer.com/book/10.1007%2F978-3-030-63076-8">https://link.springer.com/book/10.1007%2F978-3-030-63076-8</rich_text>
       <rich_text>
@@ -367,7 +367,9 @@ Antipatterns by MLOps stage:
 </rich_text>
       <rich_text link="webs https://federated.withgoogle.com/">https://federated.withgoogle.com/</rich_text>
       <rich_text>
-Elixir for programming distributed systems</rich_text>
+Elixir for programming distributed systems
+Lwakatare et al 2020, mentions deployment of federated learning:
+	“According to practitioners' experience [P42], federated learning requires specialized deployment frameworks capable to handle changes at the edge.” - </rich_text>
     </node>
     <node name="Research plan" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631529882" ts_lastsave="1631697114">
       <rich_text>Purpose
@@ -432,7 +434,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
 (Read book in TDT39?)
 </rich_text>
       </node>
-      <node name="24.09.2021 - Input on research plan" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632479208" ts_lastsave="1632566673">
+      <node name="24.09.2021 - Input on research plan" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632479208" ts_lastsave="1632909308">
         <rich_text>- make table comparing expected output with output of existing MLR
 - semantic analysis step in data synthesis
 - oria for querying
@@ -442,6 +444,13 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → do some pilot queries
    → construct selection criteria
    → discuss with bill next time</rich_text>
+      </node>
+      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1632911894">
+        <rich_text>Questions:
+- what should i include/exclude from study?
+   → only include empirical? (exclude theoretical proposals)
+   → only primary studies?
+   → only research? or include industry papers? or only industry papers?</rich_text>
       </node>
     </node>
     <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632472685">
