@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1631537678">
+  <node name="Specialization project" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1630387901" ts_lastsave="1633168889">
     <rich_text scale="h1">DevOps for AI</rich_text>
     <rich_text>
 
@@ -532,6 +532,42 @@ don't read whole text immediately:
 - is research process  fully explained?
 - Look at evaluation checklists in Oates
 </rich_text>
+    </node>
+    <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1633172830">
+      <node name="Search strategy" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633168889" ts_lastsave="1633177388">
+        <rich_text>Earlier search strategies for WL:
+- Giray 2021:
+   → used search string “Software engineering” AND ("Machine learning" OR “Deep learning”)
+   → DB search: ACM, Google Scholar, IEEE, ScienceDirect, Springer, Wiley
+      ⇒ Backward and forward snowballing using Google Scholar
+   → Manual search:
+      ⇒ International Workshop on Artificial Intelligence for Requirements Engineering (AIRE): 2014–2020
+      ⇒ International Workshop on Realizing Artificial Intelligence Synergies in Software Engineering (RAISE): 2012–2020
+      ⇒ IEEE/ACM International Conference on Software Engineering: 2017–2020
+      ⇒ ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering: 2017–2020
+- John et al 2020:
+   → search string:
+      ⇒ software AND (deploy* OR production) AND (integrat* OR inference OR serv* OR monitor* OR scale OR evol*) AND (edge OR cloud OR hybrid) AND (“machine learning” OR “deep learning”)
+   → Libraries: IEEE Xplore, ACM Digital Library, Scopus, ScienceDirect, Web of Science
+   → No manual search or snowballing
+- Lwakatare 2020:
+   → snowballing:
+      ⇒ 8 seed papers (starting set) based on previous knowledge + manual search. spans different communities.
+      ⇒ one iteration of forward and backward snowballing performed.
+   → db search:
+      ⇒ string formulated after several pilots:
+         • (software AND (engineering OR process OR requirements OR design* OR construction OR testing OR debug* OR deploy* OR maintenance) AND (“machine learning”)
+- Nascimento 2020
+   → search string:
+      ⇒ ("Machine Learning" OR "Data Science" OR "Data-Driven Application" OR "AI application" OR "Artificial Intelligence") AND ("Software Engineering" OR "Software Requirement" OR  "Software Development" OR "System Development" OR "Software Application" OR "Software Architecture" OR "Software Testing") AND ("empirical" OR "case study*" OR "survey" OR "questionnaire" OR "interview*" OR "action research" OR "ethnography" OR "Experience report" OR "Experiment design")
+
+Do some pilot runs to develop search string
+
+Oria (litteratursøk) covers following DBs:
+- ACMDL, Arxiv, Compendex, Dimensions, Gartner, IEEE Xplore, Inspec, Scopus, SpringerLink, Standard.no, Web of Science
+
+should include MLOps in search string</rich_text>
+      </node>
     </node>
   </node>
 </cherrytree>
