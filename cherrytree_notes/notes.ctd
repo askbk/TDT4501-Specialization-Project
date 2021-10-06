@@ -445,15 +445,31 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → construct selection criteria
    → discuss with bill next time</rich_text>
       </node>
-      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633344183">
+      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633435348">
         <rich_text>Lwakatare et al (2020):
 - Creates a conceptual model of five stages of ML development process improvement
 
 - Focus on tools for deployment?
    → difficult to perform literature review? academic papers rarely mention tools(?)
-Modify research questions
-- What tools are used to deploy ML?
-   → What</rich_text>
+
+Modified research questions:
+- What is the state of the art and state of the practice in deploying ML models?
+   → SQ1: How are ML models being deployed in real-world applications?
+   → SQ2: What tools are used to deploy ML models? focus on features
+   → SQ3: What are the main challenges and pain points in deploying ML models?
+   → What are the limitations of the tools?
+
+- New study focus provides additional inclusion criteria for study selection:
+   → Paper has to mention specific tools used
+
+
+- Until next time:
+   → Do pilot search, find 10 maybe 20 papers related to tools to make sure I am in good shape
+
+
+- Papers found:
+   → 
+   → </rich_text>
       </node>
       <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1632911894">
         <rich_text>Questions:
