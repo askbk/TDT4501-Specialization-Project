@@ -357,7 +357,7 @@ Antipatterns by MLOps stage:
       ⇒ </rich_text>
       </node>
     </node>
-    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1632916359">
+    <node name="Useful for thesis" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631184972" ts_lastsave="1633605763">
       <rich_text>Federated Learning: Privacy and incentive. (2020). </rich_text>
       <rich_text link="webs https://link.springer.com/book/10.1007%2F978-3-030-63076-8">https://link.springer.com/book/10.1007%2F978-3-030-63076-8</rich_text>
       <rich_text>
@@ -369,7 +369,16 @@ Antipatterns by MLOps stage:
       <rich_text>
 Elixir for programming distributed systems
 Lwakatare et al 2020, mentions deployment of federated learning:
-	“According to practitioners' experience [P42], federated learning requires specialized deployment frameworks capable to handle changes at the edge.” - </rich_text>
+	“According to practitioners' experience [P42], federated learning requires specialized deployment frameworks capable to handle changes at the edge.” - 
+	
+</rich_text>
+      <rich_text link="webs https://www.openmined.org/">https://www.openmined.org/</rich_text>
+      <rich_text>
+</rich_text>
+      <rich_text link="webs https://github.com/FederatedAI/FATE">https://github.com/FederatedAI/FATE</rich_text>
+      <rich_text>
+</rich_text>
+      <rich_text link="webs https://github.com/scaleoutsystems/fedn">https://github.com/scaleoutsystems/fedn</rich_text>
     </node>
     <node name="Research plan" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631529882" ts_lastsave="1631697114">
       <rich_text>Purpose
@@ -445,7 +454,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → construct selection criteria
    → discuss with bill next time</rich_text>
       </node>
-      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633521603">
+      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633614193">
         <rich_text>Lwakatare et al (2020):
 - Creates a conceptual model of five stages of ML development process improvement
 
@@ -477,7 +486,45 @@ Modified research questions:
    → maybe </rich_text>
         <rich_text link="webs https://doi.org/10.1109/FMEC.2019.8795362https://doi.org/10.1109/FMEC.2019.8795362">https://doi.org/10.1109/FMEC.2019.8795362https://doi.org/10.1109/FMEC.2019.8795362</rich_text>
         <rich_text>
+   → maybe </rich_text>
+        <rich_text link="webs https://link.springer.com/article/10.1007/s10845-021-01808-w#Sec9">https://link.springer.com/article/10.1007/s10845-021-01808-w#Sec9</rich_text>
+        <rich_text>
+   → extremely relevant: </rich_text>
+        <rich_text link="webs https://doi.org/10.1109/SACI51354.2021.9465588">https://doi.org/10.1109/SACI51354.2021.9465588</rich_text>
+        <rich_text>
+   → Maybe </rich_text>
+        <rich_text link="webs https://doi.org/10.1186/s40537-020-00303-y">https://doi.org/10.1186/s40537-020-00303-y</rich_text>
+        <rich_text>
+   → maybe </rich_text>
+        <rich_text link="webs https://doi.org/10.1080/17460441.2021.1932812">https://doi.org/10.1080/17460441.2021.1932812</rich_text>
+        <rich_text>
+   → thesis: </rich_text>
+        <rich_text link="webs http://hdl.handle.net/10211.3/217176">http://hdl.handle.net/10211.3/217176</rich_text>
+        <rich_text> 
    → </rich_text>
+        <rich_text link="webs https://doi.org/10.1007/978-3-030-50323-9_10">https://doi.org/10.1007/978-3-030-50323-9_10</rich_text>
+        <rich_text>
+   → maybe </rich_text>
+        <rich_text link="webs https://doi.org/10.3390/app10238348">https://doi.org/10.3390/app10238348</rich_text>
+        <rich_text>
+   → maybe </rich_text>
+        <rich_text link="webs https://doi.org/10.1007/978-3-030-70006-5_5">https://doi.org/10.1007/978-3-030-70006-5_5</rich_text>
+        <rich_text>
+   → </rich_text>
+        <rich_text link="webs https://doi.org/10.1007/978-3-030-62365-4_28">https://doi.org/10.1007/978-3-030-62365-4_28</rich_text>
+        <rich_text>
+   → </rich_text>
+        <rich_text link="webs https://doi.org/10.1609/aimag.v41i3.5321">https://doi.org/10.1609/aimag.v41i3.5321</rich_text>
+        <rich_text>
+   → 
+
+
+
+machine learning devops
+mlops
+machine learning deploy
+mlops deploy
+</rich_text>
       </node>
       <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1632911894">
         <rich_text>Questions:
