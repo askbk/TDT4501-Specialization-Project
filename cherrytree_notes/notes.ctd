@@ -369,8 +369,8 @@ Antipatterns by MLOps stage:
       <rich_text>
 Elixir for programming distributed systems
 Lwakatare et al 2020, mentions deployment of federated learning:
-	“According to practitioners' experience [P42], federated learning requires specialized deployment frameworks capable to handle changes at the edge.” - 
-	
+	“According to practitioners' experience [P42], federated learning requires specialized deployment frameworks capable to handle changes at the edge.” -
+
 </rich_text>
       <rich_text link="webs https://www.openmined.org/">https://www.openmined.org/</rich_text>
       <rich_text>
@@ -396,7 +396,7 @@ Lwakatare et al 2020, mentions deployment of federated learning:
 - main research question: what is the state of the art in deploying machine learning models?
    → subquestion 1: what are the main challenges and pain points in deploying machine learning models?
    → subquestion 2: ??
-   → 
+   →
 Contributions
 Research method
 Participants
@@ -454,7 +454,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → construct selection criteria
    → discuss with bill next time</rich_text>
       </node>
-      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633943365">
+      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633961352">
         <rich_text>Lwakatare et al (2020):
 - Creates a conceptual model of five stages of ML development process improvement
 
@@ -484,7 +484,7 @@ Modified research questions:
         <rich_text link="webs https://doi.org/10.1007/978-3-030-19034-7_14">https://doi.org/10.1007/978-3-030-19034-7_14</rich_text>
         <rich_text>
    → maybe </rich_text>
-        <rich_text link="webs https://doi.org/10.1109/FMEC.2019.8795362https://doi.org/10.1109/FMEC.2019.8795362">https://doi.org/10.1109/FMEC.2019.8795362https://doi.org/10.1109/FMEC.2019.8795362</rich_text>
+        <rich_text link="webs https://doi.org/10.1109/FMEC.2019.8795362">https://doi.org/10.1109/FMEC.2019.8795362</rich_text>
         <rich_text>
    → maybe </rich_text>
         <rich_text link="webs https://link.springer.com/article/10.1007/s10845-021-01808-w#Sec9">https://link.springer.com/article/10.1007/s10845-021-01808-w#Sec9</rich_text>
@@ -500,7 +500,7 @@ Modified research questions:
         <rich_text>
    → thesis: </rich_text>
         <rich_text link="webs http://hdl.handle.net/10211.3/217176">http://hdl.handle.net/10211.3/217176</rich_text>
-        <rich_text> 
+        <rich_text>
    → </rich_text>
         <rich_text link="webs https://doi.org/10.1007/978-3-030-50323-9_10">https://doi.org/10.1007/978-3-030-50323-9_10</rich_text>
         <rich_text>
@@ -516,7 +516,7 @@ Modified research questions:
    → </rich_text>
         <rich_text link="webs https://doi.org/10.1609/aimag.v41i3.5321">https://doi.org/10.1609/aimag.v41i3.5321</rich_text>
         <rich_text>
-   → 
+   →
 
 
 
@@ -570,7 +570,7 @@ mlops deploy</rich_text>
       <rich_text>
 - IEEE
 - ACM computing surveys
-- Communications of the ACM 
+- Communications of the ACM
 - INSPEC
 
 - Focus on journals aimed at academics
@@ -598,7 +598,7 @@ mlops deploy</rich_text>
 don't read whole text immediately:
 - read abstract, introduction and conclusion.
 - read section headers and first and last sentences of paragraphs to get overview
-- decide if worth reading 
+- decide if worth reading
 
 </rich_text>
       <rich_text scale="h2">Critically evaluating</rich_text>
