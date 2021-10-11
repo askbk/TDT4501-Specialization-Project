@@ -526,13 +526,7 @@ machine learning deploy
 mlops deploy
 </rich_text>
       </node>
-      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1632911894">
-        <rich_text>Questions:
-- what should i include/exclude from study?
-   → only include empirical? (exclude theoretical proposals)
-   → only primary studies?
-   → only research? or include industry papers? or only industry papers?</rich_text>
-      </node>
+      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1633938639"/>
     </node>
     <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632472685">
       <rich_text scale="h2">Planning</rich_text>
