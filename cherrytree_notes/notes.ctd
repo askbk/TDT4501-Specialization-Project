@@ -454,7 +454,7 @@ Read guidelines for conducting multivocal literature reviews: </rich_text>
    → construct selection criteria
    → discuss with bill next time</rich_text>
       </node>
-      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633614193">
+      <node name="5.10.2021" unique_id="22" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633335688" ts_lastsave="1633943365">
         <rich_text>Lwakatare et al (2020):
 - Creates a conceptual model of five stages of ML development process improvement
 
@@ -523,10 +523,14 @@ Modified research questions:
 machine learning devops
 mlops
 machine learning deploy
-mlops deploy
-</rich_text>
+mlops deploy</rich_text>
       </node>
-      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1633938639"/>
+      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1633943416">
+        <rich_text>Next time:
+- create table of features and requirements for each devops step
+- Try to identify gaps
+   → maybe look at discussions in projects utilizing devops for ai, see what people are complaining about.</rich_text>
+      </node>
     </node>
     <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632472685">
       <rich_text scale="h2">Planning</rich_text>
