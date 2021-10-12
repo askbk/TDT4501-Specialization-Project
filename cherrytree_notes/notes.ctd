@@ -613,72 +613,102 @@ don't read whole text immediately:
 </rich_text>
     </node>
     <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1634027095">
-      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634028051">
-        <rich_text>Main question: What is the state of the art and state of the practice in deploying ML models?
+      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634040399">
+        <rich_text>Main question: What is the state of the art and state of the practice in automating ML deployment?
+
+Focusing on automation tooling means that the study is building upon earlier work instead of repeating it.
 
 sub questions:
-1. How are ML models being deployed in real-world applications?
-2. What are the main challenges and pain points in deploying ML models?
-3. What tools are used to deploy ML models?
-4. Are there any feature gaps in the tooling used to deploy ML models?
+1. How is ML model deployment automated in real-world applications?
+2. What are the main challenges and pain points in automating ML model deployment?
+3. What tools are used to automatically deploy ML models?
+4. Are there any feature gaps in the tooling used to automatically deploy ML models?
 
 Expected output:
-1. Gives an overview of the deployment process and tooling used. This will describe pipelines for CI/CD/CT and the infrastructure that models are deployed on.
-2. 1</rich_text>
+1. Gives an overview of the automated deployment process. This will describe pipelines for CI/CD/CT and the infrastructure that models are deployed on.
+2. Identifies what challenges are currently obstructing the use of automated deployments
+3. An overview of what tooling features are used for automatically deploying ML models. What tools are used for CI/CD/CT?
+4. Identification of requirements/needs in automated ML deployment that are not covered by current tooling. Basically features that are required to solve challenges in SQ2.</rich_text>
       </node>
-      <node name="Outputs of earlier work" unique_id="23" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634026500" ts_lastsave="1634034462">
+      <node name="Outputs of earlier work" unique_id="23" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634026500" ts_lastsave="1634043222">
         <rich_text justification="left"></rich_text>
-        <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="0,202,0,0,0,0,0,0">
+        <rich_text>
+*Unpublished work</rich_text>
+        <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="0,0,202,0,0,0,0,0,0,0,0,0">
           <row>
             <cell>Most recent papers included</cell>
+            <cell>early 2019</cell>
             <cell>late 2019</cell>
             <cell>2020</cell>
+            <cell>mid 2020</cell>
             <cell>mid 2020</cell>
             <cell>early 2020</cell>
             <cell>mid 2020</cell>
             <cell>end of 2020</cell>
+            <cell>mid 2020</cell>
+            <cell>mid 2021</cell>
             <cell>late 2021</cell>
           </row>
           <row>
-            <cell>SLR/MLR?</cell>
+            <cell>Method</cell>
+            <cell>SLR + semi-structured interviews</cell>
             <cell>SLR</cell>
             <cell>SLR</cell>
+            <cell>MLR + questionnaire</cell>
             <cell>MLR</cell>
             <cell>MLR + focus group</cell>
             <cell>SLR</cell>
             <cell>SLR</cell>
+            <cell>SLR</cell>
+            <cell>SMS</cell>
             <cell>MLR</cell>
           </row>
           <row>
             <cell>Focus</cell>
+            <cell>Mostly focuses on challenges. Uses interview results to confirm findings in the literature.
+Divides into areas pre-deployment, deployment and non-technical.</cell>
             <cell>Maps SE challenges of ML to the KAs of the SWEBOK</cell>
-            <cell></cell>
+            <cell>SLR of SE practices for ML, and mapped to KAs in SWEBOK. </cell>
+            <cell>Compiles a list of SE best practices for ML.
+Performs questionnaire to investigate adoption and effects of practices, as well as demographic relationships.</cell>
             <cell>Synthesizes framework for the development/deployment/evolution process</cell>
             <cell>Proposes conceptual model of five stages of improvement for deploying models.
 Mainly considers deployment step of SE process.</cell>
             <cell>Proposes DevOps practices for ML applications.</cell>
             <cell>Maps challenges and proposed solutions to different knowledge areas of SWEBOK.
 Considers entirety of SE process.</cell>
+            <cell></cell>
+            <cell></cell>
             <cell>Tools and gaps in deployment process</cell>
           </row>
           <row>
-            <cell>Weaknesses in method?</cell>
+            <cell>Comments</cell>
+            <cell>Emphasizes continuous evaluation of deployed models.</cell>
+            <cell></cell>
             <cell></cell>
             <cell></cell>
             <cell>Poor GL coverage and selection</cell>
             <cell></cell>
-            <cell>Research method is only described in a single sentence, poorly documented.</cell>
-            <cell></cell>
+            <cell>Decent recommendations.
+Research method is only described in a single sentence, poorly documented.</cell>
+            <cell>High quality.</cell>
+            <cell>Very author-centric approach when describing results.</cell>
+            <cell>Very comprehensive and high quality study.
+Cites Giray 2021</cell>
             <cell></cell>
           </row>
           <row>
             <cell>                            </cell>
+            <cell>Baier et al. 2019</cell>
             <cell>Kumeno 2020</cell>
-            <cell>(Nascimento et al. 2020)</cell>
+            <cell>Nascimento et al. 2020*</cell>
+            <cell>Serban et al. 2020</cell>
             <cell>John et al. 2021 </cell>
             <cell>Lwakatare et al. 2020</cell>
             <cell>Karamitsos et al. 2020</cell>
             <cell>Giray 2021               </cell>
+            <cell>Loranzoni et al. 2021</cell>
+            <cell>Martinez-Fernandes et al. 2021*</cell>
             <cell>Me                       </cell>
           </row>
         </table>
