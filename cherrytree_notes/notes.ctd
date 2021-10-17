@@ -356,8 +356,8 @@ Antipatterns by MLOps stage:
          • often gives surprising impact on model because steps were not identical
       ⇒ </rich_text>
       </node>
-      <node name="20 papers mentioning tooling" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1634137789">
-        <rich_text></rich_text>
+      <node name="20 papers mentioning tooling" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1634482136">
+        <rich_text justification="left"></rich_text>
         <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="187,0,52,172,877,52">
           <row>
             <cell>Software engineering challenges of deep learning</cell>
@@ -452,80 +452,114 @@ Primary research challenges identified:
             <cell>https://doi.org/10.1109/ASEW.2019.00025</cell>
             <cell>"Instead of model transparency, we argue process transparency of the development and model training to be the key to XAI. The whole ML development process, from data acquisition to prediction, consists of numerous mutual dependant decisions that each may determine the final outcome sensitively."
 - i.e.: "data collection, data preparation, model selection, model training, model evaluation or hyperparameter tuning"
-→ deployment infra must support carrying provenance information to support explainability of outputs</cell>
+→ me: deployment infra must carry provenance information to support explainability</cell>
             <cell>9</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Toward a Framework for Highly Automated Vehicle Safety Validation</cell>
+            <cell>Koopman and Wagner</cell>
+            <cell>2018</cell>
+            <cell>https://doi.org/10.4271/2018-01-1071</cell>
+            <cell>proposes: 
+- “A run-time monitoring approach to managing identified risks, catching assumption violations and unknown unknowns as they arise in fielded systems.”
+- Observability test points. Should be able to verify that system acts for the right reason.</cell>
+            <cell>10</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Data Scientists in Software Teams: State of the Art and Challenges</cell>
+            <cell>Kim et al.</cell>
+            <cell>2018</cell>
+            <cell>https://doi.org/10.1109/TSE.2017.2754374</cell>
+            <cell>the large number of tools is a major challenge.
+“respondents also expressed frustration about having too many tools and incompatible tools”
+→ simply creating another tool should not be done lightly. the large number of existing tools is already a point of frustration for practitioners.</cell>
+            <cell>11</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Trustworthy AI in the Age of Pervasive Computing and Big Data</cell>
+            <cell>Kumar et al.</cell>
+            <cell>2020</cell>
+            <cell>https://doi.org/10.1109/PerComWorkshops48775.2020.9156127</cell>
+            <cell>Proposes a framework for trustworthy AI systems in the age of pervasive data collection and computing.
+
+“Failure Identification &amp; Reliability Monitoring are important to ensure reliability in AI systems"
+"To prevent failures in AI systems, the current state-of-the-art methods try to proactively identify likely sources of error resulting from 1) bad or inadequate data [17], 2) differences or shifts in environment [18], 3) model associated errors [11], or 4) poor reporting [19] and develop methods that correct for these in advance. After deployment, reliability mechanisms assess the model output for each new input and reject the unreliable output based on the auditing criteria of the density principle and the local fit principle [20]. Model maintenance requires detecting when updates to the model are necessary"
+→ </cell>
+            <cell>12</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Related Pins at Pinterest: The Evolution of a Real-World Recommender System</cell>
+            <cell>Liu et al.</cell>
+            <cell>2017</cell>
+            <cell>https://doi.org/10.1145/3041021.3054202</cell>
+            <cell>multiple different models/components that depend on eachother, meaning that changing a model requires that the whole system is retrained. 
+"We identify unique interdependencies that made it hard to reason about changes in Related Pins, and propose to mitigate these issues by automated joint training of system components."
+
+Improvements to raw data can harm results: “Currently we must manually retrain our model with updated raw data, and deploy the new model and raw data into production at the same time. In addition to being time consuming, this solution is less-than-ideal since it requires us to know of the upstream change. Ideally, we would automate the continual retraining of our model, which would incorporate any change in upstream data.”</cell>
+            <cell>13</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Developing and Operating Artificial Intelligence Models in Trustworthy Autonomous Systems</cell>
+            <cell>Martínez-Fernández et al.</cell>
+            <cell>2021</cell>
+            <cell>https://doi.org/10.1007/978-3-030-75018-3_14</cell>
+            <cell>“However, solutions or frameworks supporting the management of multiple instances of AI models deployed in different context-aware environments are scarce. Context is the missing piece in the AI lifecycle [15].”
+“AI models are usually deployed as part of embedded systems, which require additional techniques for continuous deployment, such as Over-the-Air updates [18]. However, as aforementioned, none of the these approaches have a focus on trustworthiness nor context-specific AI model deployment.”
+Proposed research direction: “Providing Intelligent and Context-Aware Techniques to Deploy Updated AI Models in AS (Autonomous Systems) Instances”
+
+“Bringing Together the Development and Operation of AI Models in Trustworthy AS into a Holistic Lifecycle with Tool Support.”
+“This direction includes the development of AI-specific, independent, and loosely coupled software components (ready to be integrated into companies’ development and operational environments) for the three directions we presented above.”
+
+Proposes a holistic DevOps approach for AI in AS.</cell>
+            <cell>14</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Machine Learning Software Engineering in Practice: An Industrial Case Study</cell>
+            <cell>Rahman et al.</cell>
+            <cell>2019</cell>
+            <cell>https://arxiv.org/abs/1906.07154</cell>
+            <cell>"Post-deployment monitoring of models is important. Based on the performance, models may need to be retrained which may initiate a maintenance cycle."
+“Integration of ML components must ensure the functional integrity of the ML applications.”
+“The deployment should consider the compatibility and differences in development and production platforms.”
+"The deployment must ensure a smooth roll-out of the existing system without affecting the user or the business
+process."</cell>
+            <cell>15</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>On challenges in machine learning model management</cell>
+            <cell>Schelter et al.</cell>
+            <cell>2019</cell>
+            <cell>http://web.kaust.edu.sa/Faculty/MarcoCanini/classes/CS290E/F19/papers/challenges.pdf</cell>
+            <cell>"The ability to back-test the accuracy of models over time is crucial in many real-world usages
+of ML. Models evolve continuously as data changes, methods improve or software dependencies change. Every
+time such a change occurs, model performance must be re-validated."
+"Apart from validation of models in offline backtests, assessing the performance of models in production is
+crucial."
+"Multi-language code bases are hard to deploy later on, as they require setups with many different components that need to be orchestrated. E.g., a Spark cluster must be spun up for pre-processing, afterwards the data must be moved to a single machine for model training, and the cluster must be torn down afterwards. An orthogonal problem is the efficient and reliable exchange of data between the components of the system written in different languages."</cell>
+            <cell>16</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>An Empirical Study of Software Architecture for Machine Learning</cell>
+            <cell>Serban and Visser</cell>
+            <cell>2021</cell>
+            <cell>https://arxiv.org/abs/2105.12422</cell>
+            <cell>SLR+Interviews+Survey
+"Design for automatic continuous retraining. Use CI/CD. Use automatic rollback. Use infrastructure-as-code. Adopt standard release processes."
+"Encapsulate ML components in identifiable modules/services. Use authentication and access control. Log consumers of ML components."
+"Design for batch processing (training) and stream processing (serving), i.e., lambda architecture. Physically isolate the workloads. Use virtualisation."
+"Design for traceability and reproducibility; log pointers to versioned artefacts, version configurations, models and data."
+</cell>
+            <cell>17</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>An Empirical Study of Common Challenges in Developing Deep Learning Applications</cell>
+            <cell>Zhang et al.</cell>
+            <cell>2019</cell>
+            <cell>https://doi.org/10.1109/ISSRE.2019.00020</cell>
+            <cell>Looks at StackOverflow questions.
+Category “deployment and migration” is quite common question type.
+“Behavior inconsistency often occurs when migrating a model between different frameworks or deploying a model to a different platform (e.g., Android, IOS, web browsers). However, it is hard to uncover and diagnose such behavioral inconsistency due to a lack of tool support.”</cell>
+            <cell>18</cell>
           </row>
           <row>
             <cell></cell>
