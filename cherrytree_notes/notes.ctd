@@ -756,11 +756,20 @@ mlops
 machine learning deploy
 mlops deploy</rich_text>
       </node>
-      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1633943416">
+      <node name="11.10.2021" unique_id="19" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1632909308" ts_lastsave="1634544877">
         <rich_text>Next time:
 - create table of features and requirements for each devops step
 - Try to identify gaps
    → maybe look at discussions in projects utilizing devops for ai, see what people are complaining about.</rich_text>
+      </node>
+      <node name="18.10.2021" unique_id="26" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634544877" ts_lastsave="1634544986">
+        <rich_text>- search strategy:
+   → use 1 iteration of snowballing from 20 papers found from systematic mapping study (maybe 30 papers total should be enough)
+- extract info about what paper is about
+   → achievements
+   → challenges
+   → etc?
+- from challenges extracted, pick one to focus on in thesis.</rich_text>
       </node>
     </node>
     <node name="Literature review" unique_id="17" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1631537674" ts_lastsave="1632472685">
