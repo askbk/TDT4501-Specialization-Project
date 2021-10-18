@@ -356,7 +356,7 @@ Antipatterns by MLOps stage:
          • often gives surprising impact on model because steps were not identical
       ⇒ </rich_text>
       </node>
-      <node name="20 papers mentioning tooling" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1634482136">
+      <node name="Seed papers" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1634555883">
         <rich_text justification="left"></rich_text>
         <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="187,0,52,172,877,52">
           <row>
@@ -562,19 +562,31 @@ Category “deployment and migration” is quite common question type.
             <cell>18</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Packaging and Sharing Machine Learning Models via the Acumos AI Open Platform</cell>
+            <cell>Zhao et al.</cell>
+            <cell>2018</cell>
+            <cell>https://arxiv.org/abs/1810.07159</cell>
+            <cell>Presents a new platform for sharing models.</cell>
+            <cell>19</cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell>Machine Learning System Architectural Pattern for Improving Operational Stability</cell>
+            <cell>Yokoyama</cell>
+            <cell>2019</cell>
+            <cell>https://doi.org/10.1109/ICSA-C.2019.00055</cell>
+            <cell>Discusses a bit of CI/CD stuff.
+"Reproducibility of the inference engine is necessary to realize continuous deployment. Unlike a usual program, the inference engine depends on various data, algorithms, and hyperparameters. Therefore, if the depending element cannot be prepared accurately, a past inference engine might not be able to be reproduced. To address this problem, version control is necessary to manage the data, algorithms, and hyperparameters. DVC [16] and ModelHub [12] [13] support such tasks."</cell>
+            <cell>20</cell>
+          </row>
+          <row>
+            <cell>An Architecture for Agile Machine Learning in Real-Time Applications</cell>
+            <cell>Schleier-Smith</cell>
+            <cell>2015</cell>
+            <cell>https://doi.org/10.1145/2783258.2788628</cell>
+            <cell>"We also have a well-defined path to deploying new models to production: we start out by playing back history, rolling forward in time to the present, then transition seamlessly to real-time streaming. By construction, our model code works just the same with inputs that are months old as with those that are milliseconds old, making it practical to use a single model description in both development and production deployment."
+"[We] invest heavily in the framework for data transformation, production state management, model description, model training, backtesting and validation, production monitoring, and production experimentation"
+
+Challenge identified: "Long deployment cycles: Any algorithm changes required writing a large amount of software: SQL to extract historical data, Java code in models, Java code for processing real-time updates, often PHP code and more SQL to change how data was collected. For live experiments we also needed to consider how new and old implementations would coexist in production."</cell>
             <cell></cell>
           </row>
           <row>
@@ -852,15 +864,15 @@ don't read whole text immediately:
 - Look at evaluation checklists in Oates
 </rich_text>
     </node>
-    <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1634027095">
-      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634040399">
+    <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1634561214">
+      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634560159">
         <rich_text>Main question: What is the state of the art and state of the practice in automating ML deployment?
 
 Focusing on automation tooling means that the study is building upon earlier work instead of repeating it.
 
 sub questions:
-1. How is ML model deployment automated in real-world applications?
-2. What are the main challenges and pain points in automating ML model deployment?
+1. How are ML models deployed in real-world applications?
+2. What are the main challenges and pain points in ML model deployment?
 3. What tools are used to automatically deploy ML models?
 4. Are there any feature gaps in the tooling used to automatically deploy ML models?
 
@@ -953,7 +965,7 @@ Cites Giray 2021</cell>
           </row>
         </table>
       </node>
-      <node name="Search strategy" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633168889" ts_lastsave="1633177388">
+      <node name="Search strategy" unique_id="20" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633168889" ts_lastsave="1634561192">
         <rich_text>Earlier search strategies for WL:
 - Giray 2021:
    → used search string “Software engineering” AND ("Machine learning" OR “Deep learning”)
@@ -980,13 +992,64 @@ Cites Giray 2021</cell>
    → search string:
       ⇒ ("Machine Learning" OR "Data Science" OR "Data-Driven Application" OR "AI application" OR "Artificial Intelligence") AND ("Software Engineering" OR "Software Requirement" OR  "Software Development" OR "System Development" OR "Software Application" OR "Software Architecture" OR "Software Testing") AND ("empirical" OR "case study*" OR "survey" OR "questionnaire" OR "interview*" OR "action research" OR "ethnography" OR "Experience report" OR "Experiment design")
 
-Do some pilot runs to develop search string
-
 Oria (litteratursøk) covers following DBs:
 - ACMDL, Arxiv, Compendex, Dimensions, Gartner, IEEE Xplore, Inspec, Scopus, SpringerLink, Standard.no, Web of Science
 
-should include MLOps in search string</rich_text>
+should include MLOps in search string
+
+
+</rich_text>
+        <rich_text scale="h2">White literature search strategy</rich_text>
+        <rich_text>
+Use seed papers as basis for snowballing.
+Do one iteration of both forward and backward snowballing.
+(Maybe include some papers from manual search)
+Use Wohlin 2014 as guideline
+
+</rich_text>
+        <rich_text scale="h2">Grey literature search strategy</rich_text>
+        <rich_text>
+search “mlops deployment” and “machine learning deployment” on google
+use top 100 results. Continue if results on last page are still relevant.</rich_text>
       </node>
+      <node name="Study selection" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634558351" ts_lastsave="1634558946">
+        <rich_text scale="h2">White literature selection criteria
+</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text scale="h3">WL inclusion criteria</rich_text>
+        <rich_text>
+- In english
+- Peer reviewed and published in either journal, conference proceedings or workshop
+- Published after 2010
+- Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes
+- Available online
+- Primary study</rich_text>
+        <rich_text scale="h2">
+</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text scale="h3">WL exclusion criteria</rich_text>
+        <rich_text>
+- Does not satisfy all inclusion criteria
+
+</rich_text>
+        <rich_text scale="h2">
+Grey literature selection criteria</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text scale="h3">GL inclusion criteria</rich_text>
+        <rich_text>
+- Mostly the same as WL criteria
+- Not peer-reviewed
+
+</rich_text>
+        <rich_text scale="h3">GL exclusion criteria</rich_text>
+        <rich_text>
+- Does not satisfy all inclusion criteria</rich_text>
+      </node>
+      <node name="Data extraction" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634561214" ts_lastsave="1634561217"/>
     </node>
   </node>
 </cherrytree>
