@@ -2,8 +2,9 @@ thesis-gnuplottex*
 thesis.gnuploterrors
 thesis.aux
 thesis.bbl
-thesis.bib.bak
-thesis.bib.sav
+*.bib.bak
+*.bib.sav
+*.bib.sav.bak
 thesis.sav
 thesis.bcf
 thesis.blg
