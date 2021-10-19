@@ -1,24 +1,4 @@
 % Encoding: UTF-8
-@article{claerbout1991scrutiny,
-  title={A Scrutiny of the Introduction},
-  author={Claerbout, Jon F},
-  journal={The Leading Edge},
-  volume={10},
-  number={1},
-  pages={39--41},
-  year={1991},
-  publisher={Society of Exploration Geophysicists}
-}
-
-@article{landes1951scrutiny,
-  title={A Scrutiny of the Abstract},
-  author={Landes, Kenneth K},
-  journal={Bulletin of the American Association of Petroleum Geologists},
-  volume={35},
-  number={7},
-  pages={1660},
-  year={1951}
-}
 
 @Conference{Sculley2015,
   author     = {D. Sculley and Gary Holt and Daniel Golovin and Eugene Davydov and Todd Phillips and Dietmar Ebner and Vinay Chaudhary and Michael Young and Jean-François Crespo and Dan Dennison},
@@ -28,6 +8,7 @@
   editor     = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
   volume     = {28},
   abstract   = {Machine learning offers a fantastically powerful toolkit for building useful complexprediction systems quickly. This paper argues it is dangerous to think ofthese quick wins as coming for free. Using the software engineering frameworkof technical debt, we find it is common to incur massive ongoing maintenancecosts in real-world ML systems. We explore several ML-specific risk factors toaccount for in system design. These include boundary erosion, entanglement,hidden feedback loops, undeclared consumers, data dependencies, configurationissues, changes in the external world, and a variety of system-level anti-patterns.},
+  keywords   = {background},
   ranking    = {rank5},
   readstatus = {read},
 }
@@ -44,7 +25,7 @@
   eid           = {arXiv:2011.09926},
   eprint        = {2011.09926},
   file          = {:http\://arxiv.org/pdf/2011.09926v2:PDF},
-  keywords      = {cs.LG},
+  keywords      = {cs.LG, related},
   primaryclass  = {cs.LG},
   priority      = {prio2},
   readstatus    = {skimmed},
@@ -161,6 +142,7 @@
   pages      = {14--29},
   doi        = {10.1007/978-3-030-67292-8_2},
   issn       = {1865-1348},
+  keywords   = {related},
   priority   = {prio2},
   ranking    = {rank3},
   readstatus = {skimmed},
@@ -190,24 +172,6 @@
   keywords  = {background},
 }
 
-@Article{Rahman2019,
-  author        = {Md Saidur Rahman and Emilio Rivera and Foutse Khomh and Yann-Gaël Guéhéneuc and Bernd Lehnert},
-  title         = {Machine Learning Software Engineering in Practice: An Industrial Case Study},
-  year          = {2019},
-  month         = jun,
-  abstract      = {SAP is the market leader in enterprise software offering an end-to-end suite of applications and services to enable their customers worldwide to operate their business. Especially, retail customers of SAP deal with millions of sales transactions for their day-to-day business. Transactions are created during retail sales at the point of sale (POS) terminals and then sent to some central servers for validations and other business operations. A considerable proportion of the retail transactions may have inconsistencies due to many technical and human errors. SAP provides an automated process for error detection but still requires a manual process by dedicated employees using workbench software for correction. However, manual corrections of these errors are time-consuming, labor-intensive, and may lead to further errors due to incorrect modifications. This is not only a performance overhead on the customers' business workflow but it also incurs high operational costs. Thus, automated detection and correction of transaction errors are very important regarding their potential business values and the improvement in the business workflow. In this paper, we present an industrial case study where we apply machine learning (ML) to automatically detect transaction errors and propose corrections. We identify and discuss the challenges that we faced during this collaborative research and development project, from three distinct perspectives: Software Engineering, Machine Learning, and industry-academia collaboration. We report on our experience and insights from the project with guidelines for the identified challenges. We believe that our findings and recommendations can help researchers and practitioners embarking into similar endeavors.},
-  archiveprefix = {arXiv},
-  comment       = {Deployment:
-- developed a custom framework for deployment
-- deployed as a web API service
-- model management},
-  eprint        = {1906.07154},
-  file          = {:http\://arxiv.org/pdf/1906.07154v1:PDF},
-  keywords      = {cs.SE, cs.LG},
-  primaryclass  = {cs.SE},
-  priority      = {prio3},
-}
-
 @Article{Muralidhar2021,
   author        = {Nikhil Muralidhar and Sathappah Muthiah and Patrick Butler and Manish Jain and Yu Yu and Katy Burne and Weipeng Li and David Jones and Prakash Arunachalam and Hays 'Skip' McCormick and Naren Ramakrishnan},
   title         = {Using AntiPatterns to avoid MLOps Mistakes},
@@ -232,20 +196,11 @@
   volume     = {180},
   comment    = {SLR of SE for ML, where challenges and solutionswere grouped by areas suggested in SWEBOK, similarly to Kumeno and Nascimento, while including an even greater number of papers than any previous SLR in the field.},
   doi        = {10.1016/j.jss.2021.111031},
+  keywords   = {related},
   priority   = {prio2},
   publisher  = {Elsevier {BV}},
   ranking    = {rank5},
   readstatus = {skimmed},
-}
-
-@Article{Mariani2021,
-  author    = {Stefano Mariani and Maarten M. H. Lahr and Esther Metting and Eloisa Vargiu and Franco Zambonelli},
-  journal   = {International Journal of Intelligent Systems},
-  title     = {Developing an {ML} pipeline for asthma and {COPD}: The case of a Dutch primary care service},
-  year      = {2021},
-  month     = {jul},
-  doi       = {10.1002/int.22568},
-  publisher = {Wiley},
 }
 
 @Article{Enholm2021,
@@ -281,13 +236,15 @@
   volume    = {106},
   doi       = {10.1016/j.infsof.2018.09.006},
   file      = {:papers/mlr_guidelines.pdf:PDF},
+  keywords  = {guidelines},
   publisher = {Elsevier {BV}},
 }
 
 @Misc{Kitchenham07guidelinesfor,
-  author = {B. Kitchenham and S Charters},
-  title  = {Guidelines for performing Systematic Literature Reviews in Software Engineering},
-  year   = {2007},
+  author   = {B. Kitchenham and S Charters},
+  title    = {Guidelines for performing Systematic Literature Reviews in Software Engineering},
+  year     = {2007},
+  keywords = {guidelines},
 }
 
 @InProceedings{Baier2019,
@@ -298,6 +255,7 @@
   month      = {05},
   abstract   = {Machine learning has recently emerged as a powerful technique to increase operational efficiency or to develop new value propositions. However, the translation of a prediction algorithm into an operationally usable machine learning model is a time-consuming and in various ways challenging task. In this work, we target to systematically elicit the challenges in deployment and operation to enable broader practical dissemination of machine learning applications. To this end, we first identify relevant challenges with a structured literature analysis. Subsequently, we conduct an interview study with machine learning practitioners across various industries, perform a qualitative content analysis, and identify challenges organized along three distinct categories as well as six overarching clusters. Eventually, results from both literature and interviews are evaluated with a comparative analysis. Key issues identified include automated strategies for data drift detection and handling, standardization of machine learning infrastructure, and appropriate communication and expectation management.},
   comment    = {Comprehensive "Related work"-section that is grouped by MLOps stages.},
+  keywords   = {review, related},
   priority   = {prio1},
   readstatus = {skimmed},
   url        = {https://www.researchgate.net/publication/332996647_CHALLENGES_IN_THE_DEPLOYMENT_AND_OPERATION_OF_MACHINE_LEARNING_IN_PRACTICE},
@@ -311,6 +269,7 @@
   year      = {2021},
   pages     = {1--19},
   doi       = {10.4018/978-1-7998-5101-1.ch001},
+  keywords  = {background},
   priority  = {prio2},
 }
 
@@ -333,7 +292,7 @@
   archiveprefix = {arXiv},
   eprint        = {2103.08942},
   file          = {:http\://arxiv.org/pdf/2103.08942v1:PDF},
-  keywords      = {cs.SE},
+  keywords      = {cs.SE, background},
   primaryclass  = {cs.SE},
 }
 
@@ -348,8 +307,16 @@
   comment    = {SLR to outline the challenges in field of SE for ML applications, mapping the challenges encountered to the 12 knowledge areas of the Software Engineering Body of Knowledge (SWEBOK).
 
 RQ1: What SE challenges for ML applications have been discussed and potentially exist?
-RQ2: Which knowledge area is closely related to each of them?},
+RQ2: Which knowledge area is closely related to each of them?
+
+Used snowballing because literature search did not produce adequate papers.
+
+Describes the SE4ML challenges of each KA in SWEBOK.
+
+108 papers mapped. 115 total.
+Two iterations of snowballing.},
   doi        = {10.3233/IDT-190160},
+  keywords   = {related},
   priority   = {prio2},
   publisher  = {IOS Press},
   readstatus = {skimmed},
@@ -363,10 +330,34 @@ RQ2: Which knowledge area is closely related to each of them?},
   abstract      = {Artificial Intelligence (AI) or Machine Learning (ML) systems have been widely adopted as value propositions by companies in all industries in order to create or extend the services and products they offer. However, developing AI/ML systems has presented several engineering problems that are different from those that arise in, non-AI/ML software development. This study aims to investigate how software engineering (SE) has been applied in the development of AI/ML systems and identify challenges and practices that are applicable and determine whether they meet the needs of professionals. Also, we assessed whether these SE practices apply to different contexts, and in which areas they may be applicable. We conducted a systematic review of literature from 1990 to 2019 to (i) understand and summarize the current state of the art in this field and (ii) analyze its limitations and open challenges that will drive future research. Our results show these systems are developed on a lab context or a large company and followed a research-driven development process. The main challenges faced by professionals are in areas of testing, AI software quality, and data management. The contribution types of most of the proposed SE practices are guidelines, lessons learned, and tools.},
   archiveprefix = {arXiv},
   comment       = {SLR of SE practices for ML.
-Mapped practices to chapters of SWEBOK, similarly to Kumeno,  although with a more comprehensive analysis.  The authors found that studies from laboratory environments are mainly concerned with building and testing models, which could indicate that more literature produced by industry practitioners should be studied when looking to review the state of the art and state of practice of deploying models to production.  This is further illustrated when the authors highlight that deployment is one of the areas with the fewest suggested practices in published literature.},
+Mapped practices to chapters of SWEBOK, similarly to Kumeno,  although with a more comprehensive analysis.  The authors found that studies from laboratory environments are mainly concerned with building and testing models, which could indicate that more literature produced by industry practitioners should be studied when looking to review the state of the art and state of practice of deploying models to production.  This is further illustrated when the authors highlight that deployment is one of the areas with the fewest suggested practices in published literature.
+
+RQ: How is software engineering applied in the development of AI/ML systems?
+
+RQ1. What types of AI/ML systems are investigated in the primary studies?  
+RQ2. What is the organizational context of the AI/ML system development?  
+RQ3. Which challenges are related to specific aspects of AI/ML development?  
+RQ4. How  are  SE  practices  adjusted  to  deal  with  specific AI/ML  engineering challenges?  
+RQ5. What SE practices are reported in the primary studies?   
+RQ6. Which type of empirical methods are used?
+
+Contributions: The  study  provides  a  comprehensive  view  of  the  software  industry  regarding  the development of AI/ML systems and lists the main challenges faced. 
+II. The  study  synthesizes  the  contextual  setting  of  investigated  SE  practices,  and infers the area of applicability of the empirical findings., It also presents the classification of  SE  practice  types  in  the  form  of  lessons  learned,  structure,  guidelines,  theory,  tools, model, or advice. This can help to compare and generalize future research on SE practices for AI/ML systems.
+
+Fails to mention the work of Kumeno, despite being submitted to arXiv 9 months later.
+
+First uses DB search, then snowballing. 30+25 papers reviewed total.
+
+Provides tables for "SE approaches, processes, practices, or tools reported", but only for areas for testing, configuration management, and design.
+
+Looks at reported challenges vs proposed solutions. Many proposed solutions are not tested in industrial settings. Most proposed solutions are related to testing. 
+
+Investigates settings in which the primary studies were conducted (research institution, small company, large company, etc)
+
+More rigorous than Kumeno. Study performed by 3 researchers, coding process reviewed by two researchers.},
   eprint        = {2011.03751},
   file          = {:http\://arxiv.org/pdf/2011.03751v1:PDF},
-  keywords      = {cs.SE, cs.AI},
+  keywords      = {cs.SE, cs.AI, related},
   primaryclass  = {cs.SE},
   priority      = {prio2},
   readstatus    = {skimmed},
@@ -379,6 +370,7 @@ Mapped practices to chapters of SWEBOK, similarly to Kumeno,  although with a mo
   year      = {2014},
   address   = {Los Alamitos, CA},
   isbn      = {0769551661},
+  keywords  = {background},
 }
 
 @Article{Lwakatare2020,
@@ -392,6 +384,7 @@ Mapped practices to chapters of SWEBOK, similarly to Kumeno,  although with a mo
   comment    = {SLR on SE4ML using a two-dimensional approach, categorizing  challenges according to both  quality  attributes  (adaptability, scalability,privacy and safety) and ML development workflow step (data acquisition, training, evaluation, deployment).
 The authors mentioned the exclusion of grey  literature (GL) as a potential weakness of their study.},
   doi        = {10.1016/j.infsof.2020.106368},
+  keywords   = {related},
   priority   = {prio2},
   publisher  = {Elsevier {BV}},
   readstatus = {skimmed},
@@ -404,6 +397,7 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   year      = {2014},
   publisher = {{ACM} Press},
   doi       = {10.1145/2601248.2601268},
+  keywords  = {guidelines},
 }
 
 @InProceedings{Garousi2016,
@@ -424,8 +418,9 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   year       = {2020},
   pages      = {185--201},
   doi        = {10.1007/978-3-030-64148-1_12},
-  keywords   = {literature review},
+  keywords   = {literature review, related},
   priority   = {prio1},
+  ranking    = {rank3},
   readstatus = {skimmed},
 }
 
@@ -457,6 +452,7 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   year      = {2021},
   pages     = {210--218},
   doi       = {10.1007/978-3-030-67292-8_17},
+  keywords  = {related},
   priority  = {prio3},
 }
 
@@ -492,6 +488,7 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
 - questionnaire for practitioners at different types of institutions with quantitative analysis
 - analyzes which practices identified in MLR are actually adopted and relationship with other variables},
   doi        = {10.1145/3382494.3410681},
+  keywords   = {background, related},
   priority   = {prio1},
   readstatus = {skimmed},
 }
@@ -530,9 +527,10 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   pages      = {363},
   volume     = {11},
   doi        = {10.3390/info11070363},
-  keywords   = {systematic literature review},
+  keywords   = {systematic literature review, related},
   priority   = {prio2},
   publisher  = {{MDPI} {AG}},
+  ranking    = {rank5},
   readstatus = {skimmed},
 }
 
@@ -545,7 +543,7 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   archiveprefix = {arXiv},
   eprint        = {2102.07574},
   file          = {:http\://arxiv.org/pdf/2102.07574v1:PDF},
-  keywords      = {cs.SE, cs.AI, cs.LG},
+  keywords      = {cs.SE, cs.AI, cs.LG, related},
   primaryclass  = {cs.SE},
   priority      = {prio2},
 }
@@ -560,24 +558,11 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   comment       = {- Looks at broad topic of SE for AI},
   eprint        = {2105.01984},
   file          = {:http\://arxiv.org/pdf/2105.01984v2:PDF},
-  keywords      = {cs.SE, cs.AI, cs.LG, D.2; I.2, systematic mapping study},
+  keywords      = {cs.SE, cs.AI, cs.LG, D.2; I.2, systematic mapping study, related},
   primaryclass  = {cs.SE},
   priority      = {prio1},
   ranking       = {rank5},
   readstatus    = {skimmed},
-}
-
-@Article{Borg2018,
-  author        = {Markus Borg and Cristofer Englund and Krzysztof Wnuk and Boris Duran and Christoffer Levandowski and Shenjian Gao and Yanwen Tan and Henrik Kaijser and Henrik Lönn and Jonas Törnqvist},
-  title         = {Safely Entering the Deep: A Review of Verification and Validation for Machine Learning and a Challenge Elicitation in the Automotive Industry},
-  year          = {2018},
-  month         = dec,
-  abstract      = {Deep Neural Networks (DNN) will emerge as a cornerstone in automotive software engineering. However, developing systems with DNNs introduces novel challenges for safety assessments. This paper reviews the state-of-the-art in verification and validation of safety-critical systems that rely on machine learning. Furthermore, we report from a workshop series on DNNs for perception with automotive experts in Sweden, confirming that ISO 26262 largely contravenes the nature of DNNs. We recommend aerospace-to-automotive knowledge transfer and systems-based safety approaches, e.g., safety cage architectures and simulated system test cases.},
-  archiveprefix = {arXiv},
-  eprint        = {1812.05389},
-  file          = {:http\://arxiv.org/pdf/1812.05389v1:PDF},
-  keywords      = {cs.SE, systematic review},
-  primaryclass  = {cs.SE},
 }
 
 @Report{algorithmia2020,
@@ -605,7 +590,7 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
   archiveprefix = {arXiv},
   eprint        = {2105.12422},
   file          = {:http\://arxiv.org/pdf/2105.12422v1:PDF},
-  keywords      = {cs.SE, systematic literature review},
+  keywords      = {cs.SE, systematic literature review, related},
   primaryclass  = {cs.SE},
 }
 
@@ -619,6 +604,54 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
 
 "Results show that the majority of companies are still at the very starting point when it comes to the implementation of respective solutions},
   doi       = {10.1007/978-3-030-21451-7_22},
+  keywords  = {background},
+}
+
+@TechReport{itu2018,
+  author      = {Unknown},
+  institution = {International Telecommunication Union},
+  title       = {Assessing the {Economic} {Impact} of {Artificial} {Intelligence}},
+  year        = {2018},
+  month       = sep,
+  doi         = {https://doi.org/11.1002/pub/81202956-en},
+  keywords    = {background},
+  url         = {http://handle.itu.int/11.1002/pub/81202956-en},
+}
+
+@Article{Kiraly2021,
+  author        = {Franz J. Király and Markus Löning and Anthony Blaom and Ahmed Guecioueur and Raphael Sonabend},
+  title         = {Designing Machine Learning Toolboxes: Concepts, Principles and Patterns},
+  year          = {2021},
+  month         = jan,
+  abstract      = {Machine learning (ML) and AI toolboxes such as scikit-learn or Weka are workhorses of contemporary data scientific practice -- their central role being enabled by usable yet powerful designs that allow to easily specify, train and validate complex modeling pipelines. However, despite their universal success, the key design principles in their construction have never been fully analyzed. In this paper, we attempt to provide an overview of key patterns in the design of AI modeling toolboxes, taking inspiration, in equal parts, from the field of software engineering, implementation patterns found in contemporary toolboxes, and our own experience from developing ML toolboxes. In particular, we develop a conceptual model for the AI/ML domain, with a new type system, called scientific types, at its core. Scientific types capture the scientific meaning of common elements in ML workflows based on the set of operations that we usually perform with them (i.e. their interface) and their statistical properties. From our conceptual analysis, we derive a set of design principles and patterns. We illustrate that our analysis can not only explain the design of existing toolboxes, but also guide the development of new ones. We intend our contribution to be a state-of-art reference for future toolbox engineers, a summary of best practices, a collection of ML design patterns which may become useful for future research, and, potentially, the first steps towards a higher-level programming paradigm for constructing AI.},
+  archiveprefix = {arXiv},
+  eprint        = {2101.04938},
+  file          = {:http\://arxiv.org/pdf/2101.04938v1:PDF},
+  keywords      = {cs.SE, cs.LG},
+  primaryclass  = {cs.SE},
+}
+
+@Article{Shahin2017,
+  author    = {Mojtaba Shahin and Muhammad Ali Babar and Liming Zhu},
+  title     = {Continuous Integration, Delivery and Deployment: A Systematic Review on Approaches, Tools, Challenges and Practices},
+  year      = {2017},
+  pages     = {3909--3943},
+  volume    = {5},
+  doi       = {10.1109/access.2017.2685629},
+  keywords  = {background, related},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Rodriguez2017,
+  author    = {Pilar Rodr{\'{\i}}guez and Alireza Haghighatkhah and Lucy Ellen Lwakatare and Susanna Teppola and Tanja Suomalainen and Juho Eskeli and Teemu Karvonen and Pasi Kuvaja and June M. Verner and Markku Oivo},
+  title     = {Continuous deployment of software intensive products and services: A systematic mapping study},
+  year      = {2017},
+  month     = {jan},
+  pages     = {263--291},
+  volume    = {123},
+  doi       = {10.1016/j.jss.2015.12.015},
+  keywords  = {background, related},
+  publisher = {Elsevier {BV}},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
@@ -628,4 +661,6 @@ The authors mentioned the exclusion of grey  literature (GL) as a potential weak
 1 SearchGroup:Literature reviews\;0\;review|state of the art\;0\;1\;1\;0x8a8a8aff\;\;\;;
 1 SearchGroup:Federated learning\;0\;federated\;0\;0\;1\;0x8a8a8aff\;\;\;;
 1 KeywordGroup:Background information\;0\;keywords\;background\;0\;0\;1\;0x8a8a8aff\;\;\;;
+1 KeywordGroup:Guidelines\;0\;keywords\;guidelines\;0\;0\;1\;0x8a8a8aff\;\;\;;
+1 KeywordGroup:Related work\;0\;keywords\;related\;0\;0\;1\;0x8a8a8aff\;\;\;;
 }

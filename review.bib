@@ -221,20 +221,6 @@
   keywords = {seed paper},
 }
 
-@Article{Zhao2018,
-  author        = {Shuai Zhao and Manoop Talasila and Guy Jacobson and Cristian Borcea and Syed Anwar Aftab and John F Murray},
-  title         = {Packaging and Sharing Machine Learning Models via the Acumos AI Open Platform},
-  year          = {2018},
-  month         = oct,
-  abstract      = {Applying Machine Learning (ML) to business applications for automation usually faces difficulties when integrating diverse ML dependencies and services, mainly because of the lack of a common ML framework. In most cases, the ML models are developed for applications which are targeted for specific business domain use cases, leading to duplicated effort, and making reuse impossible. This paper presents Acumos, an open platform capable of packaging ML models into portable containerized microservices which can be easily shared via the platform's catalog, and can be integrated into various business applications. We present a case study of packaging sentiment analysis and classification ML models via the Acumos platform, permitting easy sharing with others. We demonstrate that the Acumos platform reduces the technical burden on application developers when applying machine learning models to their business applications. Furthermore, the platform allows the reuse of readily available ML microservices in various business domains.},
-  archiveprefix = {arXiv},
-  comment       = {should read related work section to get overview of current deployment tooling},
-  eprint        = {1810.07159},
-  file          = {:http\://arxiv.org/pdf/1810.07159v1:PDF},
-  keywords      = {cs.AI, cs.SE},
-  primaryclass  = {cs.AI},
-}
-
 @InProceedings{Karlas2020,
   author    = {Bojan Karla{\v{s}} and Matteo Interlandi and Cedric Renggli and Wentao Wu and Ce Zhang and Deepak Mukunthu Iyappan Babu and Jordan Edwards and Chris Lauren and Andy Xu and Markus Weimer},
   booktitle = {Proceedings of the 26th {ACM} {SIGKDD} International Conference on Knowledge Discovery {\&} Data Mining},
@@ -244,6 +230,34 @@
   publisher = {{ACM}},
   doi       = {10.1145/3394486.3403290},
   priority  = {prio3},
+}
+
+@Article{Rahman2019,
+  author        = {Md Saidur Rahman and Emilio Rivera and Foutse Khomh and Yann-Gaël Guéhéneuc and Bernd Lehnert},
+  title         = {Machine Learning Software Engineering in Practice: An Industrial Case Study},
+  year          = {2019},
+  month         = jun,
+  abstract      = {SAP is the market leader in enterprise software offering an end-to-end suite of applications and services to enable their customers worldwide to operate their business. Especially, retail customers of SAP deal with millions of sales transactions for their day-to-day business. Transactions are created during retail sales at the point of sale (POS) terminals and then sent to some central servers for validations and other business operations. A considerable proportion of the retail transactions may have inconsistencies due to many technical and human errors. SAP provides an automated process for error detection but still requires a manual process by dedicated employees using workbench software for correction. However, manual corrections of these errors are time-consuming, labor-intensive, and may lead to further errors due to incorrect modifications. This is not only a performance overhead on the customers' business workflow but it also incurs high operational costs. Thus, automated detection and correction of transaction errors are very important regarding their potential business values and the improvement in the business workflow. In this paper, we present an industrial case study where we apply machine learning (ML) to automatically detect transaction errors and propose corrections. We identify and discuss the challenges that we faced during this collaborative research and development project, from three distinct perspectives: Software Engineering, Machine Learning, and industry-academia collaboration. We report on our experience and insights from the project with guidelines for the identified challenges. We believe that our findings and recommendations can help researchers and practitioners embarking into similar endeavors.},
+  archiveprefix = {arXiv},
+  comment       = {Deployment:
+- developed a custom framework for deployment
+- deployed as a web API service
+- model management},
+  eprint        = {1906.07154},
+  file          = {:http\://arxiv.org/pdf/1906.07154v1:PDF},
+  keywords      = {cs.SE, cs.LG},
+  primaryclass  = {cs.SE},
+  priority      = {prio3},
+}
+
+@Article{Mariani2021,
+  author    = {Stefano Mariani and Maarten M. H. Lahr and Esther Metting and Eloisa Vargiu and Franco Zambonelli},
+  journal   = {International Journal of Intelligent Systems},
+  title     = {Developing an {ML} pipeline for asthma and {COPD}: The case of a Dutch primary care service},
+  year      = {2021},
+  month     = {jul},
+  doi       = {10.1002/int.22568},
+  publisher = {Wiley},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
