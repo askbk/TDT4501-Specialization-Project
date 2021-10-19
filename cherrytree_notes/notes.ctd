@@ -1012,17 +1012,17 @@ Use Wohlin 2014 as guideline
 search “mlops deployment” and “machine learning deployment” on google
 use top 100 results. Continue if results on last page are still relevant.</rich_text>
       </node>
-      <node name="Study selection" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634558351" ts_lastsave="1634558946">
+      <node name="Study selection" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634558351" ts_lastsave="1634649584">
         <rich_text scale="h2">White literature selection criteria
 </rich_text>
         <rich_text>
 </rich_text>
         <rich_text scale="h3">WL inclusion criteria</rich_text>
         <rich_text>
+- Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
 - In english
 - Peer reviewed and published in either journal, conference proceedings or workshop
 - Published after 2010
-- Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes
 - Available online
 - Primary study</rich_text>
         <rich_text scale="h2">
