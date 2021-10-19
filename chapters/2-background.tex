@@ -1,16 +1,19 @@
 \chapter{Background}
+\label{ch:background}
 This chapter will briefly explain status of machine learning today, technical debt in ML systems and motivate the need for MLOps.
 
 \section{Machine Learning}
 Adoption of \acrshort{ml} is growing, and is providing value in a wide array of different fields.
 \textcite{mckinsey2020} reports that 50\% of businesses surveyed have adopted \acrshort{ai} in some business function.
-However, most companies are still in the very early stages of incorporating \acrshort{ml} in their business processes [cite].
+However, most companies are still in the very early stages of incorporating \acrshort{ml} in their business processes \cite{Schloegl2019}.
+\todo[inline]{Add a bit more on adoption of ML. Maybe technology developments.}
 
 \section{Software Engineering for ML systems}
+\todo{Add softer introduction..}
 ML systems accrue a lot of \gls{technical_debt} according to \textcite{Sculley2015}.
 This is because in addition to the technical debt incurred by being a software system, with the usual tech debt associated with code, ML systems also have entangled data dependencies.
 The Software Engineering for Machine Learning movement aims to bring already well-established best practices from the SE domain to the field of ML [cite].
-[Talk about SWEBOK and AI?]
+\todo{Add some more content.}
 
 \section{DevOps for ML systems -- \emph{MLOps}}
 DevOps is a subset of software engineering focused on tightening the coupling between development and operation of software systems.
@@ -21,6 +24,7 @@ This is because existing DevOps practices are not sufficient for ML systems, whi
 ML systems not only have code dependencies, but have data dependencies in addition, which may impose the requirement of data monitoring (for data distributions shift), continuous training or automatic retraining, etc.
 
 \section{Deploying ML systems}
+\todo{Not sure if this belongs in the Background chapter. Seems odd to present my area of research as background information.}
 The deployment step consists of taking the system from a development environment (e.g. local development machine) to a production environment (e.g. a server).
 For traditional software systems, this process has seen widespread adoption of automated integration and deployment pipelines (CI/CD) for many years [cite].
 However, the deployment of ML systems has yet to see such widespread use of CI/CD for multiple different reasons:
