@@ -1,0 +1,79 @@
+\chapter{Research Design and Implementation}
+\label{ch:research_design_and_implementation}
+This chapter will discuss the motivation, design and implementation of the SLR.
+The chapter is structured as follows.
+In \cref{sec:research_motivation} the impact and usefulness of the study is argued.
+\cref{sec:research_questions} presents the research questions of the study.
+\cref{sec:research_method} outlines the research method and design of the study.
+Finally, \cref{sec:research_implementation} accounts for how the study was conducted.
+
+\section{Research Motivation}
+\label{sec:research_motivation}
+As outlined in \cref{ch:background}, industry adoption of ML is still in its early stages and rapidly growing.
+The SE aspect of ML is an active field of research, with the vast majority of work having been done only in the past five years.
+As reported by earlier literature studies in the field (see \cref{ch:related_work}), deployment of ML is an area which presents real challenges to practitioners.
+Tackling deployment challenges requires adopting good practices as well as utilizing suitable tooling.
+Much of the earlier work has largely had a broad scope, with goals of mapping out broad SE challenges and practices for ML.
+Further, earlier work has had a focus on reviewing the academic literature, ignoring the vast body of practitioner knowledge found in the GL.
+To summarize, this study is motivated by three factors.
+\begin{itemize}
+    \item Researching ML deployment specifically, and not as part of a broader study of SE for ML.
+    \item Including more practitioner knowledge in the form of GL.
+    \item Putting more focus on tooling by identifying what needs are fulfilled by current tooling and what is missing from tooling.
+\end{itemize}
+
+\section{Research Questions}
+\label{sec:research_questions}
+
+\section{Research Method and Design}
+\label{sec:research_method}
+This study is a multivocal literature study (MLR) largely based on the guidelines in \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
+
+\subsection{Search Strategy}
+\subsubsection{White Literature}
+Initial string-based searches in digital libraries failed to produce adequately relevant articles for the topic at hand, thus motivating the use of snowballing as an alternative approach for identifying candidate papers.
+The snowballing procedure followed the process proposed by \textcite{Wohlin2014}, with the exception of limiting forward and backward snowballing to a single iteration each.
+
+\subsubsection{Grey Literature}
+Pilot searches using Google revealed that adequately relevant and recent results were found using the search string "mlops deployment".
+Based on the outlined GL search guidelines in \cite{Garousi2016}, the Top N-approach was selected with the search string "mlops deployment" and $N=100$.
+
+\subsection{Study Selection}
+\subsubsection{White Literature}
+Inclusion criteria for WL:
+\begin{itemize}
+    \item Written in English
+    \item Published in a peer-reviewed journal, conference or workshop
+    \item Published after 2010
+    \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
+    \item Available online
+    \item Primary study
+\end{itemize}
+
+Exclusion criteria for WL:
+\begin{itemize}
+    \item One of the inclusion criteria is not satisfied
+\end{itemize}
+
+\subsubsection{Grey Literature}
+Inclusion criteria for GL:
+\begin{itemize}
+    \item Written in English
+    \item Not published in a peer-reviewed journal, conference or workshop
+    \item Published after 2010
+    \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
+    \item Available online
+\end{itemize}
+
+Exclusion criteria for GL:
+\begin{itemize}
+    \item One of the inclusion criteria is not satisfied
+\end{itemize}
+
+\subsection{Study Quality Assessment}
+\subsection{Data Extraction}
+\subsection{Data Analysis}
+\subsection{Data Synthesis}
+
+\section{Research Implementation}
+\label{sec:research_implementation}
