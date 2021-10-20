@@ -864,23 +864,31 @@ don't read whole text immediately:
 - Look at evaluation checklists in Oates
 </rich_text>
     </node>
-    <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1634561214">
-      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634560159">
-        <rich_text>Main question: What is the state of the art and state of the practice in automating ML deployment?
+    <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1634728737">
+      <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634719554">
+        <rich_text>Main question: What is the state of the art and state of the practice in ML deployment?
 
 Focusing on automation tooling means that the study is building upon earlier work instead of repeating it.
 
 sub questions:
-1. How are ML models deployed in real-world applications?
+1. How is ML model deployment handled in real-world applications? (non-lab environments)
 2. What are the main challenges and pain points in ML model deployment?
-3. What tools are used to automatically deploy ML models?
-4. Are there any feature gaps in the tooling used to automatically deploy ML models?
+3. What tools are used to deploy ML models?
+4. Are there any feature gaps in the tooling used to deploy ML models?
 
 Expected output:
-1. Gives an overview of the automated deployment process. This will describe pipelines for CI/CD/CT and the infrastructure that models are deployed on.
-2. Identifies what challenges are currently obstructing the use of automated deployments
-3. An overview of what tooling features are used for automatically deploying ML models. What tools are used for CI/CD/CT?
-4. Identification of requirements/needs in automated ML deployment that are not covered by current tooling. Basically features that are required to solve challenges in SQ2.</rich_text>
+1. Gives an overview of the deployment process and tooling.
+2. Identifies what challenges are currently obstructing deployments
+3. An overview of what tooling features are used for deploying ML models. What tools are used for CI/CD/CT?
+4. Identification of requirements/needs in automated ML deployment that are not covered by current tooling. Basically features that are required to solve challenges in SQ2.
+
+
+What to include in “deployment”:
+- CI/CD-related stuff
+- Infrastructure management
+- Configuration management
+- model/data monitoring
+- retraining</rich_text>
       </node>
       <node name="Outputs of earlier work" unique_id="23" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634026500" ts_lastsave="1634043222">
         <rich_text justification="left"></rich_text>
@@ -1012,7 +1020,12 @@ Use Wohlin 2014 as guideline
 search “mlops deployment” and “machine learning deployment” on google
 use top 100 results. Continue if results on last page are still relevant.</rich_text>
       </node>
-      <node name="Study selection" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634558351" ts_lastsave="1634649584">
+      <node name="Quality assessment" unique_id="29" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634721665" ts_lastsave="1634724942">
+        <rich_text>White literature study quality assessment form
+yes=1, partly=0.5, no=0
+</rich_text>
+      </node>
+      <node name="Study selection" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634558351" ts_lastsave="1634720451">
         <rich_text scale="h2">White literature selection criteria
 </rich_text>
         <rich_text>
@@ -1023,8 +1036,7 @@ use top 100 results. Continue if results on last page are still relevant.</rich_
 - In english
 - Peer reviewed and published in either journal, conference proceedings or workshop
 - Published after 2010
-- Available online
-- Primary study</rich_text>
+- Available online</rich_text>
         <rich_text scale="h2">
 </rich_text>
         <rich_text>
@@ -1041,15 +1053,50 @@ Grey literature selection criteria</rich_text>
 </rich_text>
         <rich_text scale="h3">GL inclusion criteria</rich_text>
         <rich_text>
-- Mostly the same as WL criteria
-- Not peer-reviewed
+- Mostly the same as WL criteria, but doesn't need to be peer-reviewed
 
 </rich_text>
         <rich_text scale="h3">GL exclusion criteria</rich_text>
         <rich_text>
 - Does not satisfy all inclusion criteria</rich_text>
       </node>
-      <node name="Data extraction" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634561214" ts_lastsave="1634561217"/>
+      <node name="Data extraction" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634561214" ts_lastsave="1634728664">
+        <rich_text scale="h3">Data extraction form:</rich_text>
+        <rich_text>
+- Source type (WL/GL)
+- publication date
+- challenges reported
+- solution
+   → what challenge is addressed?
+   → what is the solution?
+   → is the solution only proposed or actually implemented? if so, what was the outcome?
+- tools used
+   → what tools were used for deployment?
+- requirements
+   → do the authors state functional/non-functional requirements for deployment?
+   → 
+- gaps
+   → is any technical shortcoming either implicitly or explicitly reported?
+   → what is the shortcoming?
+   → how was the shortcoming inferred?
+
+
+
+</rich_text>
+        <rich_text scale="h2">Data extraction process</rich_text>
+        <rich_text>
+1. for single researcher: get supervisor to perform data extraction on random sample and cross-check results. or do test-retest, i.e. do the data extraction twice for random subset.
+2. authors should be contacted for missing/ambiguous information</rich_text>
+      </node>
+      <node name="Data synthesis" unique_id="30" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634728737" ts_lastsave="1634729383">
+        <rich_text>Will use descriptive synthesis
+Tabulate extracted information in a manner consistent with RQs
+Tables should be structured to highlight similarities and differences in study outcomes
+Should identify whether studies are consistent or inconsistent (homogeneous vs heterogeneous)
+Line of argument synthesis
+
+Sensitivity analysis for qualitative synthesis: should consider what impact excluding poor studies or studies of particular type would have on conclusions.</rich_text>
+      </node>
     </node>
   </node>
 </cherrytree>
