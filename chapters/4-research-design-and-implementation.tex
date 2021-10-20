@@ -24,6 +24,16 @@ To summarize, this study is motivated by three factors.
 
 \section{Research Questions}
 \label{sec:research_questions}
+The overarching research question of this study is "\textbf{What is the state of the art and state of the practice in ML deployment?}".
+The focus will be on tooling and trying to identify feature gaps reported in studies where model deployment is discussed.
+To support the main research question, four subquestions have been formulated:
+\begin{itemize}
+    \item \textbf{RQ1: How is ML model deployment handled in real-world applications?}
+    \item \textbf{RQ2: What are the main challenges and pain points in ML model deployment?}
+    \item \textbf{RQ3: What tools are used to deploy ML models?}
+    \item \textbf{RQ4: Are there any feature gaps in the tooling used to deploy ML models?}
+\end{itemize}
+
 
 \section{Research Method and Design}
 \label{sec:research_method}
@@ -47,7 +57,6 @@ Inclusion criteria for WL:
     \item Published after 2010
     \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
     \item Available online
-    \item Primary study
 \end{itemize}
 
 Exclusion criteria for WL:
@@ -59,7 +68,6 @@ Exclusion criteria for WL:
 Inclusion criteria for GL:
 \begin{itemize}
     \item Written in English
-    \item Not published in a peer-reviewed journal, conference or workshop
     \item Published after 2010
     \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
     \item Available online
@@ -72,6 +80,48 @@ Exclusion criteria for GL:
 
 \subsection{Study Quality Assessment}
 \subsection{Data Extraction}
+In order to answer the research questions, sufficient data must be gathered from the literature.
+Thus, the following data extraction form was designed:
+
+\begin{itemize}
+    \item Source type (WL/GL)
+    \item Publication date
+    \item Process
+    \begin{itemize}
+        \item What was the deployment process?
+    \end{itemize}
+    \item Tools
+    \begin{itemize}
+        \item What tools were used for deployment?
+        \item What tooling features were used for deployment?
+    \end{itemize}
+    \item Challenges
+    \begin{itemize}
+        \item Is any deployment challenge reported?
+        \item What was the challenge?
+    \end{itemize}
+    \item Solutions
+    \begin{itemize}
+        \item What challenge is addressed?
+        \item What is the solution?
+        \item Is the solution merely theoretical (proposed), or do the authors implement it?
+        \item If the solution was implemented, what was the outcome?
+    \end{itemize}
+    \item Requirements
+    \begin{itemize}
+        \item What functional requirements do the authors state for deployment tooling?
+        \item What non-functional requirements do the authors state for deployment tooling?
+        \item What is the reasoning for the stated requirements?
+    \end{itemize}
+    \item Gaps
+    \item \begin{itemize}
+        \item Is any shortcoming in deployment tooling either implicitly or excplicitly reported?
+        \item What are the shortcomings?
+        \item How was the shortcoming inferred from the literature (by me)?
+    \end{itemize}
+    \item Other
+\end{itemize}
+
 \subsection{Data Analysis}
 \subsection{Data Synthesis}
 
