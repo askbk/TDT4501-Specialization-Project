@@ -34,10 +34,9 @@ To support the main research question, four subquestions have been formulated:
     \item \textbf{RQ4: Are there any feature gaps in the tooling used to deploy ML models?}
 \end{itemize}
 
-
 \section{Research Method and Design}
 \label{sec:research_method}
-This study is a multivocal literature study (MLR) largely based on the guidelines in \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
+This study is a multivocal literature review (MLR) based on the guidelines of \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
 
 \subsection{Search Strategy}
 \subsubsection{White Literature}
@@ -50,6 +49,7 @@ Based on the outlined GL search guidelines in \cite{Garousi2016}, the Top N-appr
 
 \subsection{Study Selection}
 \subsubsection{White Literature}
+\label{subsubsec:white_literature_selection_criteria}
 Inclusion criteria for WL:
 \begin{itemize}
     \item Written in English
@@ -58,7 +58,6 @@ Inclusion criteria for WL:
     \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
     \item Available online
 \end{itemize}
-
 Exclusion criteria for WL:
 \begin{itemize}
     \item One of the inclusion criteria is not satisfied
@@ -72,7 +71,6 @@ Inclusion criteria for GL:
     \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
     \item Available online
 \end{itemize}
-
 Exclusion criteria for GL:
 \begin{itemize}
     \item One of the inclusion criteria is not satisfied
@@ -86,6 +84,7 @@ Thus, the following data extraction form was designed:
 \begin{itemize}
     \item Source type (WL/GL)
     \item Publication date
+    \item Context
     \item Process
     \begin{itemize}
         \item What was the deployment process?
@@ -114,7 +113,7 @@ Thus, the following data extraction form was designed:
         \item What is the reasoning for the stated requirements?
     \end{itemize}
     \item Gaps
-    \item \begin{itemize}
+    \begin{itemize}
         \item Is any shortcoming in deployment tooling either implicitly or excplicitly reported?
         \item What are the shortcomings?
         \item How was the shortcoming inferred from the literature (by me)?
@@ -122,8 +121,34 @@ Thus, the following data extraction form was designed:
     \item Other
 \end{itemize}
 
-\subsection{Data Analysis}
 \subsection{Data Synthesis}
+The data extraction form is designed to extract the information required to answer the research question.
+As most papers will likely not address all research questions that this review is concerned with, the the qualitative approach of \textit{line of argument} synthesis will be used to synthesize the data, as suggested in \cite{Kitchenham07guidelinesfor}.
 
 \section{Research Implementation}
 \label{sec:research_implementation}
+
+\subsection{Search}
+\subsubsection{White Literature}
+In order to start the WL snowballing, an initial set of studies was assembled from manual search, as well as looking at the reference lists of earlier work, such as \cite{John2021} and \cite{MartinezFernandez2021}.
+The start set can be found in table [table].
+
+The WL study selection criteria found in \cref{subsubsec:white_literature_selection_criteria} were applied to the start set, resulting in [table].
+
+Paragraph about backward snowballing iteration.
+
+Paragraph about forward snowballing iteration.
+
+Conclude WL search.
+
+\subsubsection{Grey Literature}
+
+\subsection{Data Extraction}
+Write something about data extraction
+
+\subsection{Data Synthesis}
+How did I synthesize the data?
+
+\begin{description}
+\item[hello:] world
+\end{description}
