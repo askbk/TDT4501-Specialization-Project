@@ -8,6 +8,41 @@
   editor     = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
   volume     = {28},
   abstract   = {Machine learning offers a fantastically powerful toolkit for building useful complexprediction systems quickly. This paper argues it is dangerous to think ofthese quick wins as coming for free. Using the software engineering frameworkof technical debt, we find it is common to incur massive ongoing maintenancecosts in real-world ML systems. We explore several ML-specific risk factors toaccount for in system design. These include boundary erosion, entanglement,hidden feedback loops, undeclared consumers, data dependencies, configurationissues, changes in the external world, and a variety of system-level anti-patterns.},
+  comment    = {Discusses various types of technical debt specific to (or especially prominent in) ML systems:
+- Complex models erode boundaries
+   -  Entanglement
+      - Changing anything changes everything
+   - Correction cascades
+      - Model interdependency
+- Undeclared consumers (visibility debt)
+   - Don’t know about consumers of data
+- Data dependencies cost more than code dependencies
+   - Unstable data dependencies
+   - Underutilized data dependencies
+- Feedback loops
+   - Direct feedback loops
+   - Hidden feedback loops
+- ML-system antipatterns
+   - Glue code
+   - Pipeline jungles
+   - Dead experimental code paths
+   - Abstraction debt
+- Common smells:
+   - Plain-Old-Data type smell
+   - Multiple-language smell
+   - Prototype smell
+- Configuration debt
+- Dealing with changes in the external world
+   - Fixed thresholds in dynamic systems
+   - Monitoring and testing
+      - Prediction bias
+      - Action limits
+      - Up-stream producers
+- Other areas of ml-related debt:
+   - Data testing debt
+   - Reproducibility debt
+   - Process management debt
+   - Cultural debt},
   keywords   = {background},
   ranking    = {rank5},
   readstatus = {read},
@@ -22,6 +57,17 @@
   pages         = {arXiv:2011.09926},
   abstract      = {In recent years, machine learning has received increased interest both as an academic research field and as a solution for real-world business problems. However, the deployment of machine learning models in production systems can present a number of issues and concerns. This survey reviews published reports of deploying machine learning solutions in a variety of use cases, industries and applications and extracts practical considerations corresponding to stages of the machine learning deployment workflow. Our survey shows that practitioners face challenges at each stage of the deployment. The goal of this paper is to layout a research agenda to explore approaches addressing these challenges.},
   archiveprefix = {arXiv},
+  comment       = {- objective: map out challenges in ML deployment among practitioners
+- only includes case studies
+   - good for getting in-depth practitioner perspective, but not comprehensive enough for an MLR
+
+include data validation in ml pipeline
+
+Monitoring of evolving input data, prediction bias and overall performance of ML models is an open problem.
+
+end-to-end platforms do not fit needs well because the final ML solution is so sensitive to the problem particulars
+
+there is an overlap between choice of metrics for monitoring and validation},
   eid           = {arXiv:2011.09926},
   eprint        = {2011.09926},
   file          = {:http\://arxiv.org/pdf/2011.09926v2:PDF},
@@ -140,6 +186,21 @@
   title      = {Architecting AI Deployment: A Systematic Review of State-of-the-Art and State-of-Practice Literature},
   year       = {2021},
   pages      = {14--29},
+  comment    = {- apparent objective of the paper:
+  - conduct MLR in order to:
+    - create a framework with steps for deploying models in the SOTA
+    - map out current challenges
+- does not review or mention earlier literature reviews in the field
+- draws upon both white and grey literature
+  - thirteen examples of white literature included
+  - only six examples of grey literature included
+  - somewhat arbitrary filtering, ("selected 6 of 16 that benefited our research")
+
+
+Differences from my paper:
+- Less GL coverage
+- Some arbitrary/undocumented filtering decisions
+- Focuses on creating a high level framework for all steps the MLOps pipeline},
   doi        = {10.1007/978-3-030-67292-8_2},
   issn       = {1865-1348},
   keywords   = {related},
@@ -179,6 +240,45 @@
   month         = jun,
   abstract      = {We describe lessons learned from developing and deploying machine learning models at scale across the enterprise in a range of financial analytics applications. These lessons are presented in the form of antipatterns. Just as design patterns codify best software engineering practices, antipatterns provide a vocabulary to describe defective practices and methodologies. Here we catalog and document numerous antipatterns in financial ML operations (MLOps). Some antipatterns are due to technical errors, while others are due to not having sufficient knowledge of the surrounding context in which ML results are used. By providing a common vocabulary to discuss these situations, our intent is that antipatterns will support better documentation of issues, rapid communication between stakeholders, and faster resolution of problems. In addition to cataloging antipatterns, we describe solutions, best practices, and future directions toward MLOps maturity.},
   archiveprefix = {arXiv},
+  comment       = {Antipatterns by MLOps stage:
+- Design and development:
+  - Data Leakage
+      - Peek-a-boo antipattern: use temporally unavailable data, e.g. data that has a lag between measurement and availability
+      - Temporal leakage anipattern: Not sampling training and testing data sequentially, leading to high correlation between sets
+      - Oversampling leakage pattern: Oversampling before splitting instead of after splitting
+      - Metrics-from-beyond antipattern: Metrics (mean, variance, etc) for training+test are measured before splitting and fed to the model
+   - Tuning-under-the-carpet
+      - Hyperparameters not tuned in a well-documented and reproducible manner
+- Performance evaluation
+   - PEST
+      - Perceived Empirical SuperioriTy
+      - Favoring newer and more complicated models over simpler models
+   - Bad credit assignment
+      - Failure to appropriately identify source of performance gains in a modeling pipelin
+      - Model improvements, or just better data preprocessing?
+   - Grade-your-own-exam
+      - modeling projects often begin as curiosity-driven iterations, without proper third party review
+      - never properly validated model
+      - repeatedly testing model against same test set => data leakage
+      - evaluation set should be kept completely hidden until development complete
+      - data science teams must establish independent Ground Truth Systems
+        - receives all forecasts/predictions and corresponding input data
+- Deployment and maintenance
+   - Act now, reflect never
+      - Not updating, filtering and reflecting or manual inspection of models in production
+      - Not monitoring model predictions, intervening with obvious bad predictions
+      - Concept drift, adversarial attacks, irrelevant or easily recognisable erroneous predictions
+   - Set & forget
+      - Concept drift not taken into account after model deployment
+   - Communicate with ambivalence
+      - not communicating information about model uncertainty
+      - more difficult to introduce compensatory/remedial pipelines when something goes wrong
+      - properly calibrating and communicating model uncertainty increases explainability and trust
+   - Data crisis as a service
+      - data manually extracted and hygiened without recording the extraction or hygiene steps
+      - typically sensitive data/complex ownership
+      - data preparation steps are effectively swept under the carpet and must be completely reinvented later
+         - often gives surprising impact on model because steps were not identical},
   eprint        = {2107.00079},
   file          = {:http\://arxiv.org/pdf/2107.00079v1:PDF},
   keywords      = {cs.LG},
