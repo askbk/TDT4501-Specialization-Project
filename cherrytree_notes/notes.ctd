@@ -197,9 +197,9 @@ A lot of papers: </rich_text>
 On conducting MLRs (28 pages): </rich_text>
         <rich_text link="webs https://arxiv.org/ftp/arxiv/papers/1707/1707.02553.pdf">Guidelines for conducting MLRs-Sept 15-2.docx (arxiv.org)</rich_text>
       </node>
-      <node name="Seed papers" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1634555883">
+      <node name="Seed papers" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634115427" ts_lastsave="1635250497">
         <rich_text justification="left"></rich_text>
-        <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="187,0,52,172,877,52">
+        <table char_offset="0" justification="left" col_min="97" col_max="97" col_widths="202,0,67,172,1702,52">
           <row>
             <cell>Software engineering challenges of deep learning</cell>
             <cell>Arpteg et al.</cell>
@@ -401,14 +401,6 @@ crucial."
 Category “deployment and migration” is quite common question type.
 “Behavior inconsistency often occurs when migrating a model between different frameworks or deploying a model to a different platform (e.g., Android, IOS, web browsers). However, it is hard to uncover and diagnose such behavioral inconsistency due to a lack of tool support.”</cell>
             <cell>18</cell>
-          </row>
-          <row>
-            <cell>Packaging and Sharing Machine Learning Models via the Acumos AI Open Platform</cell>
-            <cell>Zhao et al.</cell>
-            <cell>2018</cell>
-            <cell>https://arxiv.org/abs/1810.07159</cell>
-            <cell>Presents a new platform for sharing models.</cell>
-            <cell>19</cell>
           </row>
           <row>
             <cell>Machine Learning System Architectural Pattern for Improving Operational Stability</cell>
