@@ -624,7 +624,18 @@ mlops deploy</rich_text>
    → etc?
 - from challenges extracted, pick one to focus on in thesis.</rich_text>
       </node>
-      <node name="26.10.2021" unique_id="32" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1635161521" ts_lastsave="1635161521"/>
+      <node name="26.10.2021" unique_id="32" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1635161521" ts_lastsave="1635238706">
+        <rich_text>- keep in back of mind what can be improved while reviewing
+   → for master
+- description of related work can be short, but need to differentiate my paper from their
+- do quality assessment
+   → exclude papers with too little information
+   → criteria
+      ⇒ design quality?
+      ⇒ research questions
+      ⇒ discussion
+   → give points</rich_text>
+      </node>
     </node>
     <node name="Review protocol" unique_id="21" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1633172830" ts_lastsave="1635160734">
       <node name="Research questions" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634027095" ts_lastsave="1634719554">
@@ -876,7 +887,7 @@ Grey literature selection criteria</rich_text>
 - I will perform selection
 - Any papers I am uncertain about will be discussed with supervisor</rich_text>
       </node>
-      <node name="Data extraction" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634561214" ts_lastsave="1634728664">
+      <node name="Data extraction" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634561214" ts_lastsave="1635237736">
         <rich_text scale="h3">Data extraction form:</rich_text>
         <rich_text>
 - Source type (WL/GL)
@@ -901,8 +912,7 @@ Grey literature selection criteria</rich_text>
 </rich_text>
         <rich_text scale="h2">Data extraction process</rich_text>
         <rich_text>
-1. for single researcher: get supervisor to perform data extraction on random sample and cross-check results. or do test-retest, i.e. do the data extraction twice for random subset.
-2. authors should be contacted for missing/ambiguous information</rich_text>
+1. for single researcher: get supervisor to perform data extraction on random sample and cross-check results. or do test-retest, i.e. do the data extraction twice for random subset.</rich_text>
       </node>
       <node name="Data synthesis" unique_id="30" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1634728737" ts_lastsave="1634729383">
         <rich_text>Will use descriptive synthesis
