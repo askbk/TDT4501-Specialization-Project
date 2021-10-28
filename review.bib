@@ -1,56 +1,15 @@
 % Encoding: UTF-8
 
-@InProceedings{Arpteg2018,
-  author    = {Anders Arpteg and Bjorn Brinne and Luka Crnkovic-Friis and Jan Bosch},
-  title     = {Software Engineering Challenges of Deep Learning},
-  year      = {2018},
-  month     = {aug},
-  publisher = {{IEEE}},
-  doi       = {10.1109/seaa.2018.00018},
-  keywords  = {seed paper},
-}
-
 @InProceedings{Haldar2019,
   author    = {Malay Haldar and Mustafa Abdool and Prashant Ramanathan and Tao Xu and Shulin Yang and Huizhong Duan and Qing Zhang and Nick Barrow-Williams and Bradley C. Turnbull and Brendan M. Collins and Thomas Legrand},
   title     = {Applying Deep Learning to Airbnb Search},
   year      = {2019},
   month     = {jul},
   publisher = {{ACM}},
+  comment   = {- “Towards the beginning of 2017 when we started shipping the TensorFlow models to production, we found no efficient solution to score the models within a Java stack. Typically a back and forth conversion of the data between Java and another language was required and the latency introduced in the process was a blocker for us.”
+- Interoperation of Java, Scala, Tensorflow, Spark, Thrift, AWS},
   doi       = {10.1145/3292500.3330658},
-  keywords  = {seed paper},
-}
-
-@InProceedings{Ishakian2018,
-  author    = {Vatche Ishakian and Vinod Muthusamy and Aleksander Slominski},
-  title     = {Serving Deep Learning Models in a Serverless Platform},
-  year      = {2018},
-  month     = {apr},
-  publisher = {{IEEE}},
-  doi       = {10.1109/ic2e.2018.00052},
-  keywords  = {seed paper},
-}
-
-@InProceedings{Dalmia2020,
-  author    = {Aman Dalmia and Jerome White and Ankit Chaurasia and Vishal Agarwal and Rajesh Jain and Dhruvin Vora and Balasaheb Dhame and Raghu Dharmaraju and Rahul Panicker},
-  title     = {Pest Management In Cotton Farms},
-  year      = {2020},
-  month     = {jul},
-  publisher = {{ACM}},
-  doi       = {10.1145/3394486.3403363},
-  keywords  = {seed paper},
-}
-
-@Article{Stoica2017,
-  author        = {Ion Stoica and Dawn Song and Raluca Ada Popa and David Patterson and Michael W. Mahoney and Randy Katz and Anthony D. Joseph and Michael Jordan and Joseph M. Hellerstein and Joseph E. Gonzalez and Ken Goldberg and Ali Ghodsi and David Culler and Pieter Abbeel},
-  title         = {A Berkeley View of Systems Challenges for AI},
-  year          = {2017},
-  month         = dec,
-  abstract      = {With the increasing commoditization of computer vision, speech recognition and machine translation systems and the widespread deployment of learning-based back-end technologies such as digital advertising and intelligent infrastructures, AI (Artificial Intelligence) has moved from research labs to production. These changes have been made possible by unprecedented levels of data and computation, by methodological advances in machine learning, by innovations in systems software and architectures, and by the broad accessibility of these technologies. The next generation of AI systems promises to accelerate these developments and increasingly impact our lives via frequent interactions and making (often mission-critical) decisions on our behalf, often in highly personalized contexts. Realizing this promise, however, raises daunting challenges. In particular, we need AI systems that make timely and safe decisions in unpredictable environments, that are robust against sophisticated adversaries, and that can process ever increasing amounts of data across organizations and individuals without compromising confidentiality. These challenges will be exacerbated by the end of the Moore's Law, which will constrain the amount of data these technologies can store and process. In this paper, we propose several open research directions in systems, architectures, and security that can address these challenges and help unlock AI's potential to improve lives and society.},
-  archiveprefix = {arXiv},
-  eprint        = {1712.05855},
-  file          = {:http\://arxiv.org/pdf/1712.05855v1:PDF},
-  keywords      = {cs.AI, seed paper},
-  primaryclass  = {cs.AI},
+  groups    = {Start set},
 }
 
 @InCollection{Bosch2021,
@@ -59,8 +18,13 @@
   title     = {Engineering {AI} Systems},
   year      = {2021},
   pages     = {1--19},
+  comment   = {- deployment is highly underestimated area. companies struggle with: monitoring, logging, testing, troubleshooting, resource limitations, significant amounts of glue code
+Primary research challenges identified:
+- federated learning infrastructure: solutions are needed for federated learning and the sharing of model parameters such as neural network weights as well as selected data sets that, for instance, represent cases not well handled by the central model. Federated learning requires an infrastructure to achieve the required quality attributes and to efficiently and securely share models and data.
+- storage and computing infrastructure: many companies use internal infrastructure instead of cloud services. can be because of legal constraints, costs or quality attributes.
+- deployment infrastructure: it is important for a deployment infrastructure to reliably deploy subsequent versions of models, measure their performance, raise warnings and initiate rollbacks in the case of anomalous behaviour.},
   doi       = {10.4018/978-1-7998-5101-1.ch001},
-  keywords  = {seed paper},
+  groups    = {Start set},
 }
 
 @InProceedings{Hummer2019,
@@ -69,61 +33,15 @@
   year      = {2019},
   month     = {jun},
   publisher = {{IEEE}},
+  comment   = {“systematic lifecycle support-including continuous development, training, testing, and deployment of models-and continuous integration [2] for AI is still in its infancy. We think one reason for this is the lack of tools and methodologies to support the development lifecycles of AI solutions, spanning data preparation, model design and training, application development, quality checks (e.g., security, bias, compliance, etc.), deployment, monitoring, and feedback, as well as the reproducibility and auditability of the entire process.”
+- pluggability: “Lifecycle services must be easily pluggable and customizable, e.g. bias or robustness checks. some AI pipelines still require human in the loop.”
+- reusability: keep config effort to a minimum. users should be able to use pre-configured templates and patterns for pipelines and lifecycle capabilities.
+- flexibility: The system needs to meet developers and data scientists where they are, and integrate with the tools and services they already use and are comfortable with.
+- scalability: The system needs to provide scalability across different dimensions - including model metadata versioning, parallel pipeline executions, event processing, and model performance monitoring.
+- hybrid environments: While there is a general move to the cloud, a significant number of AI systems use on-premise servers, dedicated clusters, edge devices, or a combination of these. Resource and security heterogeneity in such hybrid environments introduce a number of challenges.
+- fault tolerance: As ModelOps pipelines plug together a wide range of tools and infrastructure, many things can fail. For example, we found that 8% of all data preprocessing tasks in WML fail or finish with errors, and therefore would stall the subsequent training of a model. This is particularly problematic for automated pipelines of critical models.},
   doi       = {10.1109/ic2e.2019.00025},
-  keywords  = {seed paper},
-}
-
-@InProceedings{Ishikawa2019,
-  author    = {Fuyuki Ishikawa and Nobukazu Yoshioka},
-  title     = {How Do Engineers Perceive Difficulties in Engineering of Machine-Learning Systems? - Questionnaire Survey},
-  year      = {2019},
-  month     = {may},
-  publisher = {{IEEE}},
-  doi       = {10.1109/cesser-ip.2019.00009},
-  keywords  = {seed paper},
-}
-
-@InProceedings{Jentzsch2019,
-  author    = {Sophie F. Jentzsch and Nico Hochgeschwender},
-  title     = {Don{\textquotesingle}t Forget Your Roots! Using Provenance Data for Transparent and Explainable Development of Machine Learning Models},
-  year      = {2019},
-  month     = {nov},
-  publisher = {{IEEE}},
-  doi       = {10.1109/asew.2019.00025},
-  keywords  = {seed paper},
-}
-
-@InProceedings{Koopman2018,
-  author    = {Philip Koopman and Michael Wagner},
-  title     = {Toward a Framework for Highly Automated Vehicle Safety Validation},
-  year      = {2018},
-  month     = {apr},
-  publisher = {{SAE} International},
-  doi       = {10.4271/2018-01-1071},
-  keywords  = {seed paper},
-}
-
-@Article{Kim2018,
-  author    = {Miryung Kim and Thomas Zimmermann and Robert DeLine and Andrew Begel},
-  title     = {Data Scientists in Software Teams: State of the Art and Challenges},
-  year      = {2018},
-  month     = {nov},
-  number    = {11},
-  pages     = {1024--1038},
-  volume    = {44},
-  doi       = {10.1109/tse.2017.2754374},
-  keywords  = {seed paper},
-  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
-}
-
-@InProceedings{Kumar2020,
-  author    = {Abhishek Kumar and Tristan Braud and Sasu Tarkoma and Pan Hui},
-  title     = {Trustworthy {AI} in the Age of Pervasive Computing and Big Data},
-  year      = {2020},
-  month     = {mar},
-  publisher = {{IEEE}},
-  doi       = {10.1109/percomworkshops48775.2020.9156127},
-  keywords  = {seed paper},
+  groups    = {Start set},
 }
 
 @InProceedings{Liu2017,
@@ -131,8 +49,12 @@
   title     = {Related Pins at Pinterest},
   year      = {2017},
   publisher = {{ACM} Press},
+  comment   = {multiple different models/components that depend on eachother, meaning that changing a model requires that the whole system is retrained. 
+"We identify unique interdependencies that made it hard to reason about changes in Related Pins, and propose to mitigate these issues by automated joint training of system components."
+
+Improvements to raw data can harm results: “Currently we must manually retrain our model with updated raw data, and deploy the new model and raw data into production at the same time. In addition to being time consuming, this solution is less-than-ideal since it requires us to know of the upstream change. Ideally, we would automate the continual retraining of our model, which would incorporate any change in upstream data.”},
   doi       = {10.1145/3041021.3054202},
-  keywords  = {seed paper},
+  groups    = {Start set},
 }
 
 @InCollection{MartinezFernandez2021,
@@ -141,8 +63,16 @@
   title     = {Developing and Operating Artificial Intelligence Models in Trustworthy Autonomous Systems},
   year      = {2021},
   pages     = {221--229},
+  comment   = {“However, solutions or frameworks supporting the management of multiple instances of AI models deployed in different context-aware environments are scarce. Context is the missing piece in the AI lifecycle [15].”
+“AI models are usually deployed as part of embedded systems, which require additional techniques for continuous deployment, such as Over-the-Air updates [18]. However, as aforementioned, none of the these approaches have a focus on trustworthiness nor context-specific AI model deployment.”
+Proposed research direction: “Providing Intelligent and Context-Aware Techniques to Deploy Updated AI Models in AS (Autonomous Systems) Instances”
+
+“Bringing Together the Development and Operation of AI Models in Trustworthy AS into a Holistic Lifecycle with Tool Support.”
+“This direction includes the development of AI-specific, independent, and loosely coupled software components (ready to be integrated into companies’ development and operational environments) for the three directions we presented above.”
+
+Proposes a holistic DevOps approach for AI in AS.},
   doi       = {10.1007/978-3-030-75018-3_14},
-  keywords  = {seed paper},
+  groups    = {Start set},
 }
 
 @Article{Rahman2019,
@@ -154,71 +84,9 @@
   archiveprefix = {arXiv},
   eprint        = {1906.07154},
   file          = {:http\://arxiv.org/pdf/1906.07154v1:PDF},
-  keywords      = {cs.SE, cs.LG, seed paper},
+  groups        = {Start set},
+  keywords      = {cs.SE, cs.LG},
   primaryclass  = {cs.SE},
-}
-
-@Article{Serban2021,
-  author        = {Alex Serban and Joost Visser},
-  title         = {An Empirical Study of Software Architecture for Machine Learning},
-  year          = {2021},
-  month         = may,
-  abstract      = {Specific developmental and operational characteristics of machine learning (ML) components, as well as their inherent uncertainty, demand robust engineering principles are used to ensure their quality. We aim to determine how software systems can be (re-) architected to enable robust integration of ML components. Towards this goal, we conducted a mixed-methods empirical study consisting of (i) a systematic literature review to identify the challenges and their solutions in software architecture forML, (ii) semi-structured interviews with practitioners to qualitatively complement the initial findings, and (iii) a survey to quantitatively validate the challenges and their solutions. In total, we compiled and validated twenty challenges and solutions for (re-) architecting systems with ML components. Our results indicate, for example, that traditional software architecture challenges (e.g., component coupling) also play an important role when using ML components; along new ML specific challenges (e.g., the need for continuous retraining). Moreover, the results indicate that ML heightened decision drivers, such as privacy, play a marginal role compared to traditional decision drivers, such as scalability or interoperability. Using the survey, we were able to establish a link between architectural solutions and software quality attributes; which enabled us to provide twenty architectural tactics used for satisfying individual quality requirements of systems with ML components. Altogether, the results can be interpreted as an empirical framework that supports the process of (re-) architecting software systems with ML components.},
-  archiveprefix = {arXiv},
-  eprint        = {2105.12422},
-  file          = {:http\://arxiv.org/pdf/2105.12422v1:PDF},
-  keywords      = {cs.SE. seed paper},
-  primaryclass  = {cs.SE},
-}
-
-@InProceedings{Zhang2019,
-  author    = {Tianyi Zhang and Cuiyun Gao and Lei Ma and Michael Lyu and Miryung Kim},
-  title     = {An Empirical Study of Common Challenges in Developing Deep Learning Applications},
-  year      = {2019},
-  month     = {oct},
-  publisher = {{IEEE}},
-  doi       = {10.1109/issre.2019.00020},
-  keywords  = {seed paper},
-}
-
-@Article{Zhao2018,
-  author        = {Shuai Zhao and Manoop Talasila and Guy Jacobson and Cristian Borcea and Syed Anwar Aftab and John F Murray},
-  title         = {Packaging and Sharing Machine Learning Models via the Acumos AI Open Platform},
-  year          = {2018},
-  month         = oct,
-  abstract      = {Applying Machine Learning (ML) to business applications for automation usually faces difficulties when integrating diverse ML dependencies and services, mainly because of the lack of a common ML framework. In most cases, the ML models are developed for applications which are targeted for specific business domain use cases, leading to duplicated effort, and making reuse impossible. This paper presents Acumos, an open platform capable of packaging ML models into portable containerized microservices which can be easily shared via the platform's catalog, and can be integrated into various business applications. We present a case study of packaging sentiment analysis and classification ML models via the Acumos platform, permitting easy sharing with others. We demonstrate that the Acumos platform reduces the technical burden on application developers when applying machine learning models to their business applications. Furthermore, the platform allows the reuse of readily available ML microservices in various business domains.},
-  archiveprefix = {arXiv},
-  eprint        = {1810.07159},
-  file          = {:http\://arxiv.org/pdf/1810.07159v1:PDF},
-  keywords      = {cs.AI, cs.SE, seed paper},
-  primaryclass  = {cs.AI},
-}
-
-@InProceedings{Yokoyama2019,
-  author    = {Haruki Yokoyama},
-  title     = {Machine Learning System Architectural Pattern for Improving Operational Stability},
-  year      = {2019},
-  month     = {mar},
-  publisher = {{IEEE}},
-  doi       = {10.1109/icsa-c.2019.00055},
-  keywords  = {seed paper},
-}
-
-@InProceedings{SchleierSmith2015,
-  author    = {Johann Schleier-Smith},
-  title     = {An Architecture for Agile Machine Learning in Real-Time Applications},
-  year      = {2015},
-  month     = {aug},
-  publisher = {{ACM}},
-  doi       = {10.1145/2783258.2788628},
-  keywords  = {seed paper},
-}
-
-@Article{schelter2018challenges,
-  author   = {Schelter, Sebastian and Biessmann, Felix and Januschowski, Tim and Salinas, David and Seufert, Stephan and Szarvas, Gyuri},
-  title    = {On challenges in machine learning model management},
-  year     = {2018},
-  keywords = {seed paper},
 }
 
 @InProceedings{Karlas2020,
@@ -229,6 +97,7 @@
   month     = {jul},
   publisher = {{ACM}},
   doi       = {10.1145/3394486.3403290},
+  groups    = {Start set},
   priority  = {prio3},
 }
 
@@ -239,6 +108,7 @@
   year      = {2021},
   month     = {jul},
   doi       = {10.1002/int.22568},
+  groups    = {Start set},
   publisher = {Wiley},
 }
 
@@ -251,6 +121,7 @@
   pages     = {8861},
   volume    = {11},
   doi       = {10.3390/app11198861},
+  groups    = {Start set},
   publisher = {{MDPI} {AG}},
 }
 
@@ -261,6 +132,7 @@
   year      = {2020},
   pages     = {169--181},
   doi       = {10.1007/978-3-030-52306-0_11},
+  groups    = {Start set},
 }
 
 @InProceedings{Zhou2020,
@@ -270,6 +142,7 @@
   month     = {oct},
   publisher = {{IEEE}},
   doi       = {10.1109/icaice51518.2020.00102},
+  groups    = {Start set},
 }
 
 @InProceedings{Tamburri2020,
@@ -279,6 +152,7 @@
   month     = {sep},
   publisher = {{IEEE}},
   doi       = {10.1109/synasc51798.2020.00015},
+  groups    = {Start set},
 }
 
 @Article{Granlund2021,
@@ -289,6 +163,7 @@
   number    = {5},
   volume    = {2},
   doi       = {10.1007/s42979-021-00726-1},
+  groups    = {Start set},
   publisher = {Springer Science and Business Media {LLC}},
 }
 
@@ -300,6 +175,7 @@
   pages     = {704--709},
   volume    = {53},
   doi       = {10.1016/j.ifacol.2021.04.161},
+  groups    = {Start set},
   publisher = {Elsevier {BV}},
 }
 
@@ -312,6 +188,7 @@
   pages     = {58--63},
   volume    = {19},
   doi       = {10.1515/sbeef-2019-0011},
+  groups    = {Start set},
   publisher = {Walter de Gruyter {GmbH}},
 }
 
@@ -322,6 +199,7 @@
   month     = {aug},
   publisher = {{IEEE}},
   doi       = {10.1109/ic3.2019.8844946},
+  groups    = {Start set},
 }
 
 @Article{Matsui2020,
@@ -330,6 +208,7 @@
   year      = {2020},
   copyright = {Creative Commons Attribution 4.0 International},
   doi       = {10.5281/ZENODO.4318113},
+  groups    = {Start set},
   keywords  = {devops, machine learning, software, improvement},
   language  = {en},
   publisher = {Zenodo},
@@ -342,6 +221,13 @@
   month     = {feb},
   publisher = {{IEEE}},
   doi       = {10.1109/hpca.2018.00059},
+  groups    = {Start set},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: grouping:
+0 AllEntriesGroup:;
+1 StaticGroup:Start set\;0\;1\;0xccffffff\;\;Papers that are part of the snowballing start set\;;
+1 StaticGroup:Selected from start set\;0\;1\;0x669999ff\;\;\;;
+}
