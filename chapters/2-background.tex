@@ -24,12 +24,7 @@ This is because existing DevOps practices are not sufficient for ML systems, whi
 ML systems not only have code dependencies, but have data dependencies in addition, which may impose the requirement of data monitoring (for data distributions shift), continuous training or automatic retraining, etc.
 
 \section{Deploying ML Systems}
-\todo{Not sure if this belongs in the Background chapter. Seems odd to present my area of research as background information.}
+\label{sec:deploying_ml_systems}
 The deployment step consists of taking the system from a development environment (e.g. local development machine) to a production environment (e.g. a server).
-For traditional software systems, this process has seen widespread adoption of automated integration and deployment pipelines (CI/CD) for many years [cite].
-However, the deployment of ML systems has yet to see such widespread use of CI/CD for multiple different reasons:
-\begin{itemize}
-    \item Model development is usually done by data scientists [cite], who may not be familiar with DevOps practices or tools.
-    \item Models are often developed in notebooks, which are usually not readily deployable [cite].
-    \item Models may be developed with different programming languages than what is used in the production environment [cite].
-\end{itemize}
+Deployment in the context of this paper will encompass all steps that come after model training and evaluation, which typically includes (but is not restricted to): packaging model in a format appropriate for deployment, publishing to a model registry, integration into a broader software system, serving, and monitoring.
+Further, infrastructure and configuration will also be included in the term \emph{deployment}.

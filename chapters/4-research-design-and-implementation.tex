@@ -14,7 +14,7 @@ The SE aspect of ML is an active field of research, with the vast majority of wo
 As reported by earlier literature studies in the field (see \cref{ch:related_work}), deployment of ML is an area which presents real challenges to practitioners.
 Tackling deployment challenges requires adopting good practices as well as utilizing suitable tooling.
 Much of the earlier work has largely had a broad scope, with goals of mapping out broad SE challenges and practices for ML.
-Further, earlier work has had a focus on reviewing the academic literature, ignoring the vast body of practitioner knowledge found in the GL.
+Further, much of the earlier work has had a focus on reviewing the academic literature, ignoring the vast body of practitioner knowledge found in the GL.
 To summarize, this study is motivated by three factors.
 \begin{itemize}
     \item Researching ML deployment specifically, and not as part of a broader study of SE for ML.
@@ -26,18 +26,18 @@ To summarize, this study is motivated by three factors.
 \label{sec:research_questions}
 The overarching research question of this study is "\textbf{What is the state of the art and state of the practice in ML deployment?}".
 The focus will be on tooling and trying to identify feature gaps reported in studies where model deployment is discussed.
-To support the main research question, four subquestions have been formulated:
+To support the main research question, four subquestions have been defined:
 \begin{itemize}
     \item \textbf{RQ1: How is ML model deployment handled in real-world applications?}
     \item \textbf{RQ2: What are the main challenges and pain points in ML model deployment?}
     \item \textbf{RQ3: What tools are used to deploy ML models?}
-    \item \textbf{RQ4: Are there any feature gaps in the tooling used to deploy ML models?}
+    \item \textbf{RQ4: What are the feature gaps in the tooling used to deploy ML models?}
 \end{itemize}
-Model deployment will be defined as all steps that occur after model training and evalutation.
+The working definition of \emph{deployment} in this paper is outlined in \cref{sec:deploying_ml_systems}.
 
 \section{Research Method and Design}
 \label{sec:research_method}
-This study is a multivocal literature review (MLR) based on the guidelines of \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
+This study is a \acrfull{mlr} based on the guidelines of \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
 
 \subsection{Search Strategy}
 \subsubsection{White Literature}
@@ -50,7 +50,7 @@ Pilot searches using Google revealed that adequately relevant and recent results
 Based on the outlined GL search guidelines in \cite{Garousi2016}, the Top N-approach was selected with the search string "mlops deployment" and $N=100$.
 
 \subsection{Study Selection}
-I will perform selection, while my supervisor Jingyue Li will review my selection.
+I will perform selection, while my supervisor Jingyue Li will review my selection (?).
 Studies will be selected based on the criteria found in \cref{tab:selection_criteria}, according to the type of literature (\acrshort{wl}/\acrshort{gl}).
 \begin{table}[h]
     \centering
@@ -98,9 +98,10 @@ The quality of both \acrshort{wl} and \acrshort{gl} sources will be assessed usi
     \label{tab:study_quality_criteria}
 \end{table}
 Each sub-point is awarded 1 for \emph{yes}, 0.5 for \emph{partly} and 0 for \emph{no}.
-Sources with an average of less than 0.5 points are excluded.
+Sources with an average of 0.5 points or less are excluded.
 
 \subsection{Data Extraction}
+\label{sec:method:data_extraction}
 In order to answer the research questions, sufficient data must be gathered from the literature.
 Thus, the following data extraction form was designed:
 
@@ -160,18 +161,19 @@ As most papers will likely not address all research questions that this review i
 In order to start the WL snowballing, an initial set of studies was assembled from manual search, as well as looking at the reference lists of earlier work, such as \cite{John2021} and \cite{MartinezFernandez2021}.
 The start set can be found in table [table].
 The WL study selection criteria found in \cref{tab:selection_criteria} were applied to the start set, resulting in [table].
-From the start set of 19 papers, 16 were selected for review and further snowballing.
+From the start set of 19 papers, 10 satisfied the selection criteria and minimum study quality score, and were thus selected for review and further snowballing.
 
-Paragraph about backward snowballing iteration.
+Backward snowballing from the 10 selected papers provided an additional 22 candidate papers based on skimming title/abstract/content of all referred papers from the start set.
+Of the 22 candidate papers, 8 papers satisfied the selection criteria.
+Of the 8 selected papers, 1 did not satisfy minimum study quality criteria.
 
-Paragraph about forward snowballing iteration.
-
-Conclude WL search.
+Forward snowballing from the start set yielded 29 initial candidate papers.
+After applying selection criteria, 17 candidate papers remained, of which all satisfied the minimum study quality criteria.
 
 \subsubsection{Grey Literature}
 
 \subsection{Data Extraction}
-Write something about data extraction
+Data extraction proceeded by reading the literature and extracting information according to \cref{sec:method:data_extraction}.
 
 \subsection{Data Synthesis}
 How did I synthesize the data?
