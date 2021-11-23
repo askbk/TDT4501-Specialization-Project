@@ -15,23 +15,23 @@ As reported by earlier literature studies in the field (see \cref{ch:related_wor
 Tackling deployment challenges requires adopting good practices as well as utilizing suitable tooling.
 Much of the earlier work has largely had a broad scope, with goals of mapping out broad SE challenges and practices for ML.
 Further, much of the earlier work has had a focus on reviewing the academic literature, ignoring the vast body of practitioner knowledge found in the GL.
-To summarize, this study is motivated by three factors.
+To summarize, this study is motivated by two key factors.
 \begin{itemize}
     \item Researching \acrshort{ml} deployment in-depth, and not as part of a broader study of SE for ML.
     \item Including more practitioner knowledge in the form of GL.
-    \item Putting more focus on tooling by identifying what needs are fulfilled by current tooling and what is missing from tooling.
+    \item Putting more focus on tooling and infrastructure by identifying what needs are fulfilled by current tooling and what is missing from tooling.
 \end{itemize}
 
 \section{Research Questions}
 \label{sec:research_questions}
-The overarching research question of this study is "\textbf{What is the state of the art and state of the practice in ML deployment?}".
+The overarching research question of this study is "\textbf{What is the state of the art in ML deployment?}".
 The focus will be on tooling and trying to identify feature gaps reported in studies where model deployment is discussed.
 To support the main research question, four subquestions have been defined:
 \begin{itemize}
-    \item \textbf{RQ1: How is ML model deployment handled in real-world applications?}
+    \item \textbf{RQ1: How are ML models deployed in the state of the art?}
     \item \textbf{RQ2: What are the main challenges and pain points in ML model deployment?}
-    \item \textbf{RQ3: What tools are used to deploy ML models?}
-    \item \textbf{RQ4: What are the feature gaps in the tooling used to deploy ML models?}
+    \item \textbf{RQ3: What tools and infrastructure are used to deploy ML models?}
+    \item \textbf{RQ4: What are the feature gaps in the tooling and infrastructure used to deploy ML models?}
 \end{itemize}
 The working definition of \emph{deployment} in this paper is outlined in \cref{sec:deploying_ml_systems}.
 
@@ -105,49 +105,40 @@ Sources with an average of 0.5 points or less are excluded.
 In order to answer the research questions, sufficient data must be gathered from the literature.
 Thus, the following data extraction form was designed:
 
-\begin{itemize}
-    \item Source type (\acrshort{wl}/\acrshort{gl})
-    \item Publication date
-    \item Context
-    \item Achievement
-    \begin{itemize}
-        \item What is the main achievement?
-    \end{itemize}
-    \item Process
-    \begin{itemize}
-        \item What was the deployment process?
-    \end{itemize}
-    \item Tools
-    \begin{itemize}
-        \item What tools were used for deployment?
-        \item What tooling features were used for deployment?
-    \end{itemize}
-    \item Challenges
-    \begin{itemize}
-        \item Is any deployment challenge reported?
-        \item What was the challenge?
-    \end{itemize}
-    \item Solutions
-    \begin{itemize}
-        \item What challenge is addressed?
-        \item What is the solution?
-        \item Is the solution merely theoretical (proposed), or do the authors implement it?
-        \item If the solution was implemented, what was the outcome?
-    \end{itemize}
-    \item Requirements
-    \begin{itemize}
-        \item What functional requirements do the authors state for deployment tooling?
-        \item What non-functional requirements do the authors state for deployment tooling?
-        \item What is the reasoning for the stated requirements?
-    \end{itemize}
-    \item Gaps
-    \begin{itemize}
-        \item Is any shortcoming in deployment tooling either implicitly or excplicitly reported?
-        \item What are the shortcomings?
-        \item How was the shortcoming inferred from the literature (by me)?
-    \end{itemize}
-    \item Any other notes
-\end{itemize}
+% \begin{description}
+%     \item[Author] Name of author(s)
+%     \item[Year] Publication year
+%     \item[Context] Description of deployment context where necessary
+%     \item[Achievement] Main achievement of the study
+%     \item[Process] Description of the deployment process (RQ1)
+%     \item[Tools \& infrastructure] Tools and infrastructure used for deployment (RQ1, RQ3)
+%     \item[Challenges] Deployment challenges reported (RQ2)
+%     \item[Solutions] Implemented or proposed solutions to reported problems (RQ1, RQ2)
+%     \item[Requirements] Reported requirements for deployment process, tooling and infrastructure (RQ4)
+%     \item[Gaps] Reported unmet requirements in infrastructure or tooling (RQ4)
+%     \item[Other] Any other notes
+% \end{description}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|p{8.5cm}}
+        Field & Explanation\\
+        \hline
+        Author & Name of author(s)  \\
+        Publication year & Year of publication \\
+        Context & Description of deployment context where necessary \\
+        Achievement & Main achievement of the study \\
+        Process & Description of the deployment process (RQ1) \\
+        Tools \& infrastructure & Tools and infrastructure used for deployment (RQ1, RQ3) \\
+        Challenges & Deployment challenges reported (RQ2) \\
+        Solutions & Implemented or proposed solutions to reported problems (RQ1, RQ2) \\
+        Requirements & Reported requirements for deployment process, tooling and infrastructure (RQ4) \\
+        Gaps & Reported unmet requirements in infrastructure or tooling  (RQ4) \\
+        Other & Any other notes \\
+    \end{tabular}
+    \caption{Data extraction form with clarification of the content for each field.}
+    \label{tab:data_extraction_form}
+\end{table}
 
 \subsection{Data Synthesis}
 The data extraction form is designed to extract the information required to answer the research question.
@@ -155,6 +146,7 @@ As most papers will likely not address all research questions that this review i
 
 \section{Research Implementation}
 \label{sec:research_implementation}
+Selection, quality assessment and data extraction was conducted in an online spreadsheet, which can be found [ref].
 
 \subsection{Search}
 \subsubsection{White Literature}
@@ -174,7 +166,7 @@ The total number of papers to review was thus 24.
 \subsubsection{Grey Literature}
 
 \subsection{Data Extraction}
-Data extraction proceeded by reading the literature and extracting information according to \cref{sec:method:data_extraction}.
+Data extraction proceeded by reading the literature and extracting information as described in \cref{sec:method:data_extraction} and entering the data in a spreadsheet.
 
 \subsection{Data Synthesis}
 How did I synthesize the data?
