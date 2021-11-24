@@ -1,7 +1,12 @@
 \chapter{Research Results}
 \section{RQ1: How is ML model deployment handled in the state of the art?}
 \subsection{Packaging and Integration}
-Most common way to package models is as container \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}
+Models were traditionally rewritten for production \cite{Hazelwood2018}, but the currently most common way to package models is as containers  \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
+
+Another reported method of integration is exporting the model in an exchange format (ONNX) from the model development framework (such as PyTorch) and loading it in a framework optimized for production (such as caffe2) in order to simplify the integration process and increase performance \cite{Hazelwood2018}.
+
+The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020a}
+
 \subsection{Deployment}
 \subsection{Serving}
 \subsection{Monitoring}
