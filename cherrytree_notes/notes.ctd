@@ -587,52 +587,58 @@ Sensitivity analysis for qualitative synthesis: should consider what impact excl
       </node>
     </node>
     <node name="Data Synthesis" unique_id="36" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1637679211" ts_lastsave="1637679214">
-      <node name="RQ1: How are ML models deployed in SOTA?" unique_id="37" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1637679227" ts_lastsave="1637683151">
+      <node name="RQ1: How are ML models deployed in SOTA?" unique_id="37" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1637679227" ts_lastsave="1637753631">
         <rich_text>
 </rich_text>
         <rich_text justification="left"></rich_text>
         <table char_offset="1" justification="left" col_min="60" col_max="60" col_widths="2070">
           <row>
-            <cell>Models traditionally rewritten to production with other frameworks. Recently began using ONNX toolchain to simplify process.</cell>
+            <cell>S2: Models traditionally rewritten to production with other frameworks. Recently began using ONNX toolchain to simplify process.</cell>
           </row>
           <row>
-            <cell>Deploy model with lambda function in AWS Greengrass</cell>
+            <cell>S6: Deploy model with lambda function in AWS Greengrass</cell>
           </row>
           <row>
-            <cell>Organizes process into different contexts: Data Scientist context (creating, training model in notebook, submitting model to staging area), manager context (test models in staging models, approve/reject models, release models to end application), and end-app developer (normal CI/CD/serve pipeline).
+            <cell>S12: Organizes process into different contexts: Data Scientist context (creating, training model in notebook, submitting model to staging area), manager context (test models in staging models, approve/reject models, release models to end application), and end-app developer (normal CI/CD/serve pipeline).
 
 Deployment is done in either of three ways: 1) pushed to a repository 2) pushed to the hosting application which subscribes to the release topic (pub-sub solution?) 3) directly launching the model as a service which is invocable through REST calls (future work). Details on 2): Model is pushed to S3, model metadata published on model type topic on Kafka. The end application is subscribed to the model type topic. When a new model version is published, the application downloads the model and triggers CI/CD to integrate the model and run tests.</cell>
           </row>
           <row>
-            <cell>Models packaged in MLflow Models format, including code and data dependencies</cell>
+            <cell>S14: Models packaged in MLflow Models format, including code and data dependencies</cell>
           </row>
           <row>
-            <cell>In final level of MLOps, not only models are automatically deployed, but entire pipelines are versioned and deployed together. Three approaches to integrate model: 1) deploy in container and connect to them via RPC 2) direct integration into application 3) "white-box the model, where different models are represented as Directed Acyclic graph (DAG) and registered inside a serving system which is accessible via RPC or REST calls" (???). The whole project stack should be constantly monitored, including model and application performance, infrastructural circumstances and the data utilized by the model. Tracking data through the pipeline with graph databases can help in managing and maintaining linkage between data objects and assertions. CI/CD validation is last step of workflow. Should permanently monitor and test new iterations of ML-based applications. Validate against predefined KPIs of the project.</cell>
+            <cell>S18: In final level of MLOps, not only models are automatically deployed, but entire pipelines are versioned and deployed together. Three approaches to integrate model: 1) deploy in container and connect to them via RPC 2) direct integration into application 3) "white-box the model, where different models are represented as Directed Acyclic graph (DAG) and registered inside a serving system which is accessible via RPC or REST calls" (???). The whole project stack should be constantly monitored, including model and application performance, infrastructural circumstances and the data utilized by the model. Tracking data through the pipeline with graph databases can help in managing and maintaining linkage between data objects and assertions. CI/CD validation is last step of workflow. Should permanently monitor and test new iterations of ML-based applications. Validate against predefined KPIs of the project.</cell>
           </row>
           <row>
-            <cell>Three possible deployment patterns; 1) include in application code as normal dep 2) run as standalone service 3) deploy at runtime as data.</cell>
+            <cell>S19: Three possible deployment patterns; 1) include in application code as normal dep 2) run as standalone service 3) deploy at runtime as data.</cell>
           </row>
           <row>
-            <cell>1) trains many models in parallell 2) selects model to deploy based on rules applied to model performance and complexity 3) the selected model is serialized as either joblib or HDF5 (depending on model) and JSON. Model is given a unique version number. 4) Edge devices poll for new models and download the new model. 5) Edge device deploys new workflow for running model against live data. 6) model performance is constantly monitored using metrics reporting throughput and latency. Accuracy of model is measured within cloud and determines when a new model is needed.</cell>
+            <cell>FB4: 
+1) trains many models in parallell 
+2) selects model to deploy based on rules applied to model performance and complexity 
+3) the selected model is serialized as either joblib or HDF5 (depending on model) and JSON. Model is given a unique version number. 
+4) Edge devices poll for new models and download the new model. 
+5) Edge device deploys new workflow for running model against live data. 
+6) model performance is constantly monitored using metrics reporting throughput and latency. Accuracy of model is measured within cloud and determines when a new model is needed.</cell>
           </row>
           <row>
-            <cell>ML application steps split up into 2 discrete steps and spread over multiple containers, replicated based on latency characteristics of the individual steps.</cell>
+            <cell>FB5: ML application steps split up into 2 discrete steps and spread over multiple containers, replicated based on latency characteristics of the individual steps.</cell>
           </row>
           <row>
-            <cell>For online predictions: Models deployed as Docker containers to the Realtime Prediction Service. Clients request predictions via RPC, routed to correct model based on request headers. When a physical service instance starts, it loads the model into memory, warms it up (i.e. forcing models with lazy-loaded components to load), registers itself as a live instance and starts accepting requests. Periodically checks for model updates. If so, loads them into memory. Live predictions are joined with actual outcomes. Metrics are published for monitoring and alerting. Deployment service handles the actual deployment: responsible for packaging required files, validating that model runs correctly, and deploys in a Docker container. Purges from the docker containers when retiring the model.
+            <cell>FB9: For online predictions: Models deployed as Docker containers to the Realtime Prediction Service. Clients request predictions via RPC, routed to correct model based on request headers. When a physical service instance starts, it loads the model into memory, warms it up (i.e. forcing models with lazy-loaded components to load), registers itself as a live instance and starts accepting requests. Periodically checks for model updates. If so, loads them into memory. Live predictions are joined with actual outcomes. Metrics are published for monitoring and alerting. Deployment service handles the actual deployment: responsible for packaging required files, validating that model runs correctly, and deploys in a Docker container. Purges from the docker containers when retiring the model.
 For batch predictions: Models plugged into batch prediction pipeline, predictions send to data warehouse (Apache Hive). Prediction for both realtime and batch prediction are logged to kafka.</cell>
           </row>
           <row>
-            <cell>Models are packaged in Docker containers along dependencies, and wrapped in a thin REST API layer (based on OpenAPI) to ensure a uniform interface for all deployed models. A supervisor is deployed on DEEPaaS to react to model updates. CI/CD system notifies the supervisor on updates through Kafka.</cell>
+            <cell>FB18: Models are packaged in Docker containers along dependencies, and wrapped in a thin REST API layer (based on OpenAPI) to ensure a uniform interface for all deployed models. A supervisor is deployed on DEEPaaS to react to model updates. CI/CD system notifies the supervisor on updates through Kafka.</cell>
           </row>
           <row>
-            <cell>Prediction process: clients request predictions from Clipper through Rest or RPC apis. Model selection layer will select models based on request and recent feedback, and dispatches the prediction request to one or more models through the model abstraction layer. MAL checks prediction cache if the query already has a response. The model abstraction layer first checks the prediction cache for the query before assigning the query to an adaptive batching queue associated with the desired model. The adaptive batching queue constructs batches of queries that are tuned for the machine learning framework and model. Batch of queries sent to a model container over RPC hosting the model in its native ML framework. To simplify deployment, we host each model container in a separate Docker container. After evaluating the model on the batch of queries, the predictions are sent back to the model abstraction layer which populates the prediction cache and returns the results to the model selection layer. The model selection layer then combines one or more of the predictions to render a final prediction and confidence estimate. The prediction and confidence estimate are then returned to the end-user application. Any feedback the application collects about the quality of the predictions is sent back to the model selection layer through the same application-facing REST/RPC interface. The model selection layer joins this feedback with the corresponding predictions to improve how it selects and combines future predictions.</cell>
+            <cell>FB20: Prediction process: clients request predictions from Clipper through Rest or RPC apis. Model selection layer will select models based on request and recent feedback, and dispatches the prediction request to one or more models through the model abstraction layer. MAL checks prediction cache if the query already has a response. The model abstraction layer first checks the prediction cache for the query before assigning the query to an adaptive batching queue associated with the desired model. The adaptive batching queue constructs batches of queries that are tuned for the machine learning framework and model. Batch of queries sent to a model container over RPC hosting the model in its native ML framework. To simplify deployment, we host each model container in a separate Docker container. After evaluating the model on the batch of queries, the predictions are sent back to the model abstraction layer which populates the prediction cache and returns the results to the model selection layer. The model selection layer then combines one or more of the predictions to render a final prediction and confidence estimate. The prediction and confidence estimate are then returned to the end-user application. Any feedback the application collects about the quality of the predictions is sent back to the model selection layer through the same application-facing REST/RPC interface. The model selection layer joins this feedback with the corresponding predictions to improve how it selects and combines future predictions.</cell>
           </row>
           <row>
-            <cell>SageMaker deploys saved models from S3</cell>
+            <cell>FB47: SageMaker deploys saved models from S3</cell>
           </row>
           <row>
-            <cell>Different lifecycle types with varying data and model characteristics and enabling technologies.
+            <cell>FB56: Different lifecycle types with varying data and model characteristics and enabling technologies.
 
 C2C: status quo.
 C2E: Beginning to see some enterprise support for this from AWS, Microsoft, Google, etc
@@ -641,7 +647,7 @@ E2E
 Complex Hierarchical models</cell>
           </row>
           <row>
-            <cell>Model packaging: weights of trained model compressed in TAR-file.
+            <cell>FB57: Model packaging: weights of trained model compressed in TAR-file.
 Deployed in k8s-cluster (servers) and k3s-cluster (edge nodes), which were managed with rancher and specified with Helm.
 
 Deployment:
