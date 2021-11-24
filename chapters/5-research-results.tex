@@ -1,14 +1,23 @@
 \chapter{Research Results}
 \section{RQ1: How is ML model deployment handled in the state of the art?}
 \subsection{Packaging and Integration}
-Models were traditionally rewritten for production \cite{Hazelwood2018}, but the currently most common way to package models is as containers  \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
-
-Another reported method of integration is exporting the model in an exchange format (ONNX) from the model development framework (such as PyTorch) and loading it in a framework optimized for production (such as caffe2) in order to simplify the integration process and increase performance \cite{Hazelwood2018}.
-
-The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020a}
+Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
+Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
+The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
+The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, possibly first having to be rewritten for production \cite{Hazelwood2018}.
 
 \subsection{Deployment}
-\subsection{Serving}
+Deployment (transition of packaged/integrated model into a serving state) may occur through a few different methods.
+Models packaged in containers are simply run directly as standalone services \cite{Liu2020,Ruf2021, Granlund2021, Li2017, Garcia2020}.
+
+Deployment of models may broadly speaking be categorized as either a push or a pull.
+In a pull-pattern of deployment, the target environment (host application running on e.g. server or edge device) either periodically polls for model updates and downloads when available \cite{Paeaekkoenen2020, Li2017, Peticolas2019}.
+
+In a push-pattern, the target environment
+
+
+
+\subsection{Serving and Inference}
 \subsection{Monitoring}
 \section{RQ2: What are the main challenges and pain points in ML model deployment?}
 \section{RQ3: What tools and infrastructure are used to deploy ML models?}
