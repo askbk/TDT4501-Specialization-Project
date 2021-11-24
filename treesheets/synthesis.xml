@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cell [
+<!ELEMENT cell (grid)>
+<!ELEMENT grid (row*)>
+<!ELEMENT row (cell*)>
+]>
+<cell>
+  <grid>
+  <row>
+  <cell colorbg="16777215">ML Deployment
+    <grid>
+    <row>
+    <cell colorbg="16777215">RQ1: How are ML models deployed in SOTA?
+      <grid>
+      <row>
+      <cell colorbg="16777215">Hazelwood2018
+        <grid>
+        <row>
+        <cell colorbg="16777215">Integration possibilities
+          <grid>
+          <row>
+          <cell colorbg="16777215">Models traditionally rewritten to production with other frameworks.
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">ONNX toolchain to simplify process.
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Krishnamurthi2019
+        <grid>
+        <row>
+        <cell colorbg="16777215">Deployment/serving
+          <grid>
+          <row>
+          <cell colorbg="16777215">Deploy model with lambda function in AWS Greengrass
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Liu2020
+        <grid>
+        <row>
+        <cell colorbg="16777215">Deployment/integration possibilities
+          <grid>
+          <row>
+          <cell colorbg="16777215">Push to repository
+          </cell>
+          <cell colorbg="16777215">
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Pub-sub
+            <grid>
+            <row>
+            <cell colorbg="16777215">Upload model to S3
+            </cell>
+            <cell colorbg="16777215">
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Publish model metadata on model-type topic in Kafka, which the application is subscribed to
+            </cell>
+            <cell colorbg="16777215">
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">When a new model version is published, the application downloads the model and triggers CI/CD to integrate the model and run tests
+            </cell>
+            <cell colorbg="16777215">
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          <cell colorbg="16777215">
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Directly launching the model as a service which is invocable through REST calls
+          </cell>
+          <cell colorbg="16777215">
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Chen2020
+        <grid>
+        <row>
+        <cell colorbg="16777215">Packaging
+          <grid>
+          <row>
+          <cell colorbg="16777215">Models packaged in MLflow Models format, including code and data dependencies
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Ruf2021
+        <grid>
+        <row>
+        <cell colorbg="16777215">Integration/deployment possibilities
+          <grid>
+          <row>
+          <cell colorbg="16777215">Deploy in container and connect via RPC
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Direct integration into application
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">"White-box the model, where different models are represented as DAG and registered inside a serving systems which is accessible via RPC or REST"
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Monitoring
+          <grid>
+          <row>
+          <cell colorbg="16777215">Whole application stack should be monitored
+            <grid>
+            <row>
+            <cell colorbg="16777215">Model performance
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Application performance
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">infrastructural circumstances
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Model input data
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Tracking data flow through pipeline with graph database to manage and mainating linkage between data objects and assertions
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Should permanently monitor and test new iterations of ML-based applications
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Validate agains predefined KPIs of the project
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Granlund2021
+        <grid>
+        <row>
+        <cell colorbg="16777215">Integration/deployment possibilities
+          <grid>
+          <row>
+          <cell colorbg="16777215">Include in application code as normal dependency
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Run as standalone service
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Deploy at runtime as data
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Peticolas2019
+        <grid>
+        <row>
+        <cell colorbg="16777215">Packaging
+          <grid>
+          <row>
+          <cell colorbg="16777215">Model serialized as either joblib or HDF5 (depending on model) and as JSON and given unique serial number
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Deployment
+          <grid>
+          <row>
+          <cell colorbg="16777215">Edge devices poll for model updates, download if available
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Monitoring
+          <grid>
+          <row>
+          <cell colorbg="16777215">Constantly monitor throughput and latency metrics
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Accuracy of model is measured in the cloud and determines when a new model is needed
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Richins2020
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Li2016
+        <grid>
+        <row>
+        <cell colorbg="16777215">For online predictions
+          <grid>
+          <row>
+          <cell colorbg="16777215">Packaging
+            <grid>
+            <row>
+            <cell colorbg="16777215">Docker container
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Deployment service responsible for packaging required files, validating that model runs correctly, 
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Deployment
+            <grid>
+            <row>
+            <cell colorbg="16777215">Model containers deployed to a dedicated service for serving realtime predictions which handles many different models
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Periodically checks for model updates, loads into memory if available
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Serving
+            <grid>
+            <row>
+            <cell colorbg="16777215">When new physical serving instances are started, models are loaded into memory and warmed up (forcing lazy-loaded components to load) to avoid cold-start issues. Registers itself as available for serving predictions.
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Clients request predictions via RPC, routed to correct model based on request headers. 
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Monitoring
+            <grid>
+            <row>
+            <cell colorbg="16777215">Live predictions are joined with actual outcomes
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Metrics published for monitoring and alerting
+            </cell>
+            </row>
+            <row>
+            <cell colorbg="16777215">Predictions logged to Kafka
+            </cell>
+            </row>
+            </grid>
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">For batch predictions
+          <grid>
+          <row>
+          <cell colorbg="16777215">Model plugged into batch prediction pipeline
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Predictions sent to data warehouse
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Predictions logged to Kafka
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Garcia2020
+        <grid>
+        <row>
+        <cell colorbg="16777215">Packaging
+          <grid>
+          <row>
+          <cell colorbg="16777215">Models packaged in containers along with dependencies
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Wrapped in thin REST API layer to ensure uniform API for all models
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Deployment
+          <grid>
+          <row>
+          <cell colorbg="16777215">Supervisor reacts to model updates from CI/CD system via Kafka messages
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Crankshaw2017
+        <grid>
+        <row>
+        <cell colorbg="16777215">Packaging
+          <grid>
+          <row>
+          <cell colorbg="16777215">Models packaged as container
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Serving
+          <grid>
+          <row>
+          <cell colorbg="16777215">Clients request predictions via RPC or REST apis
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Model version for inference is selected by selection layer based on request and recent feedback
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Prediction request dispatched to the model's abstraction layer
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Abstraction layer checks query cache for existing response, returns if available
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Query added to selected model's adaptive batching queue
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Batch sizes tuned for each ML model and framework
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Abstraction layer sends query batch over RPC to model container hosted in native ML framework
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Model returns predictions to abstraction layer
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Abstraction layer populates query cache with predictions and returns predictions to selection layer
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Selection layer combines one or more of predictions to produce final prediction + confidence estimate and returns to client
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Client may give feedback on predictions to selection layer, which is used to improve how layer combines and selects predictions in the future
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Chahal2020
+        <grid>
+        <row>
+        <cell colorbg="16777215">Deployment
+          <grid>
+          <row>
+          <cell colorbg="16777215">SageMaker deploys saved models from S3
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Rausch2019
+      </cell>
+      </row>
+      <row>
+      <cell colorbg="16777215">Paakkonen2020
+        <grid>
+        <row>
+        <cell colorbg="16777215">Packaging
+          <grid>
+          <row>
+          <cell colorbg="16777215">Model weights exported and compressed
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Deployment
+          <grid>
+          <row>
+          <cell colorbg="16777215">Compressed weights pushed from central servier to a weights receiver service on each edge node, which extracts weights to local filesystem
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">File path of model weights pushed to internal Predictor service, which loads the weights and initializes the model
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">Internal predictor service registers its presence with External predictor service which provides the public prediction interface
+          </cell>
+          </row>
+          <row>
+          <cell colorbg="16777215">If redeployed, the old Predictor service receives a stop-signal, which shuts it down. New predictor used for future requests.
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        <row>
+        <cell colorbg="16777215">Serving
+          <grid>
+          <row>
+          <cell colorbg="16777215">External predictor service provides REST api for clients
+          </cell>
+          </row>
+          </grid>
+        </cell>
+        </row>
+        </grid>
+      </cell>
+      </row>
+      </grid>
+    </cell>
+    </row>
+    <row>
+    <cell colorbg="16777215">Tools
+    </cell>
+    </row>
+    </grid>
+  </cell>
+  </row>
+  </grid>
+</cell>
