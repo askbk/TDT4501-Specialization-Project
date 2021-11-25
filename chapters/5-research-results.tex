@@ -1,24 +1,48 @@
 \chapter{Research Results}
+This chapter presents the results from the SLR on a per-research question basis.
+
 \section{RQ1: How is ML model deployment handled in the state of the art?}
 \subsection{Packaging and Integration}
-Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
-Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
+Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration, in which the model is wrapped in an API layer \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
+When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
+Another reported method of integration is to serialize the model (e.g. into ONNX\footnote{\url{https://onnx.ai/}}, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
 The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
 The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, possibly first having to be rewritten for production \cite{Hazelwood2018}.
 
 \subsection{Deployment}
-Deployment (transition of packaged/integrated model into a serving state) may occur through a few different methods.
+Deployment, the transitioning of a  packaged and integrated model into a serving state, may occur through a few different methods.
 Models packaged in containers are simply run directly as standalone services \cite{Liu2020,Ruf2021, Granlund2021, Li2017, Garcia2020}.
+However, models may be deployed in a target environment that is different from where they are packaged, in which case the model transfer may happen through either a push- or a pull-pattern.
 
-Deployment of models may broadly speaking be categorized as either a push or a pull.
-In a pull-pattern of deployment, the target environment (host application running on e.g. server or edge device) either periodically polls for model updates and downloads when available \cite{Paeaekkoenen2020, Li2017, Peticolas2019}.
+In a pull-pattern deployment, the target environment (host application running on e.g. server or edge device) either periodically polls for model updates and downloads when available \cite{Paeaekkoenen2020, Li2017, Peticolas2019}.
 
-In a push-pattern, the target environment
+In a push-pattern deployment, the target environment is notified of the availability of a new model by a master server, e.g. by the server where the model was trained.
+This will happen either through a messaging service \cite{Liu2020, Garcia2020}, where message contains metadata including the location of the updated model, or by the model being pushed directly to the target environment through an interface \cite{Paeaekkoenen2020}.
 
+When an updated model has reached the target environment, the redeployment can happen in a few different ways.
+For models packaged as standalone containers, a container orchestration service (e.g. Kubernetes) can roll out updated models without downtime.
+Serialized models may simply be loaded into memory by the application, potentially leading to downtime.
+If the hosting application is containerized, model redeployment may be orchestrated by deploying a new application instance alongside the old instance and providing the updated model data.
+When the new instance is finished initializing, it can start serving requests, and the old instance may be evicted \cite{Paeaekkoenen2020}.
+To avoid high response latencies for the first query (cold-start issues), models may be queried with an empty request (or an explicit warm-up function call may be used if available) which forces lazy-loaded model components to initialize \cite{Li2017}.
 
+When using an ML deployment service (e.g. SageMaker), the service may handle the deployment of serialized models \cite{Chahal2020}.
+
+Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark\footnote{\url{https://spark.apache.org/}} \cite{Li2017}.
 
 \subsection{Serving and Inference}
-\subsection{Monitoring}
+Models are commonly made available for serving predictions through a REST \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or RPC \cite{Ruf2021, Li2017, Crankshaw2017} API.
+To meet inference SLOs, there are several techniques reported.
+One is model-switching, where less accurate models but more performant models are used during periods of high load in order to meet required SLOs \cite{Zhang2020}.
+Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to individual the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the SLO.
+Additionally, a cache layer may be put on top of the model to reduce computation \cite{Crankshaw2017}.
+
+\subsection{Monitoring and Logging}
+When the model is operational, the whole application stack is constantly monitored for performance metrics such as latency, throughput, disk utilization, et cetera \cite{Ruf2021, Peticolas2019}.
+Predictions are logged, and when available joined with actual outcomes\cite{Li2017}.
+Model accuracy should be used to determine when a new model is needed \cite{Peticolas2019}.
+The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
+
 \section{RQ2: What are the main challenges and pain points in ML model deployment?}
 \section{RQ3: What tools and infrastructure are used to deploy ML models?}
 \section{RQ4: Are there any feature gaps in the tooling used to deploy ML models?}
