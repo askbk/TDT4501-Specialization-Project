@@ -1,7 +1,7 @@
 \chapter{Research Results}
 This chapter presents the results from the SLR on a per-research question basis.
 
-\section{RQ1: How is ML model deployment handled in the state of the art?}
+\section{RQ1: How is ML Model Deployment Handled in the State of the Art?}
 \subsection{Packaging and Integration}
 Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration, in which the model is wrapped in an API layer \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
 When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
@@ -33,9 +33,11 @@ Models intended for batch predictions may simply be plugged into a computing pip
 \subsection{Serving and Inference}
 Models are commonly made available for serving predictions through a REST \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or RPC \cite{Ruf2021, Li2017, Crankshaw2017} API.
 To meet inference SLOs, there are several techniques reported.
-One is model-switching, where less accurate models but more performant models are used during periods of high load in order to meet required SLOs \cite{Zhang2020}.
+One is model-switching, where less accurate but more performant models are used during periods of high load in order to meet required SLOs \cite{Zhang2020}.
 Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to individual the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the SLO.
 Additionally, a cache layer may be put on top of the model to reduce computation \cite{Crankshaw2017}.
+In order to avoid cold-start issues caused by model loading and initialization, models should be warmed up at deployment and be kept perpetually warm over the course of its life \cite{Zhang2020}.
+Model warmup can be achieved through either a method provided by the ML framework \cite{Li2017}, or more generally through issuing an empty query against the model \cite{Garcia2020}.
 
 \subsection{Monitoring and Logging}
 When the model is operational, the whole application stack is constantly monitored for performance metrics such as latency, throughput, disk utilization, et cetera \cite{Ruf2021, Peticolas2019}.
@@ -43,6 +45,28 @@ Predictions are logged, and when available joined with actual outcomes\cite{Li20
 Model accuracy should be used to determine when a new model is needed \cite{Peticolas2019}.
 The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
 
-\section{RQ2: What are the main challenges and pain points in ML model deployment?}
-\section{RQ3: What tools and infrastructure are used to deploy ML models?}
-\section{RQ4: Are there any feature gaps in the tooling used to deploy ML models?}
+\section{RQ2: What Are the Main Challenges in ML Model Deployment?}
+\subsection{Serving}
+Serving-related challenges are some of the most often reported ones in the literature \cite{Bosch2021, Richins2020, Li2017, Baylor2017, Garcia2020, Crankshaw2017, Lwakatare2019, Bernardi2019, Yadwadkar2019, Chahal2020, Choi2021, Zhang2020, Gupta2020}, usually from a performance perspective.
+
+Achieving a low inference latency and high throughput is widely reported as a challenge in serving ML models \cite{Bosch2021, Li2017,Crankshaw2017,Lwakatare2019,Bernardi2019}.
+Several potential solutions have been proposed in the literature.
+
+\textcite{Gupta2020} proposes deploying ML models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
+
+Start-up/cold-start latency is a typical serving challenge for ML models \cite{Yadwadkar2019}. It is mainly caused by the ML model being loaded into memory and initialized, and is typically solved by warming up the model after it has been deployed, and then keeping it perpetually warm \cite{Zhang2020}.
+
+\subsection{Edge}
+\label{ch:results:rq2:edge}
+
+\subsection{Monitoring and Logging}
+Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021}.
+After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
+One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what an ideal model would look like \cite{Bernardi2019}.
+
+Monitoring models deployed at scale on the edge has another set of associated challenges.
+Detecting concept drift usually requires realtime access to the original training data, which may not be possible on edge devices due to network constraints.
+Additionally, having a large number of edge devices may introduce scalability challenges \cite{Rausch2019} in monitoring.
+
+\section{RQ3: What Tools and Infrastructure Are Used to Deploy ML Models?}
+\section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
