@@ -70,3 +70,38 @@ Additionally, having a large number of edge devices may introduce scalability ch
 
 \section{RQ3: What Tools and Infrastructure Are Used to Deploy ML Models?}
 \section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
+
+Many opportunities for further work and research have been identified in the reviewed literature.
+In particular, \cite{Yadwadkar2019} and \cite{Zhang2020} identify a large number of research directions in the area of model serving performance.
+\cite{Bosch2021}, \cite{Rausch2019} and \cite{Gupta2020} also propose several areas of research for edge ML deployment.
+
+\subsection{Serving}
+In the context of an ML system with multiple available variants of the same model (with different accuracy and performance characteristics) and multiple hardware resources to choose from, \cite{Yadwadkar2019} presents a series of interrelated open problems concerned with serving performance.
+
+The overarching question is that of how the serving system should automatically select a model variant and underlying hardware given some SLO specified by a client application.
+
+First, given an inference query, how should it be placed/scheduled by the serving system?
+The options are to either generate a new model variant, to load an existing model variant, or to query an already loaded model.
+The choice will depend on the individual application requirements, e.g. whether the inference is online or offline, what the SLOs are, etc.
+
+Further, given the choice of placement, a new model may need to be loaded, additional hardware resources may need to be launched, or loaded models may need to be evicted to free up resources.
+These operations add latency to the query response, affecting the system's ability to meet SLOs.
+\cite{Yadwadkar2019} calls for research into policies and mechanisms, referred to as Proactive Startup Optimization, for reducing or avoiding this latency.
+
+Next, the question is how to capture and organize the data needed for making a decision on query placement.
+In addition to the set of possible hardware resources and model variants, the serving system must also take into account the current state of the system, which is continually changing.
+The current state of the system is described by which model variants are loaded on which hardware resources, which model variants exist but are not loaded, which model variants do not exist but are able to be generated, CPU/memory/disk/network usage of each hardware instance, inference request traffic.
+All of this data needs to be captured and organized in a way that enables fast and efficient decision making on query placement.
+
+Not only does the logical aspect of hardware and model variant selection need to be considered, the geographical location of hardware resources must also be taken into account.
+Given that resources may be anywhere on the continuum of core-middle-edge, where should models be loaded?
+Where should resource management decisions be made?
+Where should query placement decisions be made
+
+\textcite{Zhang2020} presents some research questions.
+Loading models into memory is slow and increases response time.
+Keeping models loaded in memory at all times is expensive and does not scale well.
+How do we provide the illusion of all models being warm, while spending resources as if all models are cold?
+
+Similarly to \cite{Yadwadkar2019}, \cite{Zhang2020} also poses the question of how to combine the selection of model variant with the selection and scaling of hardware resources.
+
