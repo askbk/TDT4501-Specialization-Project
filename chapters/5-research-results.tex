@@ -75,18 +75,20 @@ Many opportunities for further work and research have been identified in the rev
 In particular, \cite{Yadwadkar2019} and \cite{Zhang2020} identify a large number of research directions in the area of model serving performance.
 \cite{Bosch2021}, \cite{Rausch2019} and \cite{Gupta2020} also propose several areas of research for edge ML deployment.
 
-\subsection{Serving}
 In the context of an ML system with multiple available variants of the same model (with different accuracy and performance characteristics) and multiple hardware resources to choose from, \cite{Yadwadkar2019} presents a series of interrelated open problems concerned with serving performance.
+The automatic selection of model variant based on a given SLO will be referred to as \textit{model-switching} based on the terminology used in \cite{Zhang2020}. 
 
 The overarching question is that of how the serving system should automatically select a model variant and underlying hardware given some SLO specified by a client application.
 
 First, given an inference query, how should it be placed/scheduled by the serving system?
 The options are to either generate a new model variant, to load an existing model variant, or to query an already loaded model.
 The choice will depend on the individual application requirements, e.g. whether the inference is online or offline, what the SLOs are, etc.
+\cite{Yadwadkar2019} and \cite{Zhang2020} propose that further research be conducted into how to synergistically perform model-switching and hardware resource management.
 
 Further, given the choice of placement, a new model may need to be loaded, additional hardware resources may need to be launched, or loaded models may need to be evicted to free up resources.
-These operations add latency to the query response, affecting the system's ability to meet SLOs.
-\cite{Yadwadkar2019} calls for research into policies and mechanisms, referred to as Proactive Startup Optimization, for reducing or avoiding this latency.
+As \cite{Zhang2020} points out, keeping all models warm at all times is prohibitively expensive and scales poorly.
+The model management operations add latency to the query response, affecting the system's ability to meet SLOs.
+\cite{Yadwadkar2019} and \cite{Zhang2020} encourage research into methods for reducing or avoiding this latency, striving for the performance of perpetually warm models, while aiming for the resource usage of cold models.
 
 Next, the question is how to capture and organize the data needed for making a decision on query placement.
 In addition to the set of possible hardware resources and model variants, the serving system must also take into account the current state of the system, which is continually changing.
@@ -94,14 +96,39 @@ The current state of the system is described by which model variants are loaded 
 All of this data needs to be captured and organized in a way that enables fast and efficient decision making on query placement.
 
 Not only does the logical aspect of hardware and model variant selection need to be considered, the geographical location of hardware resources must also be taken into account.
-Given that resources may be anywhere on the continuum of core-middle-edge, where should models be loaded?
-Where should resource management decisions be made?
-Where should query placement decisions be made
+Given that resources may be anywhere on the continuum of core-middle-edge, \cite{Yadwadkar2019} requests research into answering the questions of where models should be loaded, where resource management decisions should be made, and where query placement decisions should be made.
+\cite{Rausch2019a} points out that edge resource management from the cloud is complex, partly because nodes may be on private networks or behind firewalls.
+In addition, edge resources may have unreliable or limited network access, making it challenging to maintain constant communication channels.
+The authors report that no out-of-the-box solution currently solves these issues, and request research into transparent edge-cloud resource consolidation/orchestration without the use of point-to-point integrations like VPNs.
 
-\textcite{Zhang2020} presents some research questions.
-Loading models into memory is slow and increases response time.
-Keeping models loaded in memory at all times is expensive and does not scale well.
-How do we provide the illusion of all models being warm, while spending resources as if all models are cold?
+\cite{Zhang2020} further proposes research into combining model-switching with performance optimization techniques like query caching and batching.
+Several batching techniques have been reported for ML serving systems.
+\cite{Crankshaw2017} uses a batching technique with a static maximum batch size with a timeout window which are both tuned on a per-model basis, while \cite{Choi2021} proposes an adaptive batching scheme specifically for neural networks, reducing latency during low-traffic scenarios.
+Combining caching and batching with model-switching is an open problem for further work.
 
-Similarly to \cite{Yadwadkar2019}, \cite{Zhang2020} also poses the question of how to combine the selection of model variant with the selection and scaling of hardware resources.
+\cite{Zhang2020} proposes research into extending model-switching to additional types of computing resources.
+CPUs are currently the most widely used for inference in existing MLaaS platforms, other types of hardware exist that are suited for neural network inference, such as GPUs, TPUs, etc.
+Research into model-switching which takes into account these additional types of hardware resources should be conducted to identify possible performance benefits.
+Further, the additional hardware heterogeneity could pose an interesting challenge when combining model-switching and hardware selection during dynamic query placement.
 
+\cite{Rausch2019a} observes that the performance of the Kubernetes scheduler begins degrading with 5000 nodes and fewer than 10 constraints, struggling to process more than 15 functions per second.
+It is conceivable that the number of edge devices may reach the thousands and beyond in an IoT scenario, e.g. in industry 4.0, suggesting that the scheduler may become a performance bottleneck in the future.
+The authors therefore propose research into more scalable function scheduling.
+
+\cite{Bosch2021} and \cite{Rausch2019} report a lack of generic solutions for deploying ML models to embedded and edge devices.
+\cite{Rausch2019} reports that conventional IoT provisioning frameworks are not suited for deploying ML models, while \cite{Gupta2020} reports that there is a lack of solutions for deploying to edge devices that do not support containerization techniques.
+\cite{Rausch2019a} reports that support for non-x86 architectures is lacking.
+
+In the context of having multiple models deployed in an edge architecture, edge devices may have to evict models in order to free up resources.
+\cite{Rausch2019a} proposes research into strategies for intelligently evicting models from edge devices.
+
+According to \cite{Rausch2019}, monitoring edge-deployed ML models can potentially present two different challenges.
+First, some metrics, such as concept drift and model drift, require continuous access to the original training set.
+However, edge devices may not have access to the training set for multiple reasons, for example because of storage space constraints or because of data privacy concerns.
+This requires further research into possible solutions.
+
+Secondly, \cite{Rausch2019} identifies the problem of triggering centralized model retraining.
+Retraining triggers require that monitoring data be continuously streamed from the edge devices to the (possibly centralized) ML pipeline.
+Not only could this be difficult because of unreliable network connections, bandwidth restrictions or data usage constraints; handling large volumes of incoming monitoring data from edge devices may itself present a challenge of scalability.
+
+\cite{Rausch2019} scalable provisioning
