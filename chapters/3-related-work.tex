@@ -1,11 +1,11 @@
 \chapter{Related Work}
 \label{ch:related_work}
 
-\textcite{Shahin2017} performed a comprehensive \acrfull{slr} of tools, practices, approaches and challenges for continuous software engineering (\acrshort{ci}/\acrshort{cd}/\acrshort{cde}).
+\textcite{Shahin2017} performed a comprehensive \acrfull{slr} of tools, practices, approaches and challenges for continuous software engineering.
 The authors identified thirty approaches and associated tools for facilitating continuous software engineering practices, and found they were being applied in a wide variety of application domains.
 The application of the identified approaches to \acrshort{ml} systems is not discussed or mentioned.
 
-\textcite{Rodriguez2017} performed a \acrfull{sms} of \acrshort{cd}, focusing on the state of research, characteristics of \acrshort{cd} and benefits, challenges and gaps in the research.
+\textcite{Rodriguez2017} performed a \acrfull{sms} of \acrfull{cd}, focusing on the state of research, characteristics of \acrshort{cd} and benefits, challenges and gaps in the research.
 The authors identify nine concrete areas for future research opportunities, but the topic of applying \acrshort{cd} to \acrshort{ml} is not discussed.
 
 \textcite{Baier2019} surveyed the academic literature for challenges in deploying \acrshort{ml} models.
@@ -49,42 +49,44 @@ The deployment aspect is only briefly mentioned.
 
 \todo[inline]{Write about \textcite{Serban2021} (?)}
 
-\todo[inline]{Write about \textcite{John2021a}}
+\textcite{John2021a} performed an \acrshort{slr} and \acrshort{glr} on the adoption of MLOps practices and how companies evolve through different stages of adoption.
+A framework is produced, allowing the characterization of a company's MLOps adoption maturity, similarly to \cite{Lwakatare2020a}.
 
 A common characteristic of previous work is that it tends to be quite broad in scope, covering many areas of \acrshort{se} for \acrshort{ml}.
 This study will make the following novel contributions to the research.
 \begin{itemize}
-    \item Focus specifically on the deployment aspect, including the aspects of serving and monitoring, which have largely been overlooked in previous work
-    \item Investigate deployment tooling and identify reported gaps and challenges
+    \item Focus specifically on how ML models are deployed, including the aspects of serving and monitoring, which have largely been overlooked in previous work
+    \item Investigate deployment tooling and infrastructure, and identify reported gaps and challenges
     \item Include \acrshort{gl} as well as \acrshort{wl}
 \end{itemize}
 
 \begin{table}[h]
-\begin{adjustwidth}{-1in}{-1in}
     \centering
     \begin{tabular}{l c c c c}
-        Study & Deployment-focused & Includes \acrshort{gl} & Tooling-focused & Within field of \acrshort{se} for \acrshort{ml} \\
+        Study & D & \acrshort{gl} & TI & SE4ML \\
         \hline
-        \textcite{Shahin2017} & X & & X & \\
-        \textcite{Rodriguez2017} & X & & & \\
-        \textcite{Baier2019} & X & & & X \\
-        \textcite{Paleyes2020} & X & & & X \\
-        \textcite{Kumeno2020} & & & & X \\
-        \textcite{Nascimento2020} & & & & X \\
-        \textcite{Lwakatare2020} & X & & & X \\
-        \textcite{Lwakatare2020a} & X & X & & X \\
-        \textcite{Serban2020} & & X & & X \\
-        \textcite{Karamitsos2020} & & & & X \\
-        \textcite{John2021} & X & X & & X \\
-        \textcite{Giray2021} & & & & X \\
-        \textcite{Lorenzoni2021} & & & & X \\
-        \textcite{MartinezFernandez2021} & & & & X \\
-        \textcite{Serban2021} & & & & X \\
+        \cite{Shahin2017} & X & & X & \\
+        \cite{Rodriguez2017} & X & & & \\
+        \cite{Baier2019} & X & & & X \\
+        \cite{Paleyes2020} & X & & & X \\
+        \cite{Kumeno2020} & & & & X \\
+        \cite{Nascimento2020} & & & & X \\
+        \cite{Lwakatare2020} & & & & X \\
+        \cite{Lwakatare2020a} & & X & & X \\
+        \cite{Serban2020} & & X & & X \\
+        \cite{Karamitsos2020} & X & & X & X \\
+        \cite{John2021} & X & X & & X \\
+        \cite{Giray2021} & & & & X \\
+        \cite{Lorenzoni2021} & & & & X \\
+        \cite{MartinezFernandez2021} & & & & X \\
+        \cite{Serban2021} & & & & X \\
+        \cite{John2021a} & & X & & X \\
         This study & X & X & X & X \\
     \end{tabular}
-    \caption{Comparison of related work with this study.}
+    \caption{Comparison of related work with this study (WORK IN PROGRESS). D -- in-depth discussion of how models are deployed; GL -- reviews GL; TI -- investigates tooling and infrastructure issues; SE4ML -- concerns the application of SE to ML.}
     \label{tab:related_work_comparison}
-\end{adjustwidth}
 \end{table}
 
-As can be seen from \cref{tab:related_work_comparison}, \cite{Lwakatare2020a} and \cite{John2021} are the closest competitors to this study.
+As can be seen from \cref{tab:related_work_comparison}, \cite{Karamitsos2020} and \cite{John2021} are the closest competitors to this study.
+
+\todo[inline]{Maybe write something about why karamitsos is a very low-quality study}

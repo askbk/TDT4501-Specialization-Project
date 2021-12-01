@@ -7,45 +7,47 @@ Packaging models in containers accessible through REST or RPC interfaces is a co
 When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
 Another reported method of integration is to serialize the model (e.g. into ONNX\footnote{\url{https://onnx.ai/}}, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
 The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
-The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, possibly first having to be rewritten for production \cite{Hazelwood2018}.
+The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, traditionally first having to be rewritten for production \cite{Hazelwood2018}.
 
 \subsection{Deployment}
 Deployment, the transitioning of a  packaged and integrated model into a serving state, may occur through a few different methods.
 Models packaged in containers are simply run directly as standalone services \cite{Liu2020,Ruf2021, Granlund2021, Li2017, Garcia2020}.
 However, models may be deployed in a target environment that is different from where they are packaged, in which case the model transfer may happen through either a push- or a pull-pattern.
 
-In a pull-pattern deployment, the target environment (host application running on e.g. server or edge device) either periodically polls for model updates and downloads when available \cite{Paeaekkoenen2020, Li2017, Peticolas2019}.
+In a pull-pattern deployment, the target environment (host application running on e.g. server or edge device) periodically polls for model updates and downloads when available \cite{Paeaekkoenen2020, Li2017, Peticolas2019}.
 
 In a push-pattern deployment, the target environment is notified of the availability of a new model by a master server, e.g. by the server where the model was trained.
-This will happen either through a messaging service \cite{Liu2020, Garcia2020}, where message contains metadata including the location of the updated model, or by the model being pushed directly to the target environment through an interface \cite{Paeaekkoenen2020}.
+This will happen either through a messaging service \cite{Liu2020, Garcia2020}, where message contains metadata including the location of the updated model, or by the model being pushed directly to the target environment through some receiving interface \cite{Paeaekkoenen2020}.
 
-When an updated model has reached the target environment, the redeployment can happen in a few different ways.
+When an updated model has reached the target environment, subsequent redeployments can happen in a few different ways.
 For models packaged as standalone containers, a container orchestration service (e.g. Kubernetes) can roll out updated models without downtime.
 Serialized models may simply be loaded into memory by the application, potentially leading to downtime.
-If the hosting application is containerized, model redeployment may be orchestrated by deploying a new application instance alongside the old instance and providing the updated model data.
+If the hosting application is containerized, model redeployment may be orchestrated by deploying a new application instance with the new model data, alongside the old instance.
 When the new instance is finished initializing, it can start serving requests, and the old instance may be evicted \cite{Paeaekkoenen2020}.
 To avoid high response latencies for the first query (cold-start issues), models may be queried with an empty request (or an explicit warm-up function call may be used if available) which forces lazy-loaded model components to initialize \cite{Li2017}.
 
 When using an ML deployment service (e.g. SageMaker), the service may handle the deployment of serialized models \cite{Chahal2020}.
 
-Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark\footnote{\url{https://spark.apache.org/}} \cite{Li2017}.
+Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark\footnote{\url{https://spark.apache.org/}}, computing predictions and storing them in a database or data warehouse \cite{Li2017}.
 
 \subsection{Serving and Inference}
 Models are commonly made available for serving predictions through a REST \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or RPC \cite{Ruf2021, Li2017, Crankshaw2017} API.
 To meet inference SLOs, there are several techniques reported.
 One is model-switching, where less accurate but more performant models are used during periods of high load in order to meet required SLOs \cite{Zhang2020}.
-Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to individual the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the SLO.
+Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the SLO \cite{Crankshaw2017}.
 Additionally, a cache layer may be put on top of the model to reduce computation \cite{Crankshaw2017}.
 In order to avoid cold-start issues caused by model loading and initialization, models should be warmed up at deployment and be kept perpetually warm over the course of its life \cite{Zhang2020}.
 Model warmup can be achieved through either a method provided by the ML framework \cite{Li2017}, or more generally through issuing an empty query against the model \cite{Garcia2020}.
 
 \subsection{Monitoring and Logging}
+Runtime monitoring is important for operationalized ML in order to increase trust and detect performance degradations \cite{Rausch2019, Li2017}.
 When the model is operational, the whole application stack is constantly monitored for performance metrics such as latency, throughput, disk utilization, et cetera \cite{Ruf2021, Peticolas2019}.
 Predictions are logged, and when available joined with actual outcomes\cite{Li2017}.
 Model accuracy should be used to determine when a new model is needed \cite{Peticolas2019}.
 The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
 
 \section{RQ2: What Are the Main Challenges in ML Model Deployment?}
+\todo[inline]{Need to think about how to present RQ2 and RQ3 in relation to RQ1 and RQ4 in order to minimize overlap.}
 \subsection{Serving}
 Serving-related challenges are some of the most often reported ones in the literature \cite{Bosch2021, Richins2020, Li2017, Baylor2017, Garcia2020, Crankshaw2017, Lwakatare2019, Bernardi2019, Yadwadkar2019, Chahal2020, Choi2021, Zhang2020, Gupta2020}, usually from a performance perspective.
 
@@ -77,13 +79,12 @@ In particular, \cite{Yadwadkar2019} and \cite{Zhang2020} identify a large number
 
 In the context of an ML system with multiple available variants of the same model (with different accuracy and performance characteristics) and multiple hardware resources to choose from, \cite{Yadwadkar2019} presents a series of interrelated open problems concerned with serving performance.
 The automatic selection of model variant based on a given SLO will be referred to as \textit{model-switching} based on the terminology used in \cite{Zhang2020}. 
-
 The overarching question is that of how the serving system should automatically select a model variant and underlying hardware given some SLO specified by a client application.
 
 First, given an inference query, how should it be placed/scheduled by the serving system?
 The options are to either generate a new model variant, to load an existing model variant, or to query an already loaded model.
 The choice will depend on the individual application requirements, e.g. whether the inference is online or offline, what the SLOs are, etc.
-\cite{Yadwadkar2019} and \cite{Zhang2020} propose that further research be conducted into how to synergistically perform model-switching and hardware resource management.
+\cite{Yadwadkar2019} and \cite{Zhang2020} propose that further research be conducted into how to synergistically combine model-switching and hardware resource selection.
 
 Further, given the choice of placement, a new model may need to be loaded, additional hardware resources may need to be launched, or loaded models may need to be evicted to free up resources.
 As \cite{Zhang2020} points out, keeping all models warm at all times is prohibitively expensive and scales poorly.
@@ -92,7 +93,7 @@ The model management operations add latency to the query response, affecting the
 
 Next, the question is how to capture and organize the data needed for making a decision on query placement.
 In addition to the set of possible hardware resources and model variants, the serving system must also take into account the current state of the system, which is continually changing.
-The current state of the system is described by which model variants are loaded on which hardware resources, which model variants exist but are not loaded, which model variants do not exist but are able to be generated, CPU/memory/disk/network usage of each hardware instance, inference request traffic.
+The current state of the system is described by which model variants are loaded on which hardware resources, which model variants exist but are not loaded, which model variants do not exist but are able to be generated, CPU/memory/disk/network usage of each hardware instance, inference query traffic.
 All of this data needs to be captured and organized in a way that enables fast and efficient decision making on query placement.
 
 Not only does the logical aspect of hardware and model variant selection need to be considered, the geographical location of hardware resources must also be taken into account.
@@ -119,16 +120,20 @@ The authors therefore propose research into more scalable function scheduling.
 \cite{Rausch2019} reports that conventional IoT provisioning frameworks are not suited for deploying ML models, while \cite{Gupta2020} reports that there is a lack of solutions for deploying to edge devices that do not support containerization techniques.
 \cite{Rausch2019a} reports that support for non-x86 architectures is lacking.
 
-In the context of having multiple models deployed in an edge architecture, edge devices may have to evict models in order to free up resources.
-\cite{Rausch2019a} proposes research into strategies for intelligently evicting models from edge devices.
+Edge devices present greater heterogeneity in computing capabilities, storage and networking, and in the context of having multiple models deployed in an edge architecture, some models may have to be evicted from time to time in order to free up resources for new deployments.
+\cite{Rausch2019} and \cite{Rausch2019a} propose research into strategies for intelligently evicting models from edge devices.
 
 According to \cite{Rausch2019}, monitoring edge-deployed ML models can potentially present two different challenges.
 First, some metrics, such as concept drift and model drift, require continuous access to the original training set.
 However, edge devices may not have access to the training set for multiple reasons, for example because of storage space constraints or because of data privacy concerns.
-This requires further research into possible solutions.
+Further research is required to solve the problem of drift detection in edge devices where training data is unavailable.
 
 Secondly, \cite{Rausch2019} identifies the problem of triggering centralized model retraining.
 Retraining triggers require that monitoring data be continuously streamed from the edge devices to the (possibly centralized) ML pipeline.
 Not only could this be difficult because of unreliable network connections, bandwidth restrictions or data usage constraints; handling large volumes of incoming monitoring data from edge devices may itself present a challenge of scalability.
 
-\cite{Rausch2019} scalable provisioning
+On the topic of monitoring, \cite{Chen2020} highlights a need for framework-agnostic model telemetry solutions to enable the capture of statistical performance metrics with a broad set of supported deployment environments.
+
+\cite{Chen2020} also notes the need for a general representation format for multistep ML workflows.
+Many processes in ML pipelines contain multiple subtasks, where changing a single step may cause regressions.
+A new format should provide explicit IO interfaces and enable parallell execution of independent subtasks with existing workflow execution systems (e.g. Airflow).
