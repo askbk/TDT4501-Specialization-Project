@@ -48,13 +48,34 @@ The application should be validated against predefined KPIs of the project \cite
 
 \section{RQ2: What Are the Main Challenges in ML Model Deployment?}
 \todo[inline]{Need to think about how to present RQ2 and RQ3 in relation to RQ1 and RQ4 in order to minimize overlap.}
+\subsection{Packaging and Integration}
+ML frameworks are not all created equal, and may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
+\cite{Crankshaw2017} notes several challenges in deploying ML frameworks: interface inconsistency across frameworks, changes over time in what is the best framework for the job, and frameworks that are not optimized for deployment.
+Developers then have to make the choice of either using a suboptimal framework, or incurring technical debt in order to support and integrate multiple frameworks.
+
+\cite{Hazelwood2018} reports solving this tradeoff by decoupling the frameworks from the model by transferring it from research to production using an exchange format for neural networks.
+\cite{Crankshaw2017} also uses decoupling as a solution to this problem, but opts for adding an abstraction layer with a simple interface on top of all models.
+This solution is more general, as it is not specific to neural networks.
+
+\cite{Bosch2021} reports the extensive use of glue code as a challenge with which companies struggle.
+Glue code is code that merely glues together different parts of the program, without itself providing any functionality.
+The authors also highlight the integration of data-driven models with computation-driven software components as a potentially non-trivial task.
+
 \subsection{Serving}
 Serving-related challenges are some of the most often reported ones in the literature \cite{Bosch2021, Richins2020, Li2017, Baylor2017, Garcia2020, Crankshaw2017, Lwakatare2019, Bernardi2019, Yadwadkar2019, Chahal2020, Choi2021, Zhang2020, Gupta2020}, usually from a performance perspective.
 
 Achieving a low inference latency and high throughput is widely reported as a challenge in serving ML models \cite{Bosch2021, Li2017,Crankshaw2017,Lwakatare2019,Bernardi2019}.
-Several potential solutions have been proposed in the literature.
+\textcite{Bernardi2019} found that there is a statistically significant negative correlation between latency and conversion rate at Booking.com, highlighting the business impact of serving performance.
 
-\textcite{Gupta2020} proposes deploying ML models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
+Several potential solutions for improving serving performance have been proposed in the literature.
+\textcite{Gupta2020} suggests deploying ML models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
+\cite{Richins2020} observes that 33\% of application latency is a result of internal communication frameworks, and by experimentation find that the messaging system becomes congested when faced with an eightfold increase in inference performance.
+With a growing number of specialized ML accelerator hardware, it not inconceivable for such performance bottlenecks to appear in the near future.
+The authors find that a solution to the problem could be to increase the number of broker node instances used in the messaging system, which clears up the congestion issue.
+
+However, ML models typically do not make inferences based on raw data, but may require data transformations both before and after inference.
+\cite{Richins2020} warns that the data processing code in streaming ML systems could soon become another performance bottleneck.
+The authors do not, however, offer a solution.
 
 Start-up/cold-start latency is a typical serving challenge for ML models \cite{Yadwadkar2019}. It is mainly caused by the ML model being loaded into memory and initialized, and is typically solved by warming up the model after it has been deployed, and then keeping it perpetually warm \cite{Zhang2020}.
 
@@ -65,10 +86,6 @@ Start-up/cold-start latency is a typical serving challenge for ML models \cite{Y
 Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021}.
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
 One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what an ideal model would look like \cite{Bernardi2019}.
-
-Monitoring models deployed at scale on the edge has another set of associated challenges.
-Detecting concept drift usually requires realtime access to the original training data, which may not be possible on edge devices due to network constraints.
-Additionally, having a large number of edge devices may introduce scalability challenges \cite{Rausch2019} in monitoring.
 
 \section{RQ3: What Tools and Infrastructure Are Used to Deploy ML Models?}
 \section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
@@ -137,3 +154,5 @@ On the topic of monitoring, \cite{Chen2020} highlights a need for framework-agno
 \cite{Chen2020} also notes the need for a general representation format for multistep ML workflows.
 Many processes in ML pipelines contain multiple subtasks, where changing a single step may cause regressions.
 A new format should provide explicit IO interfaces and enable parallell execution of independent subtasks with existing workflow execution systems (e.g. Airflow).
+
+\section{Evaluation of Results}
