@@ -1,4 +1,5 @@
 \chapter{Research Results}
+\label{ch:research_results}
 This chapter presents the results from the SLR on a per-research question basis.
 
 \section{RQ1: How is ML Model Deployment Handled in the State of the Art?}
@@ -47,7 +48,6 @@ Model accuracy should be used to determine when a new model is needed \cite{Peti
 The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
 
 \section{RQ2: What Are the Main Challenges in ML Model Deployment?}
-\todo[inline]{Need to think about how to present RQ2 and RQ3 in relation to RQ1 and RQ4 in order to minimize overlap.}
 \subsection{Packaging and Integration}
 ML frameworks are not all created equal, and may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
 \cite{Crankshaw2017} notes several challenges in deploying ML frameworks: interface inconsistency across frameworks, changes over time in what is the best framework for the job, and frameworks that are not optimized for deployment.
@@ -69,15 +69,22 @@ Achieving a low inference latency and high throughput is widely reported as a ch
 
 Several potential solutions for improving serving performance have been proposed in the literature.
 \textcite{Gupta2020} suggests deploying ML models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
-\cite{Richins2020} observes that 33\% of application latency is a result of internal communication frameworks, and by experimentation find that the messaging system becomes congested when faced with an eightfold increase in inference performance.
-With a growing number of specialized ML accelerator hardware, it not inconceivable for such performance bottlenecks to appear in the near future.
-The authors find that a solution to the problem could be to increase the number of broker node instances used in the messaging system, which clears up the congestion issue.
 
-However, ML models typically do not make inferences based on raw data, but may require data transformations both before and after inference.
+In a system utilizing publish/subscribe messaging services, \cite{Richins2020} observes that 33\% of application latency is a result of internal communication frameworks, and by experimentation find that the messaging system becomes congested when faced with an eightfold increase in inference performance.
+With a growing number of specialized ML accelerator hardware, it not inconceivable for such performance bottlenecks to appear in the near future.
+The authors find that a solution to the problem could be to increase the number of broker node instances used in the messaging system, which clears up the congestion issue. However, ML models typically do not make inferences based on raw data, but may require data transformations both before and after inference.
 \cite{Richins2020} warns that the data processing code in streaming ML systems could soon become another performance bottleneck.
 The authors do not, however, offer a solution.
 
 Start-up/cold-start latency is a typical serving challenge for ML models \cite{Yadwadkar2019}. It is mainly caused by the ML model being loaded into memory and initialized, and is typically solved by warming up the model after it has been deployed, and then keeping it perpetually warm \cite{Zhang2020}.
+There are, however, problems with this solution, which will be discussed in \cref{ch:research_results:rq4_gaps}.
+
+\cite{Zhang2020} discusses the problem of meeting performance SLOs during significant variations in model query traffic, a problem also observed by \cite{Yadwadkar2019}.
+The authors note that currently, the options are to either accept degraded throughput or latency during high-demand scenarios, or to scale up the hardware resources -- as suggested by \cite{Bernardi2019} -- and thereby incurring increased costs.
+The difficulty in achieving cost-effective and performant inference is also corroborated by \cite{Chahal2020}, where the authors observe that increasing hardware instances and network bandwidth both improve inference latencies.
+To solve the issue of upholding latency SLOs while minimizing costs, the model-switching technique is proposed by \cite{Zhang2020} as a solution, whereby high-accuracy/low-performance models are traded for lower-accuracy/high-performance models during load spikes in order to meet effective accuracy SLO, i.e. the average accuracy of predictions that meet latency requirements.
+
+
 
 \subsection{Edge}
 \label{ch:results:rq2:edge}
@@ -85,10 +92,48 @@ Start-up/cold-start latency is a typical serving challenge for ML models \cite{Y
 \subsection{Monitoring and Logging}
 Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021}.
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
-One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what an ideal model would look like \cite{Bernardi2019}.
+One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what the response distribution of an ideal model would look like \cite{Bernardi2019}.
 
 \section{RQ3: What Tools and Infrastructure Are Used to Deploy ML Models?}
+Containerization is a commonly reported method of packaging ML models \cite{Ruf2021, Peticolas2019, Rausch2019}, and Docker is by far the most frequently reported solution \cite{Krishnamurthi2019, Richins2020, Li2017,Garcia2020,Crankshaw2017, Paeaekkoenen2020,Gupta2020}.
+
+Models packaged in containers are typically accessed through either a REST API \cite{Garcia2020, Paeaekkoenen2020}, such as Flask \cite{Gupta2020}, or RPC interface \cite{Ruf2021, Crankshaw2017}, such as Apache Thrift \cite{Li2017}.
+
+Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a}.
+However, when deploying on edge clusters, K3s may be preferrable \cite{Paeaekkoenen2020}.
+Service for Kubernetes and K3s may be defined with service descriptors like Helm \cite{Paeaekkoenen2020}.
+
+In order to manage multiple clusters of containers, a kubernetes-as-a-service tool such as Rancher may be used \cite{Paeaekkoenen2020}.
+
+Apache OpenWhisk \cite{Garcia2020, Rausch2019a}.
+KNative\cite{Rausch2019a}.
+
+AWS S3 for model storage \cite{Liu2020, Chahal2020}.
+Apache Kafka for messaging and communications \cite{Liu2020, Richins2020, Li2017,Garcia2020}.
+TFX \cite{Ruf2021,Baylor2017}.
+AWS deployment \cite{Krishnamurthi2019, Liu2020,Chahal2020}.
+Apache Samza \cite{Li2017} for streaming engine.
+Apache mesos execution framework for inference \cite{Garcia2020}.
+
+
+AWS Greengrass \cite{Krishnamurthi2019}.
+AWS SageMaker\cite{Ruf2021, Chahal2020}.
+MLflow \cite{Chen2020, Ruf2021}.
+Polyaxon \cite{Ruf2021}
+Kedro\cite{Ruf2021}
+ZenML\cite{Ruf2021}
+H2O\cite{Ruf2021}
+Kubeflow\cite{Ruf2021}
+Flyte\cite{Ruf2021}
+Seldon Core\cite{Ruf2021}
+BentoML\cite{Ruf2021}
+
+Airflow \cite{Ruf2021}
+Prometheus \cite{Ruf2021}
+Great Expectations \cite{Ruf2021}
+
 \section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
+\label{ch:research_results:rq4_gaps}
 
 Many opportunities for further work and research have been identified in the reviewed literature.
 In particular, \cite{Yadwadkar2019} and \cite{Zhang2020} identify a large number of research directions in the area of model serving performance.

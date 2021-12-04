@@ -1,3 +1,40 @@
 \chapter{Introduction}
 \label{ch:introduction}
-Introduction here
+Machine learning models have become increasingly prevalent in virtually all fields of business and research in the past decade.
+New algorithms and techniques for learning, optimizing and improving models are being intensely researched, with new milestones achieved year after year.
+With all the resarch that has been done on the training and evaluation of machine learning models, the difficulty for most companies and practitioners now is not to find new algorithms and optimizations in training, but rather how to actually deploy models to production in order to delived tangible business value.
+While traditional SE for non-ML systems has been a mature and well-understood field, software engineering for ML systems is still a young and immature knowledge area.
+Traditional software systems are largely deterministic, computing-driven systems whose behavior is purely code-dependent.
+On the other hand, ML models have an additional data dependency, in the sense that their behavior is learned from data, and they are often characterized as non-deterministic.
+The additional data dependency is one of the factors contributing to the fact that ML systems require a great amount of supporting infrastructure, leading to an accretion of significantly more technical debt \cite{Sculley2015}.
+As a result of the extra technical debt, ML systems are more challenging to deploy than traditional software systems, something that the research community has quickly turned its attention towards after the paper by \cite{Sculley2015}.
+
+Traditional SE includes the practice/philosophy of DevOps, where minimizing time to production/feedback loop/etc is the ultimate goal.
+MLOps is an extension of DevOps, adopting the same philosophy and principles as DevOps, while including additional practices required for operationalizing ML systems.
+
+Systematic literature reviews are used to get an overview of a field of research and synthesize the existing knowledge into new evidence.
+In recent years, several literature reviews have been conducted to investigate the intersection of SE and ML.
+\cite{Baier2019, Kumeno2020} are some early examples.
+
+In this review, the deployment of ML models and the surrounding infrastructure is the subject of investigation.
+This entails everything that happens after a model has been trained and evaluated, from packaging and integration, to serving and monitoring.
+The different approaches described in literature will be described, together with tools used and challenges often encountered.
+In addition, reported gaps in current tooling will also be investigated in order to provide opportunities for future contributions.
+
+The review was conducted based on the guidelines of \cite{Kitchenham07guidelinesfor} and \cite{Wohlin2014}.
+
+The study found blabla, summary of findings.
+
+Write about most important limitations of this study.
+
+Write about most important contribution of this study.
+
+Write about most important future work.
+
+The study is organized as follows.
+A brief background on ML and DevOps is given in \cref{ch:background}.
+A summary of and comparison with earlier literature reviews in the field is found in \cref{ch:related_work}.
+Research methodology and implementation are described in \cref{ch:research_design_and_implementation}.
+The results of the study are presented in \cref{ch:research_results}, with an evaluation of how well the research questions were answered.
+\cref{ch:discussion} compares the results of this study with previous work, as well as discussing some limitations.
+Finally, some directions for future work and research are proposed in \cref{ch:future_work}
