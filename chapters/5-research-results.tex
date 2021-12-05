@@ -6,7 +6,7 @@ This chapter presents the results from the SLR on a per-research question basis.
 \subsection{Packaging and Integration}
 Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration, in which the model is wrapped in an API layer \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
 When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
-Another reported method of integration is to serialize the model (e.g. into ONNX\footnote{\url{https://onnx.ai/}}, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
+Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
 The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
 The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, traditionally first having to be rewritten for production \cite{Hazelwood2018}.
 
@@ -29,7 +29,7 @@ To avoid high response latencies for the first query (cold-start issues), models
 
 When using an ML deployment service (e.g. SageMaker), the service may handle the deployment of serialized models \cite{Chahal2020}.
 
-Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark\footnote{\url{https://spark.apache.org/}}, computing predictions and storing them in a database or data warehouse \cite{Li2017}.
+Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark, computing predictions and storing them in a database or data warehouse \cite{Li2017}.
 
 \subsection{Serving and Inference}
 Models are commonly made available for serving predictions through a REST \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or RPC \cite{Ruf2021, Li2017, Crankshaw2017} API.
@@ -94,7 +94,7 @@ Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
 One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what the response distribution of an ideal model would look like \cite{Bernardi2019}.
 
-\section{RQ3: What Tools and Infrastructure Are Used to Deploy ML Models?}
+\section{RQ3: What Tools and Software Infrastructure Are Used to Deploy ML Models?}
 Containerization is a commonly reported method of packaging ML models \cite{Ruf2021, Peticolas2019, Rausch2019}, and Docker is by far the most frequently reported solution \cite{Krishnamurthi2019, Richins2020, Li2017,Garcia2020,Crankshaw2017, Paeaekkoenen2020,Gupta2020}.
 
 Models packaged in containers are typically accessed through either a REST API \cite{Garcia2020, Paeaekkoenen2020}, such as Flask \cite{Gupta2020}, or RPC interface \cite{Ruf2021, Crankshaw2017}, such as Apache Thrift \cite{Li2017}.
@@ -102,35 +102,32 @@ Models packaged in containers are typically accessed through either a REST API \
 Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a}.
 However, when deploying on edge clusters, K3s may be preferrable \cite{Paeaekkoenen2020}.
 Service for Kubernetes and K3s may be defined with service descriptors like Helm \cite{Paeaekkoenen2020}.
-
 In order to manage multiple clusters of containers, a kubernetes-as-a-service tool such as Rancher may be used \cite{Paeaekkoenen2020}.
 
-Apache OpenWhisk \cite{Garcia2020, Rausch2019a}.
-KNative\cite{Rausch2019a}.
+Serverless frameworks like Apache OpenWhisk and Knative may be used to deploy models as functions and provide horizontal scaling \cite{Rausch2019a, Garcia2020}, both building on top of Kubernetes.
 
-AWS S3 for model storage \cite{Liu2020, Chahal2020}.
-Apache Kafka for messaging and communications \cite{Liu2020, Richins2020, Li2017,Garcia2020}.
-TFX \cite{Ruf2021,Baylor2017}.
+When models are downloaded by the target environment, a static storage service such as AWS S3 may be used for model storage \cite{Liu2020, Chahal2020}.
+
+A commonly reported messaging and communications framework is Apache Kafka, used for logging predictions \cite{Li2017}, notify models consumers of updates \cite{Liu2020,Garcia2020} and general inter-container communication \cite{Richins2020}.
+
+Prometheus is a platform for monitoring.
+
+In the space of ML-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
+Polyaxon, MLflow, TFX, ZenML, Flyte, Seldon Core and BentoML are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker \cite{Ruf2021, Chahal2020}.
+For the sake of brevity, and to avoid simply reiterating all tools mentioned in \cite{Ruf2021}, the reader is instead referred to their paper for an overview of various tools for operationalizing ML.
+
 AWS deployment \cite{Krishnamurthi2019, Liu2020,Chahal2020}.
+
 Apache Samza \cite{Li2017} for streaming engine.
 Apache mesos execution framework for inference \cite{Garcia2020}.
 
-
 AWS Greengrass \cite{Krishnamurthi2019}.
-AWS SageMaker\cite{Ruf2021, Chahal2020}.
-MLflow \cite{Chen2020, Ruf2021}.
-Polyaxon \cite{Ruf2021}
-Kedro\cite{Ruf2021}
-ZenML\cite{Ruf2021}
-H2O\cite{Ruf2021}
-Kubeflow\cite{Ruf2021}
-Flyte\cite{Ruf2021}
-Seldon Core\cite{Ruf2021}
-BentoML\cite{Ruf2021}
 
-Airflow \cite{Ruf2021}
 Prometheus \cite{Ruf2021}
 Great Expectations \cite{Ruf2021}
+
+A large proportion of infrastructure and tooling for ML are Kubernetes-based, reflecting the active ecosystem around the popular container orchestration tool.
+This could be a barrier to MLOps adoption, as \textcite{Ruf2021} notes that setting up a Kubernetes cluster is an expensive task.
 
 \section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
 \label{ch:research_results:rq4_gaps}
