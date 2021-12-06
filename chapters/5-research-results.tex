@@ -4,7 +4,7 @@ This chapter presents the results from the SLR on a per-research question basis.
 
 \section{RQ1: How is ML Model Deployment Handled in the State of the Art?}
 \subsection{Packaging and Integration}
-Packaging models in containers accessible through REST or RPC interfaces is a commonly reported method of integration, in which the model is wrapped in an API layer \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
+Packaging models in containers is a commonly reported method of integration, in which the model is accessible through REST or RPC interfaces \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
 When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
 Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
 The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
@@ -84,47 +84,37 @@ The authors note that currently, the options are to either accept degraded throu
 The difficulty in achieving cost-effective and performant inference is also corroborated by \cite{Chahal2020}, where the authors observe that increasing hardware instances and network bandwidth both improve inference latencies.
 To solve the issue of upholding latency SLOs while minimizing costs, the model-switching technique is proposed by \cite{Zhang2020} as a solution, whereby high-accuracy/low-performance models are traded for lower-accuracy/high-performance models during load spikes in order to meet effective accuracy SLO, i.e. the average accuracy of predictions that meet latency requirements.
 
-
-
 \subsection{Edge}
 \label{ch:results:rq2:edge}
+Edge deployments are often reported as being more challenging than cloud deployments because of resource heterogeneity and the typically distributed nature of edge devices \cite{Chen2020, Bosch2021, Yadwadkar2019, Gupta2020, Hummer2019}.
+Architecture and capabilities of the hardware, varying network connection constraints
+
+Reviewed studies reporting deployment of ML models to IoT devices tend to construct custom deployment systems in order to deploy to edge devices \cite{Peticolas2019}.
 
 \subsection{Monitoring and Logging}
-Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021}.
+Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021, Chen2020}.
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
 One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what the response distribution of an ideal model would look like \cite{Bernardi2019}.
 
 \section{RQ3: What Tools and Software Infrastructure Are Used to Deploy ML Models?}
+In the space of ML-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
+Polyaxon, MLflow, TFX, ZenML, Flyte, Seldon Core and BentoML are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker \cite{Ruf2021, Chahal2020}.
+For the sake of brevity, and to avoid simply reiterating all tools mentioned in \cite{Ruf2021}, the reader is instead referred to their paper for an overview of various tools for operationalizing ML.
+
 Containerization is a commonly reported method of packaging ML models \cite{Ruf2021, Peticolas2019, Rausch2019}, and Docker is by far the most frequently reported solution \cite{Krishnamurthi2019, Richins2020, Li2017,Garcia2020,Crankshaw2017, Paeaekkoenen2020,Gupta2020}.
-
 Models packaged in containers are typically accessed through either a REST API \cite{Garcia2020, Paeaekkoenen2020}, such as Flask \cite{Gupta2020}, or RPC interface \cite{Ruf2021, Crankshaw2017}, such as Apache Thrift \cite{Li2017}.
-
-Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a}.
+Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a} or Apache Mesos \cite{Garcia2020}.
 However, when deploying on edge clusters, K3s may be preferrable \cite{Paeaekkoenen2020}.
 Service for Kubernetes and K3s may be defined with service descriptors like Helm \cite{Paeaekkoenen2020}.
 In order to manage multiple clusters of containers, a kubernetes-as-a-service tool such as Rancher may be used \cite{Paeaekkoenen2020}.
 
 Serverless frameworks like Apache OpenWhisk and Knative may be used to deploy models as functions and provide horizontal scaling \cite{Rausch2019a, Garcia2020}, both building on top of Kubernetes.
 
-When models are downloaded by the target environment, a static storage service such as AWS S3 may be used for model storage \cite{Liu2020, Chahal2020}.
+When models are downloaded by the target deployment environment, a static storage service such as AWS S3 may be used for model storage \cite{Liu2020, Chahal2020}.
 
-A commonly reported messaging and communications framework is Apache Kafka, used for logging predictions \cite{Li2017}, notify models consumers of updates \cite{Liu2020,Garcia2020} and general inter-container communication \cite{Richins2020}.
-
-Prometheus is a platform for monitoring.
-
-In the space of ML-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
-Polyaxon, MLflow, TFX, ZenML, Flyte, Seldon Core and BentoML are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker \cite{Ruf2021, Chahal2020}.
-For the sake of brevity, and to avoid simply reiterating all tools mentioned in \cite{Ruf2021}, the reader is instead referred to their paper for an overview of various tools for operationalizing ML.
-
-AWS deployment \cite{Krishnamurthi2019, Liu2020,Chahal2020}.
-
-Apache Samza \cite{Li2017} for streaming engine.
-Apache mesos execution framework for inference \cite{Garcia2020}.
+A commonly reported messaging and communications framework is Apache Kafka, used for logging predictions \cite{Li2017}, notify model hosts of updates \cite{Liu2020,Garcia2020} and general inter-container communication \cite{Richins2020}.
 
 AWS Greengrass \cite{Krishnamurthi2019}.
-
-Prometheus \cite{Ruf2021}
-Great Expectations \cite{Ruf2021}
 
 A large proportion of infrastructure and tooling for ML are Kubernetes-based, reflecting the active ecosystem around the popular container orchestration tool.
 This could be a barrier to MLOps adoption, as \textcite{Ruf2021} notes that setting up a Kubernetes cluster is an expensive task.
@@ -156,7 +146,7 @@ The current state of the system is described by which model variants are loaded 
 All of this data needs to be captured and organized in a way that enables fast and efficient decision making on query placement.
 
 Not only does the logical aspect of hardware and model variant selection need to be considered, the geographical location of hardware resources must also be taken into account.
-Given that resources may be anywhere on the continuum of core-middle-edge, \cite{Yadwadkar2019} requests research into answering the questions of where models should be loaded, where resource management decisions should be made, and where query placement decisions should be made.
+Given that resources may lie anywhere on the core-edge continuum, \cite{Yadwadkar2019} requests research into answering the questions of where models should be loaded, where resource management decisions should be made, and where query placement decisions should be made.
 \cite{Rausch2019a} points out that edge resource management from the cloud is complex, partly because nodes may be on private networks or behind firewalls.
 In addition, edge resources may have unreliable or limited network access, making it challenging to maintain constant communication channels.
 The authors report that no out-of-the-box solution currently solves these issues, and request research into transparent edge-cloud resource consolidation/orchestration without the use of point-to-point integrations like VPNs.
