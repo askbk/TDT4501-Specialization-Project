@@ -5,7 +5,6 @@ Machine learning models have become increasingly prevalent in virtually all fiel
 However, deploying models to production with the same level of rigor and automation as traditional software systems has shown itself to be a non-trivial task.
 As a result, MLOps --- an extension of DevOps to include ML systems --- and SE for ML in general, is experiencing increased attention from researchers and practitioners.
 
-Motivation:
 In recent years, several literature reviews have been conducted to investigate the intersection of SE and ML.
 \cite{Baier2019, Kumeno2020} are some early examples.
 In this review, the deployment of ML models and the surrounding infrastructure is the subject of investigation.
@@ -13,12 +12,20 @@ This entails everything that happens after a model has been trained and evaluate
 The different approaches described in literature will be described, together with tools used and challenges often encountered.
 In addition, reported gaps in current tooling will also be investigated in order to provide opportunities for future contributions.
 
-RQs
-
-Method:
-The review was conducted based on the guidelines of \cite{Kitchenham07guidelinesfor} and \cite{Wohlin2014}.
+This study will attempt to answer the following research questions.
+\begin{enumerate}
+    \item How are ML models deployed in the state of the art?
+    \item What are the main challenges in ML model deployment?
+    \item What tools and software infrastructure are used to deploy ML models?
+    \item What are the feature gaps in the tooling and software infrastructure used to deploy ML models?
+\end{enumerate}
+In order to answer the research questions, a \acrfull{slr} was conducted based on the guidelines of \cite{Kitchenham07guidelinesfor} and \cite{Wohlin2014}.
 
 Results and main contributions
+The results of the review show that there are many different techniques for deploying ML models, and there is an abundance of tooling available for the most common use cases, cloud deployment in particular.
+The review also revealed several opportunities for research into better tooling and infrastructure, particularly for serving and edge/distributed ML deployments.
+The results of the study should provide a better overview of different deployment approaches and architectures than previous reviews on the topic.
+Furthermore, the study gives an overview of some of the tooling used, as well as opportunities for future research.
 
 The study is organized as follows.
 A brief background on ML and DevOps is given in \cref{ch:background}.
