@@ -1,15 +1,20 @@
 \chapter{Background}
 \label{ch:background}
-This chapter will briefly explain status of machine learning today, technical debt in ML systems and motivate the need for MLOps.
+This chapter will briefly explain the state of machine learning today, technical debt in ML systems and motivate the need for MLOps.
 
 \section{Machine Learning}
-Adoption of \acrshort{ml} is growing, and is providing value in a wide array of different fields.
+Machine learning models have become increasingly prevalent in virtually all fields of business and research in the past decade.
 \textcite{mckinsey2020} reports that 50\% of businesses surveyed have adopted \acrshort{ai} in some business function.
-However, most companies are still in the very early stages of incorporating \acrshort{ml} in their business processes \cite{Schloegl2019}.
-\todo[inline]{Add a bit more on adoption of ML. Maybe technology developments.}
+New algorithms and techniques for learning, optimizing and improving models are being intensely researched, with new milestones achieved year after year.
+With all the resarch that has been done on the training and evaluation of machine learning models, the difficulty for most companies and practitioners now is not to find new algorithms and optimizations in training, but rather how to actually deploy models to production in order to delived tangible business value.
+Most companies are still in the very early stages of incorporating \acrshort{ml} in their business processes \cite{Schloegl2019}.
 
 \section{Software Engineering for ML Systems}
-\todo{Add softer introduction..}
+While traditional SE for non-ML systems is a mature and well-understood field, software engineering for ML systems is still a young and immature knowledge area.
+Traditional software systems are largely deterministic, computing-driven systems whose behavior is purely code-dependent.
+On the other hand, ML models have an additional data dependency, in the sense that their behavior is learned from data, and they are often characterized as non-deterministic.
+The additional data dependency is one of the factors contributing to the fact that ML systems require a great amount of supporting infrastructure, leading to an accretion of significantly more technical debt \cite{Sculley2015}.
+As a result of the extra technical debt, ML systems are more challenging to deploy than traditional software systems, something that the research community has quickly turned its attention towards after the paper by \cite{Sculley2015}.
 ML systems accrue a lot of \gls{technical_debt} according to \textcite{Sculley2015}.
 This is because in addition to the technical debt incurred by being a software system, with the usual tech debt associated with code, ML systems also have entangled data dependencies.
 The Software Engineering for Machine Learning movement aims to bring already well-established best practices from the SE domain to the field of ML [cite].
