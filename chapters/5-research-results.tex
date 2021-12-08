@@ -2,11 +2,12 @@
 \label{ch:research_results}
 This chapter presents the results from the SLR on a per-research question basis.
 
-\section{RQ1: How is ML Model Deployment Handled in the State of the Art?}
+\section{RQ1: How Are ML Models Operationalized in the State of the Art?}
+\label{ch:research_results:rq1_how}
 \subsection{Packaging and Integration}
 Packaging models in containers is a commonly reported method of integration, in which the model is accessible through REST or RPC interfaces \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
-When deploying many models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
-Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production (such as caffe2) \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
+When deploying numerous different models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
+Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
 The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
 The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, traditionally first having to be rewritten for production \cite{Hazelwood2018}.
 
@@ -47,9 +48,10 @@ Predictions are logged, and when available joined with actual outcomes\cite{Li20
 Model accuracy should be used to determine when a new model is needed \cite{Peticolas2019}.
 The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
 
-\section{RQ2: What Are the Main Challenges in ML Model Deployment?}
+\section{RQ2: What Are the Main Challenges in Operationalizing ML Models?}
+\label{ch:research_results:rq2_challenges}
 \subsection{Packaging and Integration}
-ML frameworks are not all created equal, and may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
+ML frameworks are not all created equal, and some may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
 \cite{Crankshaw2017} notes several challenges in deploying ML frameworks: interface inconsistency across frameworks, changes over time in what is the best framework for the job, and frameworks that are not optimized for deployment.
 Developers then have to make the choice of either using a suboptimal framework, or incurring technical debt in order to support and integrate multiple frameworks.
 
@@ -96,7 +98,8 @@ Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
 One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what the response distribution of an ideal model would look like \cite{Bernardi2019}.
 
-\section{RQ3: What Tools and Software Infrastructure Are Used to Deploy ML Models?}
+\section{RQ3: What Tools and Software Infrastructure Are Used to Operationalize ML Models?}
+\label{ch:research_results:rq3_tools_infrastructure}
 In the space of ML-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
 Polyaxon, MLflow, TFX, ZenML, Flyte, Seldon Core and BentoML are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker \cite{Ruf2021, Chahal2020}.
 For the sake of brevity, and to avoid simply reiterating all tools mentioned in \cite{Ruf2021}, the reader is instead referred to their paper for an overview of various tools for operationalizing ML.
@@ -117,7 +120,7 @@ A commonly reported messaging and communications framework is Apache Kafka, used
 A large proportion of infrastructure and tooling for ML are Kubernetes-based, reflecting the active ecosystem around the popular container orchestration tool.
 This could be a barrier to MLOps adoption, as \textcite{Ruf2021} notes that setting up a Kubernetes cluster is an expensive task.
 
-\section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Deploy ML Models?}
+\section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Operationalize ML Models?}
 \label{ch:research_results:rq4_gaps}
 
 Many opportunities for further work and research have been identified in the reviewed literature.
@@ -183,6 +186,4 @@ On the topic of monitoring, \cite{Chen2020} highlights a need for framework-agno
 
 \cite{Chen2020} also notes the need for a general representation format for multistep ML workflows.
 Many processes in ML pipelines contain multiple subtasks, where changing a single step may cause regressions.
-A new format should provide explicit IO interfaces and enable parallell execution of independent subtasks with existing workflow execution systems (e.g. Airflow).
-
-\section{Evaluation of Results}
+A new format should, according to the authors, provide explicit IO interfaces and enable parallel execution of independent subtasks with existing workflow execution systems (e.g. Airflow).

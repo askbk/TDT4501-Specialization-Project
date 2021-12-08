@@ -18,7 +18,6 @@ As a result of the extra technical debt, ML systems are more challenging to depl
 ML systems accrue a lot of \gls{technical_debt} according to \textcite{Sculley2015}.
 This is because in addition to the technical debt incurred by being a software system, with the usual tech debt associated with code, ML systems also have entangled data dependencies.
 The Software Engineering for Machine Learning movement aims to bring already well-established best practices from the SE domain to the field of ML [cite].
-\todo{Add some more content.}
 
 \section{DevOps for ML Systems -- \emph{MLOps}}
 DevOps is a subset of software engineering focused on tightening the coupling between development and operation of software systems.
@@ -28,8 +27,6 @@ DevOps for Machine Learning, named MLOps, is a subset of SE4ML and a superset/ex
 This is because existing DevOps practices are not sufficient for ML systems, which pose additional requirements [cite].
 ML systems not only have code dependencies, but have data dependencies in addition, which may impose the requirement of data monitoring (for data distributions shift), continuous training or automatic retraining, etc.
 
-\section{Deploying ML Systems}
+\section{Operationalizing ML Systems}
 \label{sec:deploying_ml_systems}
-The deployment step consists of taking the system from a development environment (e.g. local development machine) to a production environment (e.g. a server).
-Deployment in the context of this paper will encompass all steps that come after model training and evaluation, which typically includes (but is not restricted to): packaging model in a format appropriate for deployment, publishing to a model registry, integration into a broader software system, serving, and monitoring.
-Further, infrastructure and configuration will also be included in the term \emph{deployment}.
+Operationalization consists of taking the system from a development environment (e.g. local development machine) to a production environment (e.g. a server), and in the context of this paper will encompass all steps that come after model training and evaluation, which typically includes (but is not restricted to): packaging model in a format appropriate for deployment, publishing to a model registry or model storage, integration into a broader software system, serving, and monitoring.

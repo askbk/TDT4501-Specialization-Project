@@ -12,14 +12,12 @@ Finally, \cref{sec:research_implementation} accounts for how the study was condu
 As outlined in \cref{ch:background}, industry adoption of ML is still in its early stages and rapidly growing.
 The SE aspect of ML is an active field of research, with the vast majority of work having been done only in the past five years.
 As reported by earlier literature studies in the field (see \cref{ch:related_work}), deployment of ML is an area which presents real challenges to practitioners.
-Tackling deployment challenges requires adopting good practices as well as utilizing suitable tooling.
-Much of the earlier work has largely had a broad scope, with goals of mapping out broad SE challenges and practices for ML.
-Further, much of the earlier work has had a focus on reviewing the academic literature, ignoring the vast body of practitioner knowledge found in the GL.
-To summarize, this study is motivated by two key factors.
+Tackling operationalization challenges requires adopting good practices as well as utilizing suitable tooling.
+Earlier work has largely had a broad scope, with goals of mapping out general SE challenges and practices for ML.
+In short, this study is motivated by two key factors.
 \begin{itemize}
-    \item Researching \acrshort{ml} deployment in-depth, and not as part of a broader study of SE for ML.
-    \item Including more practitioner knowledge in the form of GL.
-    \item Putting more focus on tooling and infrastructure by identifying what needs are fulfilled by current tooling and what is missing from tooling.
+    \item Researching \acrshort{ml} operationalization in-depth, and not as part of a broader study of \acrshort{se} for \acrshort{ml}.
+    \item Putting more focus on tooling and infrastructure by identifying how current tools are used and what is reported to need further research.
 \end{itemize}
 
 \section{Research Questions}
@@ -28,59 +26,49 @@ The overarching research question of this study is "\textbf{What is the state of
 The focus will be on tooling and trying to identify feature gaps reported in studies where model deployment is discussed.
 To support the main research question, four subquestions have been defined:
 \begin{itemize}
-    \item \textbf{RQ1: How are ML models deployed in the state of the art?}
-    \item \textbf{RQ2: What are the main challenges and pain points in ML model deployment?}
-    \item \textbf{RQ3: What tools and infrastructure are used to deploy ML models?}
-    \item \textbf{RQ4: What are the feature gaps in the tooling and infrastructure used to deploy ML models?}
+    \item \textbf{RQ1: How are ML models operationalized in the state of the art?}
+    \item \textbf{RQ2: What are the main challenges in operationalizing ML models?}
+    \item \textbf{RQ3: What tools and infrastructure are used to operationalize ML models?}
+    \item \textbf{RQ4: What are the feature gaps in the tooling and infrastructure used to operationalize ML models?}
 \end{itemize}
-The working definition of \emph{deployment} in this paper is outlined in \cref{sec:deploying_ml_systems}.
+The working definition of \emph{operationalization} in this paper is outlined in \cref{sec:deploying_ml_systems}.
 
 \section{Research Method and Design}
 \label{sec:research_method}
-This study is a \acrfull{mlr} based on the guidelines of \textcite{Kitchenham07guidelinesfor} and \textcite{Garousi2019}.
+This study is a \acrfull{slr} based on the guidelines of \textcite{Kitchenham07guidelinesfor} and \textcite{Wohlin2014}.
+In this section, the research methodology, i.e. review protocol, will be described.
 
 \subsection{Search Strategy}
-\subsubsection{White Literature}
-Initial string-based searches in digital libraries failed to produce adequately relevant articles for the topic at hand, thus motivating the use of snowballing as an alternative approach for identifying candidate papers.
+Typically, candidate papers in an \acrshort{slr} are identified by constructing a search string for querying digital libraries.
+However, initial string-based searches in digital libraries failed to produce adequately relevant articles for the topic at hand, thus motivating the use of snowballing as an alternative approach for identifying candidate papers.
 The snowballing procedure followed the process proposed by \textcite{Wohlin2014}, with the exception that forward and backward snowballing were limited to a single iteration each.
-Fordward snowballing will be conducted using the \emph{Cited by} functionality of Google Scholar\footnote{\url{https://scholar.google.com/}}.
-
-\subsubsection{Grey Literature}
-Pilot searches using Google revealed that adequately relevant and recent results were found using the search string "mlops deployment".
-Based on the outlined GL search guidelines in \cite{Garousi2016}, the Top N-approach was selected with the search string "mlops deployment" and $N=100$.
+Forward snowballing will be conducted using the \emph{Cited by} functionality of Google Scholar\footnote{\url{https://scholar.google.com/}}.
 
 \subsection{Study Selection}
-Studies will be selected based on the criteria found in \cref{tab:selection_criteria}, according to the type of literature (\acrshort{wl}/\acrshort{gl}).
+Studies will be selected based on the criteria found in \cref{tab:selection_criteria}.
+Inclusion requires that the study satisfies all of the inclusion criteria, while fulfilling only one of the exclusion criteria leads to exclusion.
 \begin{table}[h]
     \centering
-    \begin{tabular}{l|p{0.4\linewidth}|p{0.4\linewidth}}
-         Literature type & \acrshort{wl} & \acrshort{gl}  \\
-         \hline
-        Inclusion criteria & \begin{itemize}
-    \item Written in English
-    \item Published in a peer-reviewed journal, conference or workshop
-    \item Published after 2010
-    \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
-    \item Available online
-\end{itemize} & \begin{itemize}
-    \item Written in English
-    \item Published after 2010
-    \item Discusses one of the following aspects of machine learning deployment: challenges, solutions, tooling, processes, requirements
-    \item Available online
-\end{itemize} \\
-         Exclusion criteria & \begin{itemize}
-             \item One of the inclusion criteria is not satisfied
-         \end{itemize}  & \begin{itemize}
-             \item One of the inclusion criteria is not satisfied
-         \end{itemize} \\
+    \begin{tabular}{l|p{0.8\linewidth}}
+    Inclusion criteria &  Written in English \\
+    & Published in a peer-reviewed journal, conference or workshop \\
+    & Published after 2015\\
+    & Discusses one of the following aspects of machine learning operationalization: challenges, solutions, tooling, processes, requirements \\
+    & Available online\\
+    \hline
+    Exclusion criteria & One of the inclusion criteria is not satisfied\\
     \end{tabular}
-    \caption{Selection criteria for \acrfull{wl} and \acrfull{gl}.}
+    \caption{Study selection criteria used in the \acrshort{slr}.}
     \label{tab:selection_criteria}
 \end{table}
 
 \subsection{Study Quality Assessment}
-The quality of both \acrshort{wl} and \acrshort{gl} sources will be assessed using the criteria found in \cref{tab:study_quality_criteria}, adapted from criteria used by \cite{Giray2021} and suggested by \cite{Garousi2016}.
-\begin{table}[h]
+The quality of included studies will be assessed using the criteria found in \cref{tab:study_quality_criteria}, adapted from criteria used by \cite{Giray2021} and suggested by \cite{Garousi2016}.
+Studies are subject to assessment criteria marked with \emph{X} depending on whether or not they are empirical.
+For each criterion, the study is awarded 1 point for \emph{yes}, 0.5 for \emph{partly} and 0 for \emph{no}.
+Sources with an average of 0.5 points or less are excluded.
+
+\begin{table}[]
     \centering
     \begin{tabular}{l c c}
         Criteria & Empirical & Non-empirical \\
@@ -88,35 +76,20 @@ The quality of both \acrshort{wl} and \acrshort{gl} sources will be assessed usi
         Does the author have authority on the subject? & X & X \\
         Does the source have a clearly stated aim? & X & X \\
         Is the author free of any vested interests? & X & X \\
-        Have key related GL or WL sources been linked to/discussed? & X & X \\
+        Have key related sources been linked to or discussed? & X & X \\
         Is relevance (to industry or academia) discussed? & X & X \\
         Does the source have a stated methodology? & X &  \\
         Are any threats to validity clearly stated? & X & \\
     \end{tabular}
-    \caption{Study quality assessment criteria for empirical and non-empirical sources, indicated by \emph{X}.}
+    \caption{Study quality assessment criteria for empirical and non-empirical sources, indicated by \emph{X}. Based on criteria from \cite{Garousi2016} and \cite{Giray2021}.}
     \label{tab:study_quality_criteria}
 \end{table}
-Each sub-point is awarded 1 for \emph{yes}, 0.5 for \emph{partly} and 0 for \emph{no}.
-Sources with an average of 0.5 points or less are excluded.
 
 \subsection{Data Extraction}
 \label{sec:method:data_extraction}
 In order to answer the research questions, sufficient data must be gathered from the literature.
-Thus, the following data extraction form was designed:
-
-% \begin{description}
-%     \item[Author] Name of author(s)
-%     \item[Year] Publication year
-%     \item[Context] Description of deployment context where necessary
-%     \item[Achievement] Main achievement of the study
-%     \item[Process] Description of the deployment process (RQ1)
-%     \item[Tools \& infrastructure] Tools and infrastructure used for deployment (RQ1, RQ3)
-%     \item[Challenges] Deployment challenges reported (RQ2)
-%     \item[Solutions] Implemented or proposed solutions to reported problems (RQ1, RQ2)
-%     \item[Requirements] Reported requirements for deployment process, tooling and infrastructure (RQ4)
-%     \item[Gaps] Reported unmet requirements in infrastructure or tooling (RQ4)
-%     \item[Other] Any other notes
-% \end{description}
+Thus, the data extraction form found in \cref{tab:data_extraction_form} was designed.
+Each field is marked by the research question(s) they are intended to facilitate in answering.
 
 \begin{table}[]
     \centering
@@ -125,13 +98,13 @@ Thus, the following data extraction form was designed:
         \hline
         Author & Name of author(s)  \\
         Publication year & Year of publication \\
-        Context & Description of deployment context where necessary \\
+        Context & Description of context where necessary \\
         Achievement & Main achievement of the study \\
-        Process & Description of the deployment process (RQ1) \\
-        Tools \& infrastructure & Tools and infrastructure used for deployment (RQ1, RQ3) \\
-        Challenges & Deployment challenges reported (RQ2) \\
+        Process & Description of the operationalization process (RQ1) \\
+        Tools \& infrastructure & Tools and infrastructure used for operationalization (RQ1, RQ3) \\
+        Challenges & Operationalization challenges reported (RQ2) \\
         Solutions & Implemented or proposed solutions to reported problems (RQ1, RQ2) \\
-        Requirements & Reported requirements for deployment process, tooling and infrastructure (RQ4) \\
+        Requirements & Reported requirements for operationalization process, tooling and infrastructure (RQ4) \\
         Gaps & Reported unmet requirements, open problems and proposed research directions in infrastructure or tooling  (RQ4) \\
         Other & Any other notes \\
     \end{tabular}
@@ -145,24 +118,78 @@ As most papers will likely not address all research questions that this review i
 
 \section{Research Implementation}
 \label{sec:research_implementation}
-Selection, quality assessment and data extraction was conducted in an online spreadsheet, which can be found [ref].
+Selection, quality assessment and data extraction was conducted in an online spreadsheet\footnote{\url{https://docs.google.com/spreadsheets/d/1VMBLQZBsc5dgldnDfHH8cHAWk9ikjxX0TVq4lfYbMpg/edit?usp=sharing}}.
 
 \subsection{Search}
-\subsubsection{White Literature}
-In order to start the WL snowballing, an initial set of studies was assembled from manual search, as well as looking at the reference lists of earlier work, such as \cite{John2021} and \cite{MartinezFernandez2021}.
+In order to start the snowballing, an initial set of studies was assembled from manual search, as well as looking at the reference lists of earlier work, such as \cite{John2021} and \cite{MartinezFernandez2021}.
 The start set can be found in table [table].
-The WL study selection criteria found in \cref{tab:selection_criteria} were applied to the start set, resulting in [table].
+The study selection criteria found in \cref{tab:selection_criteria} were applied to the start set, resulting in [table].
 From the start set of 19 papers, 8 satisfied the selection criteria and minimum study quality score, and were thus selected for review and further snowballing.
+The papers selected from the start set can be found in \cref{tab:selected_start_set}.
 
 Backward snowballing from the 8 selected papers provided an additional 21 candidate papers based on skimming title/abstract/content of all referred papers from the start set.
 Of the 21 candidate papers, 6 papers satisfied the selection criteria and minimum study quality criteria.
+The papers selected from backward snowballing can be found in \cref{tab:selected_backward_snowballing}.
 
 Forward snowballing from the start set yielded 29 initial candidate papers.
 After applying selection criteria, 10 candidate papers remained, of which all satisfied the minimum study quality criteria.
+The papers selected from forward snowballing can be found in \cref{tab:selected_forward_snowballing}.
 
 The total number of papers to review was thus 24.
 
-\subsubsection{Grey Literature}
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|p{0.6\textwidth}}
+        Study & Title \\
+        \hline
+        \textcite{Hazelwood2018} & \citetitle{Hazelwood2018} \\
+        \textcite{Hummer2019} & \citetitle{Hummer2019} \\
+        \textcite{Krishnamurthi2019} & \citetitle{Krishnamurthi2019}\\
+        \textcite{Liu2020} & \citetitle{Liu2020}\\
+        \textcite{Chen2020} & \citetitle{Chen2020}\\
+        \textcite{Bosch2021} & \citetitle{Bosch2021}\\
+        \textcite{Ruf2021} & \citetitle{Ruf2021}\\
+        \textcite{Granlund2021} & \citetitle{Granlund2021}\\
+    \end{tabular}
+    \caption{Studies selected from start set.}
+    \label{tab:selected_start_set}
+\end{table}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|p{0.6\textwidth}}
+        Study & Title \\
+        \hline
+        \textcite{Li2017} & \citetitle{Li2017} \\
+        \textcite{Baylor2017} & \citetitle{Baylor2017} \\
+        \textcite{Crankshaw2017} & \citetitle{Crankshaw2017} \\
+        \textcite{Lwakatare2019} & \citetitle{Lwakatare2019} \\
+        \textcite{Bernardi2019} & \citetitle{Bernardi2019} \\
+        \textcite{Garcia2020} & \citetitle{Garcia2020} \\
+    \end{tabular}
+    \caption{Studies selected from backward snowballing.}
+    \label{tab:selected_backward_snowballing}
+\end{table}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|p{0.6\textwidth}}
+        Study & Title \\
+        \hline
+        \textcite{Yadwadkar2019} & \citetitle{Yadwadkar2019} \\
+        \textcite{Rausch2019} & \citetitle{Rausch2019} \\
+        \textcite{Rausch2019a} & \citetitle{Rausch2019a} \\
+        \textcite{Peticolas2019} & \citetitle{Peticolas2019} \\
+        \textcite{Chahal2020} & \citetitle{Chahal2020} \\
+        \textcite{Zhang2020} & \citetitle{Zhang2020} \\
+        \textcite{Paeaekkoenen2020} & \citetitle{Paeaekkoenen2020} \\
+        \textcite{Gupta2020} & \citetitle{Gupta2020} \\
+        \textcite{Richins2020} & \citetitle{Richins2020} \\
+        \textcite{Choi2021} & \citetitle{Choi2021} \\
+    \end{tabular}
+    \caption{Studies selected from forward snowballing.}
+    \label{tab:selected_forward_snowballing}
+\end{table}
 
 \subsection{Data Extraction}
 Data extraction proceeded by reading the literature and extracting information as described in \cref{sec:method:data_extraction} and entering the data in a spreadsheet.
@@ -171,4 +198,4 @@ Data extraction proceeded by reading the literature and extracting information a
 Data synthesis was performed with the help of TreeSheets \footnote{\url{https://strlen.com/treesheets/}}, a hierarchical spreadsheet application.
 For each research question, relevant extracted data for each author was entered in the hierarchy.
 The data pieces were then coded according to their content.
-Lastly, the hierarchy swap feature was used to reorganize the data from being author-oriented to being code-oriented.
+Lastly, the hierarchy swap feature was used to reorganize the data from being author-oriented to being code-oriented, which enabled discovery of commonalities and differences between studies.
