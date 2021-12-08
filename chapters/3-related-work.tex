@@ -37,7 +37,7 @@ The authors perform extensive quantitative analysis of the survey responses, inv
 % \textcite{Karamitsos2020} perform an \acrshort{slr} in order to propose a CI/CD pipeline for ML systems, providing suggestions for practices and tools to facilitate the pipeline.
 % However, the paper lacks rigor, reporting no details of the search, study selection, data extraction or data synthesis procedures, and providing no discussion of the results or threats to validity.
 
-\textcite{John2021} performed an \acrshort{mlr} of the SE lifecycle of ML models, outlining challenges and best practices in each step of the lifecycle.
+\textcite{John2021} performed a \acrfull{mlr} of the SE lifecycle of ML models, outlining challenges and best practices in each step of the lifecycle.
 
 \textcite{Giray2021} conducted an \acrshort{slr} of \acrshort{se} for \acrshort{ml}, where challenges and solutions were grouped by areas suggested in SWEBOK, similarly to \cite{Kumeno2020} and \cite{Nascimento2020}, while including an even greater number of papers than any previous SLR in the field.
 
@@ -54,42 +54,33 @@ A framework is produced, allowing the characterization of a company's MLOps adop
 A common characteristic of previous work is that it tends to be quite broad in scope, covering many areas of \acrshort{se} for \acrshort{ml}.
 This study will make the following novel contributions to the research.
 \begin{itemize}
-    \item Focus specifically on how ML models are deployed, including the aspects of serving and monitoring, which have largely been overlooked in previous work
-    \item Investigate deployment tooling and infrastructure, and identify reported gaps and challenges
-    \item Include \acrshort{gl} as well as \acrshort{wl}
+    \item Focus specifically on how ML models are operationalized, including the aspects of serving and monitoring, which have largely been overlooked in previous work
+    \item Investigate how tooling and infrastructure are used to operationalize models
+    \item Identify reported gaps and challenges related to tools and infrastructure for operationalization
 \end{itemize}
 
 \begin{table}[h]
     \centering
     \begin{tabular}{l c c c c}
-        Study & D & \acrshort{gl} & TI & SE4ML \\
+        Study & O & TI & R & SE4ML \\
         \hline
-        \cite{Shahin2017} & X & & X & \\
-        \cite{Rodriguez2017} & X & & & \\
-        \cite{Baier2019} & X & & & X \\
-        \cite{Paleyes2020} & X & & & X \\
-        \cite{Kumeno2020} & & & & X \\
-        \cite{Nascimento2020} & & & & X \\
-        \cite{Lwakatare2020} & & & & X \\
-        \cite{Lwakatare2020a} & & X & & X \\
-        \cite{Serban2020} & & X & & X \\
-        % \cite{Karamitsos2020} & X & & X & X \\
-        \cite{John2021} & X & X & & X \\
-        \cite{Giray2021} & & & & X \\
-        \cite{Lorenzoni2021} & & & & X \\
-        \cite{MartinezFernandez2021} & & & & X \\
-        \cite{Serban2021} & & & & X \\
-        \cite{John2021a} & & X & & X \\
+        \textcite{Shahin2017} & X & X & & \\
+        \textcite{Rodriguez2017} & X & & & \\
+        \textcite{Baier2019} & X & & & X \\
+        \textcite{Paleyes2020} & X & & & X \\
+        \textcite{Kumeno2020} & & & & X \\
+        \textcite{Nascimento2020} & & & & X \\
+        \textcite{Lwakatare2020} & & & & X \\
+        \textcite{Lwakatare2020a} & & & & X \\
+        \textcite{Serban2020} & & & & X \\
+        \textcite{John2021} & X & & & X \\
+        \textcite{Giray2021} & & & & X \\
+        \textcite{Lorenzoni2021} & & & & X \\
+        \textcite{MartinezFernandez2021} & & & & X \\
+        \textcite{Serban2021} & & & & X \\
+        \textcite{John2021a} & & & & X \\
         This study & X & X & X & X \\
     \end{tabular}
-    \caption{Comparison of related work with this study. D --- in-depth discussion of how models are deployed; GL --- reviews GL; TI --- investigates tooling and infrastructure issues; SE4ML --- concerns the application of SE to ML.}
+    \caption{Comparison of related work with this study. O --- in-depth discussion of operationalization; TI --- investigates tooling and infrastructure issues; R --- identifies reported suggestions for further research; SE4ML --- concerns the application of SE to ML.}
     \label{tab:related_work_comparison}
 \end{table}
-
-As can be seen from \cref{tab:related_work_comparison}, \cite{John2021} appears to be the closest competitor to this study.
-The key contributions of this study compared to \cite{John2021} are:
-
-\begin{itemize}
-    \item In-depth discussion of tooling and infrastructure issues.
-    \item Identification of reported research gaps.
-\end{itemize}
