@@ -1,6 +1,6 @@
 \chapter{Research Design and Implementation}
 \label{ch:research_design_and_implementation}
-This chapter will discuss the motivation, design and implementation of the SLR.
+This chapter will discuss the motivation, design and implementation of the \acrshort{slr}.
 The chapter is structured as follows.
 In \cref{sec:research_motivation} the impact and usefulness of the study is argued.
 \cref{sec:research_questions} presents the research questions of the study.
@@ -9,11 +9,11 @@ Finally, \cref{sec:research_implementation} accounts for how the study was condu
 
 \section{Research Motivation}
 \label{sec:research_motivation}
-As outlined in \cref{ch:background}, industry adoption of ML is still in its early stages and rapidly growing.
-The SE aspect of ML is an active field of research, with the vast majority of work having been done only in the past five years.
-As reported by earlier literature studies in the field (see \cref{ch:related_work}), deployment of ML is an area which presents real challenges to practitioners.
+As outlined in \cref{ch:background}, industry adoption of \acrshort{ml} is still in its early stages and rapidly growing.
+The \acrshort{se} aspect of \acrshort{ml} is an active field of research, with the vast majority of work having been done only in the past five years.
+As reported by earlier literature studies in the field (see \cref{ch:related_work}), operationalization of \acrshort{ml} is an area which presents practitioners with real challenges, such as how to deliver model artifacts to the production environment or how to monitor evolving input data \cite{Paleyes2020}.
 Tackling operationalization challenges requires adopting good practices as well as utilizing suitable tooling.
-Earlier work has largely had a broad scope, with goals of mapping out general SE challenges and practices for ML.
+Earlier work has largely had a broad scope, with goals of mapping out general \acrshort{se} challenges and practices for \acrshort{ml}.
 In short, this study is motivated by two key factors.
 \begin{itemize}
     \item Researching \acrshort{ml} operationalization in-depth, and not as part of a broader study of \acrshort{se} for \acrshort{ml}.
@@ -22,13 +22,13 @@ In short, this study is motivated by two key factors.
 
 \section{Research Questions}
 \label{sec:research_questions}
-The overarching research question of this study is "\textbf{What is the state of the art in ML deployment?}".
+The overarching research question of this study is "\textbf{What is the state of the art in \acrshort{ml} deployment?}".
 The focus will be on tooling and trying to identify feature gaps reported in studies where model deployment is discussed.
 To support the main research question, four subquestions have been defined:
 \begin{itemize}
     \item \textbf{RQ1: How are ML models operationalized in the state of the art?}
     \item \textbf{RQ2: What are the main challenges in operationalizing ML models?}
-    \item \textbf{RQ3: What tools and infrastructure are used to operationalize ML models?}
+    \item \textbf{RQ3: What tools and software infrastructure are used to operationalize ML models?}
     \item \textbf{RQ4: What are the feature gaps in the tooling and infrastructure used to operationalize ML models?}
 \end{itemize}
 The working definition of \emph{operationalization} in this paper is outlined in \cref{sec:deploying_ml_systems}.
@@ -40,20 +40,23 @@ In this section, the research methodology, i.e. review protocol, will be describ
 
 \subsection{Search Strategy}
 Typically, candidate papers in an \acrshort{slr} are identified by constructing a search string for querying digital libraries.
-However, initial string-based searches in digital libraries failed to produce adequately relevant articles for the topic at hand, thus motivating the use of snowballing as an alternative approach for identifying candidate papers.
+However, initial string-based searches in digital libraries failed to produce adequately relevant articles for the topic at hand.
+
+thus motivating the use of snowballing as an alternative approach for identifying candidate papers.
 The snowballing procedure followed the process proposed by \textcite{Wohlin2014}, with the exception that forward and backward snowballing were limited to a single iteration each.
 Forward snowballing will be conducted using the \emph{Cited by} functionality of Google Scholar\footnote{\url{https://scholar.google.com/}}.
 
 \subsection{Study Selection}
 Studies will be selected based on the criteria found in \cref{tab:selection_criteria}.
 Inclusion requires that the study satisfies all of the inclusion criteria, while fulfilling only one of the exclusion criteria leads to exclusion.
+The year 2015 was chosen as earliest year of publication as this was when research on \acrshort{se} for \acrshort{ml} began to gain traction \cite{Kumeno2020}, possibly in part due to \textcite{Sculley2015}.
 \begin{table}[h]
     \centering
     \begin{tabular}{l|p{0.8\linewidth}}
     Inclusion criteria &  Written in English \\
     & Published in a peer-reviewed journal, conference or workshop \\
     & Published after 2015\\
-    & Discusses one of the following aspects of machine learning operationalization: challenges, solutions, tooling, processes, requirements \\
+    & Discusses one of the following aspects of \acrshort{ml} operationalization: challenges, solutions, tooling, processes, requirements \\
     & Available online\\
     \hline
     Exclusion criteria & One of the inclusion criteria is not satisfied\\

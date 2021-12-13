@@ -5,10 +5,10 @@ This chapter presents the results from the SLR on a per-research question basis.
 \section{RQ1: How Are ML Models Operationalized in the State of the Art?}
 \label{ch:research_results:rq1_how}
 \subsection{Packaging and Integration}
-Packaging models in containers is a commonly reported method of integration, in which the model is accessible through REST or RPC interfaces \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
-When deploying numerous different models, using a consistent standard for APIs, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
-Another reported method of integration is to serialize the model (e.g. into ONNX, HDF5, joblib) and load it at runtime, possibly with an ML framework that is optimized for production \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
-The model could also be packaged in a format specific to an end-to-end framework such as MLflow \cite{Chen2020}.
+Packaging models in containers is a commonly reported method of integration, in which the model is accessible through \acrfull{rest} or \acrfull{rpc} interfaces \cite{Garcia2020, Li2017, Ruf2021, Crankshaw2017}.
+When deploying numerous different models, using a consistent standard for \acrfullpl{api}, such as OpenAPI\footnote{\url{https://www.openapis.org/}}, across models can facilitate system integration \cite{Garcia2020}.
+Another reported method of integration is to serialize the model (e.g. into ONNX\footnote{\url{https://onnx.ai/}}, HDF5, Joblib\footnote{\url{https://joblib.readthedocs.io/en/latest/}}) and load it at runtime, possibly with an \acrshort{ml} framework that is optimized for production \cite{Hazelwood2018, Peticolas2019, Paeaekkoenen2020, Chahal2020}.
+The model could also be packaged in a format specific to an end-to-end framework such as MLflow\footnote{\url{https://mlflow.org/}} \cite{Chen2020}.
 The model may be integrated directly into the application code \cite{Liu2020, Ruf2021, Granlund2021}, traditionally first having to be rewritten for production \cite{Hazelwood2018}.
 
 \subsection{Deployment}
@@ -22,37 +22,37 @@ In a push-pattern deployment, the target environment is notified of the availabi
 This will happen either through a messaging service \cite{Liu2020, Garcia2020}, where message contains metadata including the location of the updated model, or by the model being pushed directly to the target environment through some receiving interface \cite{Paeaekkoenen2020}.
 
 When an updated model has reached the target environment, subsequent redeployments can happen in a few different ways.
-For models packaged as standalone containers, a container orchestration service (e.g. Kubernetes) can roll out updated models without downtime.
+For models packaged as standalone containers, a container orchestration service (e.g. Kubernetes\footnote{\url{https://kubernetes.io/}}) can roll out updated models without downtime.
 Serialized models may simply be loaded into memory by the application, potentially leading to downtime.
 If the hosting application is containerized, model redeployment may be orchestrated by deploying a new application instance with the new model data, alongside the old instance.
 When the new instance is finished initializing, it can start serving requests, and the old instance may be evicted \cite{Paeaekkoenen2020}.
 To avoid high response latencies for the first query (cold-start issues), models may be queried with an empty request (or an explicit warm-up function call may be used if available) which forces lazy-loaded model components to initialize \cite{Li2017}.
 
-When using an ML deployment service (e.g. SageMaker), the service may handle the deployment of serialized models \cite{Chahal2020}.
+When using an \acrshort{ml} deployment service (e.g. SageMaker\footnote{\url{https://aws.amazon.com/sagemaker/}}), the service may handle the deployment of serialized models \cite{Chahal2020}.
 
-Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark, computing predictions and storing them in a database or data warehouse \cite{Li2017}.
+Models intended for batch predictions may simply be plugged into a computing pipeline such as Apache Spark\footnote{\url{https://spark.apache.org/}}, computing predictions and storing them in a database or data warehouse \cite{Li2017}.
 
 \subsection{Serving and Inference}
-Models are commonly made available for serving predictions through a REST \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or RPC \cite{Ruf2021, Li2017, Crankshaw2017} API.
-To meet inference SLOs, there are several techniques reported.
-One is model-switching, where less accurate but more performant models are used during periods of high load in order to meet required SLOs \cite{Zhang2020}.
-Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the SLO \cite{Crankshaw2017}.
+Models are commonly made available for serving predictions through a \acrshort{rest} \cite{Krishnamurthi2019, Liu2020, Ruf2021, Garcia2020, Crankshaw2017, Paeaekkoenen2020} or \acrshort{rpc} \cite{Ruf2021, Li2017, Crankshaw2017} \acrshort{api}.
+To meet inference \acrfullpl{slo}, there are several techniques reported.
+One is model-switching, where less accurate but more performant models are used during periods of high load in order to meet required \acrshortpl{slo} \cite{Zhang2020}.
+Another is to use adaptive batching queues with a timeout, where queries are batched together in batch sizes that are tuned to the individual model and framework. During periods of low traffic, the timeout is reached before the query batch is filled, and inference is run on the batch in order to not exceed the \acrshort{slo} \cite{Crankshaw2017}.
 Additionally, a cache layer may be put on top of the model to reduce computation \cite{Crankshaw2017}.
 In order to avoid cold-start issues caused by model loading and initialization, models should be warmed up at deployment and be kept perpetually warm over the course of its life \cite{Zhang2020}.
 Model warmup can be achieved through either a method provided by the ML framework \cite{Li2017}, or more generally through issuing an empty query against the model \cite{Garcia2020}.
 
 \subsection{Monitoring and Logging}
-Runtime monitoring is important for operationalized ML in order to increase trust and detect performance degradations \cite{Rausch2019, Li2017}.
-When the model is operational, the whole application stack is constantly monitored for performance metrics such as latency, throughput, disk utilization, et cetera \cite{Ruf2021, Peticolas2019}.
+Runtime monitoring is important for operationalized \acrshort{ml} in order to increase trust and detect performance degradations \cite{Rausch2019, Li2017}.
+When the model is operational, the whole application stack is constantly monitored for performance metrics such as latency, throughput, disk utilization, etc \cite{Ruf2021, Peticolas2019}.
 Predictions are logged, and when available joined with actual outcomes\cite{Li2017}.
 Model accuracy should be used to determine when a new model is needed \cite{Peticolas2019}.
-The application should be validated against predefined KPIs of the project \cite{Ruf2021}.
+The application should be validated against predefined \acrfullpl{kpi} of the project \cite{Ruf2021}.
 
 \section{RQ2: What Are the Main Challenges in Operationalizing ML Models?}
 \label{ch:research_results:rq2_challenges}
 \subsection{Packaging and Integration}
-ML frameworks are not all created equal, and some may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
-\cite{Crankshaw2017} notes several challenges in deploying ML frameworks: interface inconsistency across frameworks, changes over time in what is the best framework for the job, and frameworks that are not optimized for deployment.
+\acrshort{ml} frameworks are not all created equal, and some may be better suited for research than production or vice versa, typically because of performance characteristics versus support for rapid experimentation and debugging.
+\cite{Crankshaw2017} notes several challenges in deploying \acrshort{ml} frameworks: interface inconsistency across frameworks, changes over time in what is the best framework for the job, and frameworks that are not optimized for deployment.
 Developers then have to make the choice of either using a suboptimal framework, or incurring technical debt in order to support and integrate multiple frameworks.
 
 \cite{Hazelwood2018} reports solving this tradeoff by decoupling the frameworks from the model by transferring it from research to production using an exchange format for neural networks.
@@ -66,58 +66,59 @@ The authors also highlight the integration of data-driven models with computatio
 \subsection{Serving}
 Serving-related challenges are some of the most often reported ones in the literature \cite{Bosch2021, Richins2020, Li2017, Baylor2017, Garcia2020, Crankshaw2017, Lwakatare2019, Bernardi2019, Yadwadkar2019, Chahal2020, Choi2021, Zhang2020, Gupta2020}, usually from a performance perspective.
 
-Achieving a low inference latency and high throughput is widely reported as a challenge in serving ML models \cite{Bosch2021, Li2017,Crankshaw2017,Lwakatare2019,Bernardi2019}.
+Achieving a low inference latency and high throughput is widely reported as a challenge in serving \acrshort{ml} models \cite{Bosch2021, Li2017,Crankshaw2017,Lwakatare2019,Bernardi2019}.
 \textcite{Bernardi2019} found that there is a statistically significant negative correlation between latency and conversion rate at Booking.com, highlighting the business impact of serving performance.
 
 Several potential solutions for improving serving performance have been proposed in the literature.
-\textcite{Gupta2020} suggests deploying ML models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
+\textcite{Gupta2020} suggests deploying \acrshort{ml} models to the edge in order to reduce network latency. However, edge deployment bring a whole host of its own challenges, which will be discussed in \cref{ch:results:rq2:edge}.
 
 In a system utilizing publish/subscribe messaging services, \cite{Richins2020} observes that 33\% of application latency is a result of internal communication frameworks, and by experimentation find that the messaging system becomes congested when faced with an eightfold increase in inference performance.
-With a growing number of specialized ML accelerator hardware, it not inconceivable for such performance bottlenecks to appear in the near future.
-The authors find that a solution to the problem could be to increase the number of broker node instances used in the messaging system, which clears up the congestion issue. However, ML models typically do not make inferences based on raw data, but may require data transformations both before and after inference.
-\cite{Richins2020} warns that the data processing code in streaming ML systems could soon become another performance bottleneck.
+With a growing number of specialized \acrshort{ml} accelerator hardware, it not inconceivable for such performance bottlenecks to appear in the near future.
+The authors find that a solution to the problem could be to increase the number of broker node instances used in the messaging system, which clears up the congestion issue. 
+However, \acrshort{ml} models typically do not make inferences based on raw data, but may require data transformations both before and after inference.
+\cite{Richins2020} warns that the data processing code in streaming \acrshort{ml} systems could soon become another performance bottleneck.
 The authors do not, however, offer a solution.
 
-Start-up/cold-start latency is a typical serving challenge for ML models \cite{Yadwadkar2019}. It is mainly caused by the ML model being loaded into memory and initialized, and is typically solved by warming up the model after it has been deployed, and then keeping it perpetually warm \cite{Zhang2020}.
+Start-up/cold-start latency is a typical serving challenge for \acrshort{ml} models \cite{Yadwadkar2019}. It is mainly caused by the \acrshort{ml} model being loaded into memory and initialized, and is typically solved by warming up the model after it has been deployed, and then keeping it perpetually warm \cite{Zhang2020}.
 There are, however, problems with this solution, which will be discussed in \cref{ch:research_results:rq4_gaps}.
 
 \cite{Zhang2020} discusses the problem of meeting performance SLOs during significant variations in model query traffic, a problem also observed by \cite{Yadwadkar2019}.
-The authors note that currently, the options are to either accept degraded throughput or latency during high-demand scenarios, or to scale up the hardware resources -- as suggested by \cite{Bernardi2019} -- and thereby incurring increased costs.
+The authors note that currently, the options are to either accept degraded throughput or latency during high-demand scenarios, or to scale up the hardware resources (as suggested by \cite{Bernardi2019}) and thereby incurring increased costs.
 The difficulty in achieving cost-effective and performant inference is also corroborated by \cite{Chahal2020}, where the authors observe that increasing hardware instances and network bandwidth both improve inference latencies.
-To solve the issue of upholding latency SLOs while minimizing costs, the model-switching technique is proposed by \cite{Zhang2020} as a solution, whereby high-accuracy/low-performance models are traded for lower-accuracy/high-performance models during load spikes in order to meet effective accuracy SLO, i.e. the average accuracy of predictions that meet latency requirements.
+To solve the issue of upholding latency \acrshortpl{slo} while minimizing costs, the model-switching technique is proposed by \cite{Zhang2020} as a solution, whereby high-accuracy/low-performance models are traded for lower-accuracy/high-performance models during load spikes in order to meet effective accuracy \acrshort{slo}, i.e. the average accuracy of predictions that meet latency requirements.
 
 \subsection{Edge}
 \label{ch:results:rq2:edge}
 Edge deployments are often reported as being more challenging than cloud deployments because of resource heterogeneity and the typically distributed nature of edge devices \cite{Chen2020, Bosch2021, Yadwadkar2019, Gupta2020, Hummer2019}.
 Architecture and capabilities of the hardware, varying network connection constraints
 
-Reviewed studies reporting deployment of ML models to IoT devices tend to construct custom deployment systems in order to deploy to edge devices \cite{Peticolas2019}.
+Reviewed studies reporting deployment of \acrshort{ml} models to \acrfull{iot} devices tend to construct custom deployment systems in order to deploy to edge devices \cite{Peticolas2019}.
 
 \subsection{Monitoring and Logging}
-Monitoring ML models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021, Chen2020}.
+Monitoring \acrshort{ml} models is challenging \cite{Li2017, Bernardi2019}, but is required in order to detect performance degradations and build confidence in the model \cite{Bosch2021, Chen2020}.
 After making an inference, the true label may not be available for an extended period of time, making it difficult to monitor prediction quality \cite{Bernardi2019}.
 One solution used in practice is to look at the distribution of predictions and determine if there is a significant deviation from what the response distribution of an ideal model would look like \cite{Bernardi2019}.
 
 \section{RQ3: What Tools and Software Infrastructure Are Used to Operationalize ML Models?}
 \label{ch:research_results:rq3_tools_infrastructure}
-In the space of ML-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
-Polyaxon, MLflow, TFX, ZenML, Flyte, Seldon Core and BentoML are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker \cite{Ruf2021, Chahal2020}.
+In the space of \acrshort{ml}-specific platforms, there are a wide array of options reviewed by \cite{Ruf2021} covering all or parts of the project and model lifecycle.
+Polyaxon\footnote{\url{https://polyaxon.com/}}, MLflow\footnote{\url{https://mlflow.org/}}, TFX\footnote{\url{https://www.tensorflow.org/tfx/}}, ZenML\footnote{\url{https://zenml.io/}}, Flyte\footnote{\url{https://flyte.org/}}, Seldon Core\footnote{\url{https://www.seldon.io/tech/products/core/}} and BentoML\footnote{\url{https://www.bentoml.ai/}} are some of the more fully-integrated platforms that exist \cite{Chen2020, Ruf2021}, as well as the Amazon-exclusive SageMaker\footnote{\url{https://aws.amazon.com/sagemaker/}} \cite{Ruf2021, Chahal2020}.
 For the sake of brevity, and to avoid simply reiterating all tools mentioned in \cite{Ruf2021}, the reader is instead referred to their paper for an overview of various tools for operationalizing ML.
 
-Containerization is a commonly reported method of packaging ML models \cite{Ruf2021, Peticolas2019, Rausch2019}, and Docker is by far the most frequently reported solution \cite{Krishnamurthi2019, Richins2020, Li2017,Garcia2020,Crankshaw2017, Paeaekkoenen2020,Gupta2020}.
-Models packaged in containers are typically accessed through either a REST API \cite{Garcia2020, Paeaekkoenen2020}, such as Flask \cite{Gupta2020}, or RPC interface \cite{Ruf2021, Crankshaw2017}, such as Apache Thrift \cite{Li2017}.
-Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a} or Apache Mesos \cite{Garcia2020}.
-However, when deploying on edge clusters, K3s may be preferrable \cite{Paeaekkoenen2020}.
-Service for Kubernetes and K3s may be defined with service descriptors like Helm \cite{Paeaekkoenen2020}.
-In order to manage multiple clusters of containers, a kubernetes-as-a-service tool such as Rancher may be used \cite{Paeaekkoenen2020}.
+Containerization is a commonly reported method of packaging \acrshort{ml} models \cite{Ruf2021, Peticolas2019, Rausch2019}, and Docker\footnote{\url{https://www.docker.com/}} is by far the most frequently reported solution \cite{Krishnamurthi2019, Richins2020, Li2017,Garcia2020,Crankshaw2017, Paeaekkoenen2020,Gupta2020}.
+Models packaged in containers are typically accessed through either a \acrshort{rest} \acrshort{api} \cite{Garcia2020, Paeaekkoenen2020}, such as Flask\footnote{\url{https://flask.palletsprojects.com/en/2.0.x/}} \cite{Gupta2020}, or \acrshort{rpc} interface \cite{Ruf2021, Crankshaw2017}, such as Apache Thrift\footnote{\url{https://thrift.apache.org/}} \cite{Li2017}.
+Having multiple containers deployed will often necessitate the use of a container orchestration tool such as Kubernetes\footnote{\url{https://kubernetes.io}} \cite{Liu2020, Richins2020, Paeaekkoenen2020, Rausch2019a} or Apache Mesos\footnote{\url{https://mesos.apache.org/}} \cite{Garcia2020}.
+However, when deploying on edge clusters, K3s\footnote{\url{https://k3s.io/}} may be preferrable \cite{Paeaekkoenen2020}.
+Service for Kubernetes and K3s may be defined with service descriptors like Helm\footnote{\url{https://helm.sh/}} \cite{Paeaekkoenen2020}.
+In order to manage multiple clusters of containers, a Kubernetes-as-a-service tool such as Rancher\footnote{\url{https://rancher.com/}} may be used \cite{Paeaekkoenen2020}.
 
-Serverless frameworks like Apache OpenWhisk and Knative may be used to deploy models as functions and provide horizontal scaling \cite{Rausch2019a, Garcia2020}, both building on top of Kubernetes.
+Serverless frameworks like Apache OpenWhisk\footnote{\url{https://openwhisk.apache.org/}} and Knative\footnote{\url{https://knative.dev}} may be used to deploy models as functions and provide horizontal scaling \cite{Rausch2019a, Garcia2020}, both building on top of Kubernetes.
 
-When models are downloaded by the target deployment environment, a static storage service such as AWS S3 may be used for model storage \cite{Liu2020, Chahal2020}.
+When models are downloaded by the target deployment environment, a static storage service such as AWS S3\footnote{\url{https://aws.amazon.com/s3/}} may be used for model storage \cite{Liu2020, Chahal2020}.
 
-A commonly reported messaging and communications framework is Apache Kafka, used for logging predictions \cite{Li2017}, notify model hosts of updates \cite{Liu2020,Garcia2020} and general inter-container communication \cite{Richins2020}.
+A commonly reported messaging and communications framework is Apache Kafka\footnote{\url{https://kafka.apache.org/}}, used for logging predictions \cite{Li2017}, notify model hosts of updates \cite{Liu2020,Garcia2020} and general inter-container communication \cite{Richins2020}.
 
-A large proportion of infrastructure and tooling for ML are Kubernetes-based, reflecting the active ecosystem around the popular container orchestration tool.
+A large proportion of infrastructure and tooling for \acrshort{ml} are Kubernetes-based, reflecting the active ecosystem around the popular container orchestration tool.
 This could be a barrier to MLOps adoption, as \textcite{Ruf2021} notes that setting up a Kubernetes cluster is an expensive task.
 
 \section{RQ4: What Are the Gaps in Current Tooling and Infrastructure Used to Operationalize ML Models?}
@@ -125,11 +126,12 @@ This could be a barrier to MLOps adoption, as \textcite{Ruf2021} notes that sett
 
 Many opportunities for further work and research have been identified in the reviewed literature.
 In particular, \cite{Yadwadkar2019} and \cite{Zhang2020} identify a large number of research directions in the area of model serving performance.
-\cite{Bosch2021}, \cite{Rausch2019} and \cite{Gupta2020} also propose several areas of research for edge ML deployment.
+\cite{Bosch2021}, \cite{Rausch2019} and \cite{Gupta2020} also propose several areas of research for edge \acrshort{ml} deployment.
 
-In the context of an ML system with multiple available variants of the same model (with different accuracy and performance characteristics) and multiple hardware resources to choose from, \cite{Yadwadkar2019} presents a series of interrelated open problems concerned with serving performance.
-The automatic selection of model variant based on a given SLO will be referred to as \textit{model-switching} based on the terminology used in \cite{Zhang2020}. 
-The overarching question is that of how the serving system should automatically select a model variant and underlying hardware given some SLO specified by a client application.
+\subsection{Model-switching}
+In the context of an \acrshort{ml} system with multiple available variants of the same model (with different accuracy and performance characteristics) and multiple hardware resources to choose from, \cite{Yadwadkar2019} presents a series of interrelated open problems concerned with serving performance.
+The automatic selection of model variant based on a given \acrshort{slo} will be referred to as \textit{model-switching} based on the terminology used in \cite{Zhang2020}. 
+The overarching question is that of how the serving system should automatically select a model variant and underlying hardware given some \acrshort{slo} specified by a client application.
 
 First, given an inference query, how should it be placed/scheduled by the serving system?
 The options are to either generate a new model variant, to load an existing model variant, or to query an already loaded model.
@@ -138,7 +140,7 @@ The choice will depend on the individual application requirements, e.g. whether 
 
 Further, given the choice of placement, a new model may need to be loaded, additional hardware resources may need to be launched, or loaded models may need to be evicted to free up resources.
 As \cite{Zhang2020} points out, keeping all models warm at all times is prohibitively expensive and scales poorly.
-The model management operations add latency to the query response, affecting the system's ability to meet SLOs.
+The model management operations add latency to the query response, affecting the system's ability to meet \acrshortpl{slo}.
 \cite{Yadwadkar2019} and \cite{Zhang2020} encourage research into methods for reducing or avoiding this latency, striving for the performance of perpetually warm models, while aiming for the resource usage of cold models.
 
 Next, the question is how to capture and organize the data needed for making a decision on query placement.
@@ -153,37 +155,38 @@ In addition, edge resources may have unreliable or limited network access, makin
 The authors report that no out-of-the-box solution currently solves these issues, and request research into transparent edge-cloud resource consolidation/orchestration without the use of point-to-point integrations like VPNs.
 
 \cite{Zhang2020} further proposes research into combining model-switching with performance optimization techniques like query caching and batching.
-Several batching techniques have been reported for ML serving systems.
+Several batching techniques have been reported for \acrshort{ml} serving systems.
 \cite{Crankshaw2017} uses a batching technique with a static maximum batch size with a timeout window which are both tuned on a per-model basis, while \cite{Choi2021} proposes an adaptive batching scheme specifically for neural networks, reducing latency during low-traffic scenarios.
 Combining caching and batching with model-switching is an open problem for further work.
 
 \cite{Zhang2020} proposes research into extending model-switching to additional types of computing resources.
-CPUs are currently the most widely used for inference in existing MLaaS platforms, other types of hardware exist that are suited for neural network inference, such as GPUs, TPUs, etc.
+\acrfullpl{cpu} are currently the most widely used for inference in existing \acrfull{mlaas} platforms, other types of hardware exist that are suited for neural network inference, such as \acrfullpl{gpu}, \acrfullpl{tpu}, etc.
 Research into model-switching which takes into account these additional types of hardware resources should be conducted to identify possible performance benefits.
 Further, the additional hardware heterogeneity could pose an interesting challenge when combining model-switching and hardware selection during dynamic query placement.
 
+\subsection{Edge Deployment}
 \cite{Rausch2019a} observes that the performance of the Kubernetes scheduler begins degrading with 5000 nodes and fewer than 10 constraints, struggling to process more than 15 functions per second.
-It is conceivable that the number of edge devices may reach the thousands and beyond in an IoT scenario, e.g. in industry 4.0, suggesting that the scheduler may become a performance bottleneck in the future.
+It is conceivable that the number of edge devices may reach the thousands and beyond in an \acrshort{iot} scenario, e.g. in industry 4.0, suggesting that the scheduler may become a performance bottleneck in the future.
 The authors therefore propose research into more scalable function scheduling.
 
-\cite{Bosch2021} and \cite{Rausch2019} report a lack of generic solutions for deploying ML models to embedded and edge devices.
-\cite{Rausch2019} reports that conventional IoT provisioning frameworks are not suited for deploying ML models, while \cite{Gupta2020} reports that there is a lack of solutions for deploying to edge devices that do not support containerization techniques.
+\cite{Bosch2021} and \cite{Rausch2019} report a lack of generic solutions for deploying \acrshort{ml} models to embedded and edge devices.
+\cite{Rausch2019} reports that conventional \acrshort{iot} provisioning frameworks are not suited for deploying \acrshort{ml} models, while \cite{Gupta2020} reports that there is a lack of solutions for deploying to edge devices that do not support containerization techniques.
 \cite{Rausch2019a} reports that support for non-x86 architectures is lacking.
 
 Edge devices present greater heterogeneity in computing capabilities, storage and networking, and in the context of having multiple models deployed in an edge architecture, some models may have to be evicted from time to time in order to free up resources for new deployments.
 \cite{Rausch2019} and \cite{Rausch2019a} propose research into strategies for intelligently evicting models from edge devices.
 
-According to \cite{Rausch2019}, monitoring edge-deployed ML models can potentially present two different challenges.
+According to \cite{Rausch2019}, monitoring edge-deployed \acrshort{ml} models can potentially present two different challenges.
 First, some metrics, such as concept drift and model drift, require continuous access to the original training set.
 However, edge devices may not have access to the training set for multiple reasons, for example because of storage space constraints or because of data privacy concerns.
 Further research is required to solve the problem of drift detection in edge devices where training data is unavailable.
 
 Secondly, \cite{Rausch2019} identifies the problem of triggering centralized model retraining.
-Retraining triggers require that monitoring data be continuously streamed from the edge devices to the (possibly centralized) ML pipeline.
+Retraining triggers require that monitoring data be continuously streamed from the edge devices to the (possibly centralized) \acrshort{ml} pipeline.
 Not only could this be difficult because of unreliable network connections, bandwidth restrictions or data usage constraints; handling large volumes of incoming monitoring data from edge devices may itself present a challenge of scalability.
 
 On the topic of monitoring, \cite{Chen2020} highlights a need for framework-agnostic model telemetry solutions to enable the capture of statistical performance metrics with a broad set of supported deployment environments.
 
-\cite{Chen2020} also notes the need for a general representation format for multistep ML workflows.
-Many processes in ML pipelines contain multiple subtasks, where changing a single step may cause regressions.
-A new format should, according to the authors, provide explicit IO interfaces and enable parallel execution of independent subtasks with existing workflow execution systems (e.g. Airflow).
+\cite{Chen2020} also notes the need for a general representation format for multistep \acrshort{ml} workflows.
+Many processes in \acrshort{ml} pipelines contain multiple subtasks, where changing a single step may cause regressions.
+A new format should, according to the authors, provide explicit \acrshort{io} interfaces and enable parallel execution of independent subtasks with existing workflow execution systems (e.g. Airflow\footnote{\url{https://airflow.apache.org/}}).

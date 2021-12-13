@@ -2,30 +2,31 @@
 \label{ch:introduction}
 Machine learning models have become increasingly prevalent in virtually all fields of business and research in the past decade, with a steady stream of new algorithms and techniques being published.
 However, deploying models to production with the same level of rigor and automation as traditional software systems has shown itself to be a non-trivial task.
-As a result, MLOps --- an extension of DevOps to include ML systems --- and SE for ML in general, is experiencing increased attention from researchers and practitioners.
+As a result, MLOps --- an extension of DevOps to include \acrfull{ml} systems --- and \acrfull{se} for \acrshort{ml} in general, is experiencing increased attention from researchers and practitioners.
 
-In recent years, several literature reviews have been conducted to investigate the intersection of SE and ML, mainly mapping practices and challenges to \acrfullpl{ka} of the SWEBOK \cite{Bourque2014} such as in \cite{Kumeno2020} and \cite{Nascimento2020}.
-In this review, the operationalization of ML models and the surrounding infrastructure is the subject of investigation.
+In recent years, several literature reviews have been conducted to investigate the intersection of \acrshort{se} and \acrshort{ml}, mainly mapping practices and challenges to \acrfullpl{ka} of the SWEBOK \cite{Bourque2014} such as in \cite{Kumeno2020} and \cite{Nascimento2020}.
+In this review, the operationalization of \acrshort{ml} models and the surrounding infrastructure is the subject of investigation.
 This entails everything that happens after a model has been trained and evaluated, from packaging and integration, to serving and monitoring.
 The different approaches reported in literature will be described, together with tools used and challenges often encountered.
 In addition, reported gaps in current tooling will also be investigated in order to provide opportunities for future contributions.
 
-This study will attempt to answer the following research questions.
-\begin{enumerate}
-    \item How are ML models operationalized in the state of the art?
-    \item What are the main challenges in operationalizing ML models?
-    \item What tools and software infrastructure are used to operationalize ML models?
-    \item What are the feature gaps in the tooling and software infrastructure used to operationalize ML models?
-\end{enumerate}
-In order to answer the research questions, a \acrfull{slr} was conducted based on the guidelines of \cite{Kitchenham07guidelinesfor} and \cite{Wohlin2014}.
-The results of the review show that there are many different techniques for operationalizing ML models, and there is an abundance of tooling available for the most common use cases, cloud deployment in particular.
-The review also revealed several opportunities for research into better tooling and infrastructure, particularly for serving and edge/distributed ML deployments.
+This study will attempt to answer the following \acrfullpl{rq}.
+\begin{itemize}
+    \item \textbf{RQ1: How are ML models operationalized in the state of the art?}
+    \item \textbf{RQ2: What are the main challenges in operationalizing ML models?}
+    \item \textbf{RQ3: What tools and software infrastructure are used to operationalize ML models?}
+    \item \textbf{RQ4: What are the feature gaps in the tooling and infrastructure used to operationalize ML models?}
+\end{itemize}
+In order to answer the \acrshortpl{rq}, a \acrfull{slr} was conducted based on the guidelines of \cite{Kitchenham07guidelinesfor} and \cite{Wohlin2014}.
+One iteration of forward and backward snowballing was performed on a start set of 19 studies, resulting in 24 papers to review after performing study selection and quality assessment.
+The results of the review show that there are many different techniques for operationalizing \acrshort{ml} models, and there is an abundance of tooling available for the most common use cases, cloud deployment in particular.
+The review also revealed several opportunities for research into better tooling and infrastructure, particularly for serving and edge/distributed \acrshort{ml} deployments.
 The results of the study should provide a better overview of different deployment approaches and architectures than previous reviews on the topic.
 Furthermore, the study gives an overview of some of the tooling used, as well as opportunities for future research.
 
 The study is organized as follows.
-A brief background on ML and DevOps is given in \cref{ch:background}.
-A summary of and comparison with earlier literature reviews in the field of SE for ML is found in \cref{ch:related_work}.
+A brief background on \acrshort{ml} and DevOps is given in \cref{ch:background}.
+A summary of and comparison with earlier literature reviews in the field of \acrshort{se} for \acrshort{ml} is found in \cref{ch:related_work}.
 The research methodology and corresponding implementation are described in \cref{ch:research_design_and_implementation}.
 The results of the study are presented in \cref{ch:research_results}.
 \cref{ch:discussion} compares the results of this study with previous work, as well as discussing some limitations.

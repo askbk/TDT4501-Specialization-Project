@@ -1,8 +1,8 @@
 \chapter{Related Work}
 \label{ch:related_work}
 
-\textcite{Shahin2017} performed a comprehensive \acrfull{slr} of tools, practices, approaches and challenges for continuous software engineering.
-The authors identified thirty approaches and associated tools for facilitating continuous software engineering practices, and found they were being applied in a wide variety of application domains.
+\textcite{Shahin2017} performed a comprehensive \acrfull{slr} of tools, practices, approaches and challenges for continuous \acrshort{se}.
+The authors identified thirty approaches and associated tools for facilitating continuous \acrshort{se} practices, and found they were being applied in a wide variety of application domains.
 The application of the identified approaches to \acrshort{ml} systems is not discussed or mentioned.
 
 \textcite{Rodriguez2017} performed a \acrfull{sms} of \acrfull{cd}, focusing on the state of research, characteristics of \acrshort{cd} and benefits, challenges and gaps in the research.
@@ -25,10 +25,10 @@ This is further illustrated when the authors highlight that deployment is one of
 
 \textcite{Lwakatare2020} conducted an \acrshort{slr} on  \acrshort{se} for \acrshort{ml} using a two-dimensional scheme, categorizing challenges according to quality attributes (adaptability, scalability, privacy and safety) and \acrshort{ml} development workflow step (data acquisition, training, evaluation, deployment).
 The authors also identify solutions to some of the challenges, but note that areas such as privacy and safety are missing solutions, as well as areas such as evaluation and deployment.
-The exclusion of \acrshort{gl} is mentioned as a threat to validity of the study.
+The exclusion of \acrfull{gl} is mentioned as a threat to validity of the study.
 
 \textcite{Lwakatare2020a} did an exploratory case study on \acrshort{cd} for \acrshort{ml}.
-The authors performed an \acrshort{mlr} to create a five-step process improvement conceptual model for the \acrshort{ml} deployment process. 
+The authors also performed an \acrshort{mlr} to create a five-step process improvement conceptual model for the \acrshort{ml} deployment process. 
 The results were validated by conducting a focus group with ten \acrshort{ml} practitioners at a telecommunications company.
 
 \textcite{Serban2020} identified 29 best practices of \acrshort{se} for \acrshort{ml} through conducting an \acrshort{mlr}, before conducting a practitioner survey to investigate adoption and impact of the practices.
@@ -37,27 +37,28 @@ The authors perform extensive quantitative analysis of the survey responses, inv
 % \textcite{Karamitsos2020} perform an \acrshort{slr} in order to propose a CI/CD pipeline for ML systems, providing suggestions for practices and tools to facilitate the pipeline.
 % However, the paper lacks rigor, reporting no details of the search, study selection, data extraction or data synthesis procedures, and providing no discussion of the results or threats to validity.
 
-\textcite{John2021} performed a \acrfull{mlr} of the SE lifecycle of ML models, outlining challenges and best practices in each step of the lifecycle.
+\textcite{John2021} performed a \acrfull{mlr} of the SE lifecycle of \acrshort{ml} models, outlining challenges and best practices in each step of the lifecycle.
 
-\textcite{Giray2021} conducted an \acrshort{slr} of \acrshort{se} for \acrshort{ml}, where challenges and solutions were grouped by areas suggested in SWEBOK, similarly to \cite{Kumeno2020} and \cite{Nascimento2020}, while including an even greater number of papers than any previous SLR in the field.
+\textcite{Giray2021} conducted an \acrshort{slr} of \acrshort{se} for \acrshort{ml}, where challenges and solutions were grouped by areas suggested in SWEBOK, similarly to \cite{Kumeno2020} and \cite{Nascimento2020}, while including an even greater number of papers than any previous \acrshort{slr} in the field.
 
 \textcite{Lorenzoni2021} conducted an \acrshort{slr} of \acrshort{ml} model development, identifying phases, techniques, gaps and trends in the \acrshort{ml} development lifecycle.
 The deployment aspect is only briefly mentioned.
 
-\textcite{MartinezFernandez2021} performed an extensive \acrshort{sms} of SE4AI, investigating reported SE approaches and challenges for ML.
+\textcite{MartinezFernandez2021} performed an extensive \acrshort{sms} of \acrshort{se} for \acrshort{ai}, investigating reported \acrshort{se} approaches and challenges for developing \acrshort{ai} systems.
 
-\textcite{Serban2021} studied software architecture for machine learning, conducting an \acrshort{slr} and practitioner interviews to find architectural challenges and solutions in ML, while validating the findings with a survey.
+\textcite{Serban2021} studied software architecture for machine learning, conducting an \acrshort{slr} and practitioner interviews to find architectural challenges and solutions in \acrshort{ml}, while validating the findings with a survey.
 
-\textcite{John2021a} performed an \acrshort{slr} and \acrshort{glr} on the adoption of MLOps practices and how companies evolve through different stages of adoption.
+\textcite{John2021a} performed an \acrshort{slr} and \acrfull{glr} on the adoption of MLOps practices and how companies evolve through different stages of adoption.
 A framework is produced, allowing the characterization of a company's MLOps adoption maturity and providing steps on how to improve adoption, similarly to \cite{Lwakatare2020a}.
 
 A common characteristic of previous work is that it tends to be quite broad in scope, covering many areas of \acrshort{se} for \acrshort{ml}.
 This study will make the following novel contributions to the research.
 \begin{itemize}
-    \item Focus specifically on how ML models are operationalized, including the aspects of serving and monitoring, which have largely been overlooked in previous work
+    \item Focus specifically on how \acrshort{ml} models are operationalized, including the aspects of serving and monitoring, which have largely been overlooked in previous work
     \item Investigate how tooling and infrastructure are used to operationalize models
     \item Identify reported gaps and challenges related to tools and infrastructure for operationalization
 \end{itemize}
+A comparison between this study and the discussed related work with respect to the above listed novel contributions can be found in \cref{tab:related_work_comparison}.
 
 \begin{table}[h]
     \centering

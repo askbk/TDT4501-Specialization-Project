@@ -1,28 +1,28 @@
 \chapter{Background}
 \label{ch:background}
-This chapter will briefly explain the state of machine learning today, operationalization of ML systems and motivate the need for MLOps.
+This chapter will briefly explain the state of machine learning today, operationalization of \acrshort{ml} systems and motivate the need for MLOps.
 
 \section{Machine Learning}
-Machine learning models have become increasingly prevalent in virtually all fields of business and research in the past decade.
-\textcite{mckinsey2020} reports that 50\% of businesses surveyed have adopted \acrshort{ai} in some business function.
+\acrshort{ml} models have become increasingly prevalent in virtually all fields of business and research in the past decade.
+\textcite{mckinsey2020} reports that 50\% of businesses surveyed have adopted \acrfull{ai} in some business function.
 New algorithms and techniques for learning, optimizing and improving models are being intensely researched, with new milestones achieved year after year.
 With all the resarch that has been done on the training and evaluation of machine learning models, the difficulty for most companies and practitioners now is not to find new algorithms and optimizations in training, but rather how to actually deploy models to production in order to delived tangible business value.
 Most companies are still in the very early stages of incorporating \acrshort{ml} in their business processes \cite{Schloegl2019}.
 
 \section{Software Engineering for ML Systems}
-While traditional SE for non-ML systems is a mature and well-understood field, software engineering for ML systems is still a young and immature knowledge area.
+While traditional \acrshort{se} for non-\acrshort{ml} systems is a mature and well-understood field, software engineering for \acrshort{ml} systems is still a young and immature knowledge area.
 Traditional software systems are largely deterministic, computing-driven systems whose behavior is purely code-dependent.
-On the other hand, ML models have an additional data dependency, in the sense that their behavior is learned from data, and they are often characterized as non-deterministic.
-The additional data dependency is one of the factors contributing to the fact that ML systems require a great amount of supporting infrastructure, leading to an accretion of significantly more technical debt than traditional software systems \cite{Sculley2015}.
-As a result of the extra technical debt, ML systems are more challenging to deploy, something that the research community has recently turned its attention towards in recent years.
+On the other hand, \acrshort{ml} models have an additional data dependency, in the sense that their behavior is learned from data, and they have even been characterized as non-deterministic \cite{Giray2021, MartinezFernandez2021}.
+The additional data dependency is one of the factors contributing to the fact that ML systems require a great amount of supporting infrastructure, leading to an accretion of significantly more technical debt than traditional software systems, for example in the form of entanglement, unstable data dependencies or glue code \cite{Sculley2015}.
+As a result of the extra technical debt, \acrshort{ml} systems are more challenging to deploy, something that the research community has recently turned its attention towards.
 
 \section{DevOps for ML Systems -- \emph{MLOps}}
 DevOps is a subset of software engineering focused on tightening the coupling between development and operation of software systems.
 DevOps principles advocate for end-to-end automation \cite{Ebert2016}, which is expressed through the use of version control systems, automated build and deploy pipelines, etc.
 Some motivating factors for automation are shortening the time to delivery, increasing reproducibility and reducing time spent on automatable processes \cite{Franca2016}.
-DevOps for Machine Learning, named MLOps, is a subset of SE4ML and a superset/extension of DevOps, focused on adopting DevOps practices when developing and operating ML systems \cite{Soh2020}.
-This is because existing DevOps practices are not sufficient for ML systems, which pose additional requirements.
-ML systems not only have code dependencies, but have data dependencies in addition, which may impose the requirement of data monitoring (for data distributions shift), continuous training, automatic retraining, etc.
+DevOps for Machine Learning, named MLOps, is a subset of \acrshort{se} for \acrshort{ml} and a superset/extension of DevOps, focused on adopting DevOps practices when developing and operating \acrshort{ml} systems \cite{Soh2020}.
+This is because existing DevOps practices are not sufficient for \acrshort{ml} systems, which pose additional requirements.
+\acrshort{ml} systems not only have code dependencies, but have data dependencies in addition, which may impose the requirement of data monitoring (for data distributions shift), continuous training, automatic retraining, etc.
 
 \section{Working Definition of Operationalizing ML Systems}
 \label{sec:deploying_ml_systems}
